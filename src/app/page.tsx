@@ -6,16 +6,13 @@ import Header from '@/components/Header';
 import AnimatedPath from '@/components/AnimatedPath';
 import { pathD } from '@/data/pathD';
 import Projects from '@/components/Projects';
-import { useLocomotiveScroll } from '@/hooks/useLocomotiveScroll';
+import LocomotiveScrollProvider from '@/components/LocomotiveScrollProvider';
 
 export default function Home() {
     const [isProjectsVisible, setIsProjectsVisible] = useState(false);
-    const locomotiveScroll = useLocomotiveScroll();
 
     useEffect(() => {
-        if (!locomotiveScroll) return;
-
-        const handleScroll = (e: any) => {
+        const handleScroll = () => {
             const projectsSection = document.getElementById('projects');
             if (projectsSection) {
                 const rect = projectsSection.getBoundingClientRect();
@@ -24,15 +21,16 @@ export default function Home() {
             }
         };
 
-        locomotiveScroll.on('scroll', handleScroll);
+        // Usar o evento de scroll nativo por enquanto
+        window.addEventListener('scroll', handleScroll);
+        handleScroll(); // Verificar estado inicial
 
-        return () => {
-            locomotiveScroll.off('scroll', handleScroll);
-        };
-    }, [locomotiveScroll]);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     return (
-        <div data-scroll-container className="min-h-screen bg-gradient-to-br from-base-100 to-base-300">
+        <LocomotiveScrollProvider>
+            <div data-scroll-container className="min-h-screen bg-gradient-to-br from-base-100 to-base-300">
             <Header />
             {/* Hero Section */}
             <section id="home" data-scroll-section className="hero min-h-[75vh]">
@@ -62,10 +60,10 @@ export default function Home() {
                 </div>
             </section>
 
-                {/* Projetos */}
-    <div id="projects" data-scroll-section>
-        <Projects isProjectsVisible={isProjectsVisible} />
-    </div>
+            {/* Projetos */}
+            <div id="projects" data-scroll-section>
+                <Projects isProjectsVisible={isProjectsVisible} />
+            </div>
 
 
 
@@ -133,6 +131,7 @@ export default function Home() {
                     <p>Copyright © 2024 - Todos os direitos reservados</p>
                 </div>
             </footer>
-        </div>
+            </div>
+        </LocomotiveScrollProvider>
     );
 }

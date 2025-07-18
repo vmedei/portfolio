@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 
 type AnimatedPathProps = {
   pathD: string;
@@ -27,7 +27,7 @@ const AnimatedPath: React.FC<AnimatedPathProps> = ({
     }
   }, [pathD]);
 
-  const animate = async () => {
+  const animate = useCallback(async () => {
     if (!pathRef.current) return;
 
     const length = pathRef.current.getTotalLength();
@@ -47,7 +47,7 @@ const AnimatedPath: React.FC<AnimatedPathProps> = ({
     // Reset - posiciona novamente no final para a próxima animação
     pathRef.current.style.transition = 'none';
     pathRef.current.style.strokeDashoffset = (-length).toString();
-  };
+  }, [duration, pauseDuration, pathLength]);
 
   useEffect(() => {
     let isActive = true;
@@ -65,7 +65,7 @@ const AnimatedPath: React.FC<AnimatedPathProps> = ({
     return () => {
       isActive = false;
     };
-  }, [pathLength]);
+  }, [pathLength, animate]);
 
   return (
     <div className="w-full h-full flex items-center justify-center">
