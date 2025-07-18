@@ -5,12 +5,17 @@ import { useState, useEffect } from 'react';
 import Header from '@/components/Header';
 import AnimatedPath from '@/components/AnimatedPath';
 import { pathD } from '@/data/pathD';
+import Projects from '@/components/Projects';
+import { useLocomotiveScroll } from '@/hooks/useLocomotiveScroll';
 
 export default function Home() {
     const [isProjectsVisible, setIsProjectsVisible] = useState(false);
+    const locomotiveScroll = useLocomotiveScroll();
 
     useEffect(() => {
-        const handleScroll = () => {
+        if (!locomotiveScroll) return;
+
+        const handleScroll = (e: any) => {
             const projectsSection = document.getElementById('projects');
             if (projectsSection) {
                 const rect = projectsSection.getBoundingClientRect();
@@ -19,17 +24,18 @@ export default function Home() {
             }
         };
 
-        window.addEventListener('scroll', handleScroll);
-        handleScroll(); // Verificar estado inicial
-        
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+        locomotiveScroll.on('scroll', handleScroll);
+
+        return () => {
+            locomotiveScroll.off('scroll', handleScroll);
+        };
+    }, [locomotiveScroll]);
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-base-100 to-base-300">
+        <div data-scroll-container className="min-h-screen bg-gradient-to-br from-base-100 to-base-300">
             <Header />
             {/* Hero Section */}
-            <section className="hero min-h-[75vh]">
+            <section id="home" data-scroll-section className="hero min-h-[75vh]">
 
                 <div className="relative flex justify-between w-3/4 h-3/4">
 
@@ -56,49 +62,17 @@ export default function Home() {
                 </div>
             </section>
 
+                {/* Projetos */}
+    <div id="projects" data-scroll-section>
+        <Projects isProjectsVisible={isProjectsVisible} />
+    </div>
 
-            {/* Projetos */}
-            <section id="projects" className="">
-                <div className={`container mx-auto p-10 rounded-xl bg-base-300 transition-all duration-700 ease-in-out ${
-                    isProjectsVisible ? 'max-w-4/5' : 'max-w-3/5'
-                }`}>
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl font-bold mb-4">Projetos</h2>
-                        <p className="text-base-content/70 max-w-2xl mx-auto">
-                            Alguns dos projetos que desenvolvi.
-                        </p>
-                    </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <div className="card bg-base-200 shadow-xl">
-                            <div className="card-body text-center">
-                                <Code className="w-12 h-12 mx-auto mb-4 text-primary" />
-                                <h3 className="card-title justify-center">Desenvolvimento</h3>
-                                <p>Criação de aplicações web modernas e responsivas</p>
-                            </div>
-                        </div>
 
-                        <div className="card bg-base-200 shadow-xl">
-                            <div className="card-body text-center">
-                                <Palette className="w-12 h-12 mx-auto mb-4 text-primary" />
-                                <h3 className="card-title justify-center">Design</h3>
-                                <p>Interfaces intuitivas e experiências de usuário excepcionais</p>
-                            </div>
-                        </div>
 
-                        <div className="card bg-base-200 shadow-xl">
-                            <div className="card-body text-center">
-                                <Smartphone className="w-12 h-12 mx-auto mb-4 text-primary" />
-                                <h3 className="card-title justify-center">Mobile</h3>
-                                <p>Aplicações móveis nativas e híbridas</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
             {/* About Section */}
-            <section className="py-20">
+            <section id="about" data-scroll-section className="py-20">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-16">
                         <h2 className="text-3xl font-bold mb-4">Sobre Mim</h2>
@@ -136,7 +110,7 @@ export default function Home() {
                 </div>
             </section>
             {/* Contact Section */}
-            <section className="py-20 bg-base-200">
+            <section id="contact" data-scroll-section className="py-20 bg-base-200">
                 <div className="container mx-auto px-4 text-center">
                     <h2 className="text-3xl font-bold mb-8">Vamos Conversar?</h2>
                     <div className="flex gap-6 justify-center">
@@ -154,7 +128,7 @@ export default function Home() {
             </section>
 
             {/* Footer */}
-            <footer className="footer footer-center p-10 bg-base-300 text-base-content">
+            <footer data-scroll-section className="footer footer-center p-10 bg-base-300 text-base-content">
                 <div>
                     <p>Copyright © 2024 - Todos os direitos reservados</p>
                 </div>
