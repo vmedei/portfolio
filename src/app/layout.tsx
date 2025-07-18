@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Red_Hat_Display } from "next/font/google";
 import "./globals.css";
+import { SmoothScrollProvider } from "@/providers/SmoothScrollProvider";
 
 const redHatDisplay = Red_Hat_Display({
   subsets: ["latin"],
@@ -23,7 +24,9 @@ export default function RootLayout({
       <body
         className={` ${redHatDisplay.className} antialiased`}
       >
-        {children}
+        <SmoothScrollProvider>
+          {children}
+        </SmoothScrollProvider>
       </body>
     </html>
   );

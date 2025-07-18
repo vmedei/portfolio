@@ -1,7 +1,8 @@
 "use client";
 
 import { Github, Linkedin, Mail, Download, Code, Palette, Smartphone } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import Lenis from 'lenis';
 import Header from '@/components/Header';
 import AnimatedPath from '@/components/AnimatedPath';
 import { pathD } from '@/data/pathD';
@@ -9,8 +10,27 @@ import Projects from '@/components/Projects';
 
 export default function Home() {
     const [isProjectsVisible, setIsProjectsVisible] = useState(false);
+    const lenisRef = useRef<Lenis | null>(null);
 
     useEffect(() => {
+        // Inicializar Lenis
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            infinite: false,
+        });
+
+        lenisRef.current = lenis;
+
+        // Função para atualizar o Lenis
+        function raf(time: number) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+
+        requestAnimationFrame(raf);
+
+        // Listener para scroll customizado
         const handleScroll = () => {
             const projectsSection = document.getElementById('projects');
             if (projectsSection) {
@@ -20,20 +40,31 @@ export default function Home() {
             }
         };
 
-        window.addEventListener('scroll', handleScroll);
+        // Adicionar o listener de scroll do Lenis
+        lenis.on('scroll', handleScroll);
         handleScroll(); // Verificar estado inicial
-        
-        return () => window.removeEventListener('scroll', handleScroll);
+
+        // Cleanup
+        return () => {
+            lenis.destroy();
+        };
     }, []);
+
+    // Função para scroll suave para seções específicas
+    const scrollToSection = (target: string) => {
+        lenisRef.current?.scrollTo(target, {
+            offset: -80, // Offset para compensar o header fixo
+            duration: 1.5,
+        });
+    };
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-base-100 to-base-300">
             <Header />
+            
             {/* Hero Section */}
             <section className="hero min-h-[75vh]">
-
                 <div className="relative flex justify-between w-3/4 h-3/4">
-
                     <div className="flex flex-col justify-around z-10">
                         <div>
                             <h1 className="text-5xl font-bold">CRIO INTERFACES SIMPLES E MEMORÁVEIS</h1>
@@ -44,7 +75,10 @@ export default function Home() {
                                 <Download className="w-4 h-4" />
                                 Currículo
                             </button>
-                            <button className="btn btn-xl rounded-lg bg-base-100/50 backdrop-blur-xs shadow-lg">
+                            <button 
+                                className="btn btn-xl rounded-lg bg-base-100/50 backdrop-blur-xs shadow-lg"
+                                onClick={() => scrollToSection('#contact')}
+                            >
                                 <Mail className="w-4 h-4" />
                                 Contato
                             </button>
@@ -57,12 +91,11 @@ export default function Home() {
                 </div>
             </section>
 
-
             {/* Projetos */}
             <Projects isProjectsVisible={isProjectsVisible} />
 
             {/* About Section */}
-            <section className="py-20">
+            <section className="py-20" id="about">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-16">
                         <h2 className="text-3xl font-bold mb-4">Sobre Mim</h2>
@@ -99,8 +132,9 @@ export default function Home() {
                     </div>
                 </div>
             </section>
+
             {/* Contact Section */}
-            <section className="py-20 bg-base-200">
+            <section className="py-20 bg-base-200" id="contact">
                 <div className="container mx-auto px-4 text-center">
                     <h2 className="text-3xl font-bold mb-8">Vamos Conversar?</h2>
                     <div className="flex gap-6 justify-center">
