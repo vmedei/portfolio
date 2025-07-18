@@ -1,30 +1,35 @@
 import { useEffect, useRef } from 'react';
-
-interface LocomotiveScroll {
-  destroy(): void;
-  on(event: string, callback: (e: unknown) => void): void;
-  off(event: string, callback: (e: unknown) => void): void;
-  update(): void;
-  scrollTo(target: string | number, options?: unknown): void;
-}
+import LocomotiveScroll from 'locomotive-scroll';
+import 'locomotive-scroll/dist/locomotive-scroll.css';
 
 export const useLocomotiveScroll = () => {
   const scrollRef = useRef<LocomotiveScroll | null>(null);
 
   useEffect(() => {
-    // Verificar se estamos no navegador
-    if (typeof window === 'undefined') return;
+    // Inicializar Locomotive Scroll
+    scrollRef.current = new LocomotiveScroll({
+      el: document.querySelector('[data-scroll-container]') as HTMLElement,
+      smooth: true,
+      multiplier: 1,
+      lerp: 0.1,
+      smartphone: {
+        smooth: true,
+        multiplier: 1,
+        lerp: 0.1,
+      },
+      tablet: {
+        smooth: true,
+        multiplier: 1,
+        lerp: 0.1,
+      },
+    });
 
-    // Aguardar um pouco para o Locomotive Scroll ser inicializado
-    const timer = setTimeout(() => {
-      const container = document.querySelector('[data-scroll-container]');
-      const locomotive = (container as { __locomotive?: LocomotiveScroll }).__locomotive;
-      if (container && locomotive) {
-        scrollRef.current = locomotive;
+    // Cleanup function
+    return () => {
+      if (scrollRef.current) {
+        scrollRef.current.destroy();
       }
-    }, 200);
-
-    return () => clearTimeout(timer);
+    };
   }, []);
 
   return scrollRef.current;

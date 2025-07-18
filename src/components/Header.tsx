@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
-
+import { useLocomotiveScroll } from "@/hooks/useLocomotiveScroll";
 
 interface HeaderProps {
     className?: string;
@@ -12,24 +12,30 @@ interface HeaderProps {
 export default function Header({ className = "" }: HeaderProps) {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const locomotiveScroll = useLocomotiveScroll();
 
     useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 50);
+        if (!locomotiveScroll) return;
+
+        const handleScroll = (e: any) => {
+            setIsScrolled(e.scroll.y > 50);
         };
 
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+        locomotiveScroll.on('scroll', handleScroll);
+        
+        return () => {
+            locomotiveScroll.off('scroll', handleScroll);
+        };
+    }, [locomotiveScroll]);
 
     const toggleMenu = () => setIsMenuOpen((v) => !v);
 
     const scrollToSection = (sectionId: string) => {
-        const element = document.getElementById(sectionId);
-        if (element) {
-            element.scrollIntoView({ 
-                behavior: 'smooth',
-                block: 'start'
+        if (locomotiveScroll) {
+            locomotiveScroll.scrollTo(`#${sectionId}`, {
+                offset: -100,
+                duration: 1000,
+                easing: [0.25, 0.00, 0.35, 1.00]
             });
         }
         setIsMenuOpen(false);

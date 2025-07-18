@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Red_Hat_Display } from "next/font/google";
 import "./globals.css";
-import "../styles/locomotive-scroll.css";
 
 const redHatDisplay = Red_Hat_Display({
   subsets: ["latin"],
