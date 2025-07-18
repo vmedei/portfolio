@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-  "dev": "next dev --turbopack",
-  "build": "next build",
-  "start": "serve out",
-  "lint": "next lint"
-},
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "serve out",
+    "lint": "next lint"
+  },
   "dependencies": {
     "daisyui": "^5.0.46",
     "lucide-react": "^0.525.0",
@@ -23,6 +23,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.4.1",
+    "serve": "^14.2.4",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
