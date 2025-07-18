@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
-import { useLocomotiveScroll } from "@/hooks/useLocomotiveScroll";
 
 interface HeaderProps {
     className?: string;
@@ -12,34 +11,16 @@ interface HeaderProps {
 export default function Header({ className = "" }: HeaderProps) {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const locomotiveScroll = useLocomotiveScroll();
 
     useEffect(() => {
-        if (!locomotiveScroll) return;
-
-        const handleScroll = (e: any) => {
-            setIsScrolled(e.scroll.y > 50);
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 50);
         };
-
-        locomotiveScroll.on('scroll', handleScroll);
-        
-        return () => {
-            locomotiveScroll.off('scroll', handleScroll);
-        };
-    }, [locomotiveScroll]);
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     const toggleMenu = () => setIsMenuOpen((v) => !v);
-
-    const scrollToSection = (sectionId: string) => {
-        if (locomotiveScroll) {
-            locomotiveScroll.scrollTo(`#${sectionId}`, {
-                offset: -100,
-                duration: 1000,
-                easing: [0.25, 0.00, 0.35, 1.00]
-            });
-        }
-        setIsMenuOpen(false);
-    };
 
     return (
         <header
@@ -64,10 +45,10 @@ export default function Header({ className = "" }: HeaderProps) {
 
                     {/* Desktop Navigation */}
                     <nav className="hidden md:flex items-center space-x-8">
-                        <button onClick={() => scrollToSection('home')} className="link link-hover">Início</button>
-                        <button onClick={() => scrollToSection('about')} className="link link-hover">Sobre</button>
-                        <button onClick={() => scrollToSection('projects')} className="link link-hover">Projetos</button>
-                        <button onClick={() => scrollToSection('contact')} className="link link-hover">Contato</button>
+                        <a href="#home" className="link link-hover">Início</a>
+                        <a href="#about" className="link link-hover">Sobre</a>
+                        <a href="#projects" className="link link-hover">Projetos</a>
+                        <a href="#contact" className="link link-hover">Contato</a>
                     </nav>
 
                     {/* Mobile Menu Button */}
@@ -84,18 +65,18 @@ export default function Header({ className = "" }: HeaderProps) {
                 {isMenuOpen && (
                     <div className="md:hidden py-4 border-t border-base-300">
                         <nav className="flex flex-col space-y-4">
-                            <button onClick={() => scrollToSection('home')} className="link link-hover text-left">
+                            <a href="#home" className="link link-hover" onClick={() => setIsMenuOpen(false)}>
                                 Início
-                            </button>
-                            <button onClick={() => scrollToSection('about')} className="link link-hover text-left">
+                            </a>
+                            <a href="#about" className="link link-hover" onClick={() => setIsMenuOpen(false)}>
                                 Sobre
-                            </button>
-                            <button onClick={() => scrollToSection('projects')} className="link link-hover text-left">
+                            </a>
+                            <a href="#projects" className="link link-hover" onClick={() => setIsMenuOpen(false)}>
                                 Projetos
-                            </button>
-                            <button onClick={() => scrollToSection('contact')} className="link link-hover text-left">
+                            </a>
+                            <a href="#contact" className="link link-hover" onClick={() => setIsMenuOpen(false)}>
                                 Contato
-                            </button>
+                            </a>
                         </nav>
                     </div>
                 )}

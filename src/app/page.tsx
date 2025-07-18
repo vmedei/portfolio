@@ -6,16 +6,12 @@ import Header from '@/components/Header';
 import AnimatedPath from '@/components/AnimatedPath';
 import { pathD } from '@/data/pathD';
 import Projects from '@/components/Projects';
-import { useLocomotiveScroll } from '@/hooks/useLocomotiveScroll';
 
 export default function Home() {
     const [isProjectsVisible, setIsProjectsVisible] = useState(false);
-    const locomotiveScroll = useLocomotiveScroll();
 
     useEffect(() => {
-        if (!locomotiveScroll) return;
-
-        const handleScroll = (e: any) => {
+        const handleScroll = () => {
             const projectsSection = document.getElementById('projects');
             if (projectsSection) {
                 const rect = projectsSection.getBoundingClientRect();
@@ -24,18 +20,17 @@ export default function Home() {
             }
         };
 
-        locomotiveScroll.on('scroll', handleScroll);
-
-        return () => {
-            locomotiveScroll.off('scroll', handleScroll);
-        };
-    }, [locomotiveScroll]);
+        window.addEventListener('scroll', handleScroll);
+        handleScroll(); // Verificar estado inicial
+        
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     return (
-        <div data-scroll-container className="min-h-screen bg-gradient-to-br from-base-100 to-base-300">
+        <div className="min-h-screen bg-gradient-to-br from-base-100 to-base-300">
             <Header />
             {/* Hero Section */}
-            <section id="home" data-scroll-section className="hero min-h-[75vh]">
+            <section className="hero min-h-[75vh]">
 
                 <div className="relative flex justify-between w-3/4 h-3/4">
 
@@ -62,17 +57,12 @@ export default function Home() {
                 </div>
             </section>
 
-                {/* Projetos */}
-    <div id="projects" data-scroll-section>
-        <Projects isProjectsVisible={isProjectsVisible} />
-    </div>
 
-
-
-
+            {/* Projetos */}
+            <Projects isProjectsVisible={isProjectsVisible} />
 
             {/* About Section */}
-            <section id="about" data-scroll-section className="py-20">
+            <section className="py-20">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-16">
                         <h2 className="text-3xl font-bold mb-4">Sobre Mim</h2>
@@ -110,7 +100,7 @@ export default function Home() {
                 </div>
             </section>
             {/* Contact Section */}
-            <section id="contact" data-scroll-section className="py-20 bg-base-200">
+            <section className="py-20 bg-base-200">
                 <div className="container mx-auto px-4 text-center">
                     <h2 className="text-3xl font-bold mb-8">Vamos Conversar?</h2>
                     <div className="flex gap-6 justify-center">
@@ -128,7 +118,7 @@ export default function Home() {
             </section>
 
             {/* Footer */}
-            <footer data-scroll-section className="footer footer-center p-10 bg-base-300 text-base-content">
+            <footer className="footer footer-center p-10 bg-base-300 text-base-content">
                 <div>
                     <p>Copyright © 2024 - Todos os direitos reservados</p>
                 </div>
