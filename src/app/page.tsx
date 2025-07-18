@@ -33,7 +33,7 @@ export default function Home() {
 
                 <div className="relative flex justify-between w-3/4 h-3/4">
 
-                    <div className="flex flex-col justify-around">
+                    <div className="flex flex-col justify-around z-10">
                         <div>
                             <h1 className="text-5xl font-bold">CRIO INTERFACES SIMPLES E MEMORÁVEIS</h1>
                             <h1 className="text-4xl font-medium italic text-primary-content/70">Transformando ideias em experiências digitais incríveis</h1>
@@ -43,14 +43,14 @@ export default function Home() {
                                 <Download className="w-4 h-4" />
                                 Currículo
                             </button>
-                            <button className="btn btn-xl rounded-lg btn-outline">
+                            <button className="btn btn-xl rounded-lg bg-base-100/50 backdrop-blur-xs shadow-lg">
                                 <Mail className="w-4 h-4" />
                                 Contato
                             </button>
                         </div>
                     </div>
 
-                    <div className='absolute inset-0 opacity-10 pointer-events-none'>
+                    <div className='absolute inset-0 opacity-10'>
                         <AnimatedPath pathD={pathD} />
                     </div>
                 </div>

@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
+  "dev": "next dev --turbopack",
+  "build": "next build && next export",
+  "start": "serve out",
+  "lint": "next lint"
+},
   "dependencies": {
     "daisyui": "^5.0.46",
     "lucide-react": "^0.525.0",
