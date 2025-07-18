@@ -1,10 +1,29 @@
+"use client";
+
 import { Github, Linkedin, Mail, Download, Code, Palette, Smartphone } from 'lucide-react';
+import { useState, useEffect } from 'react';
 import Header from '@/components/Header';
 import AnimatedPath from '@/components/AnimatedPath';
-
-const pathD = "M604.92,156.77c-18.17,1.82-36.41,3.66-54.71,5.48-18.3,1.82-36.66,3.63-55.07,5.4-18.41,1.77-36.86,3.49-55.35,5.14-18.49,1.65-37.01,3.23-55.56,4.7-18.55,1.47-37.12,2.84-55.71,4.08-18.59,1.24-37.18,2.34-55.78,3.28s-37.2,1.71-55.79,2.3-37.17.97-55.72,1.14c-5.57-.09-11.45-.17-17.55-.29s-12.39-.28-18.81-.53-12.94-.59-19.49-1.08c-6.54-.49-13.1-1.12-19.58-1.96s-12.88-1.86-19.09-3.15c-6.22-1.28-12.26-2.82-18.02-4.66s-11.25-3.98-16.37-6.48-9.86-5.36-14.13-8.62c-3.25-2.7-5.84-5.5-7.84-8.37s-3.41-5.81-4.29-8.79-1.23-5.99-1.12-9.02.69-6.07,1.66-9.09,2.35-6.02,4.06-8.97,3.75-5.86,6.06-8.69,4.9-5.58,7.69-8.23,5.78-5.19,8.92-7.59c4.37-3.34,8.93-6.5,13.66-9.49s9.62-5.8,14.65-8.46,10.2-5.15,15.48-7.49,10.67-4.53,16.14-6.59,11.02-3.96,16.63-5.74,11.26-3.43,16.94-4.96,11.39-2.94,17.09-4.23,11.4-2.48,17.07-3.57c6.68-1.23,13.39-2.34,20.13-3.33s13.5-1.87,20.27-2.63,13.58-1.41,20.39-1.94,13.64-.96,20.47-1.28,13.67-.52,20.51-.62,13.69-.1,20.53.01,13.68.32,20.51.64,13.65.73,20.45,1.24c18.09,1.48,35.3,3.66,51.64,6.57,16.34,2.91,31.79,6.57,46.36,11.01s28.24,9.67,41.02,15.74c12.78,6.07,24.66,12.98,35.62,20.78s21.03,16.48,30.17,26.11,17.37,20.18,24.67,31.73c7.3,11.55,13.67,24.08,19.1,37.65,5.43,13.57,9.93,28.18,13.48,43.87.38,1.45.89,3.66,1.46,6.4s1.22,6,1.86,9.58,1.28,7.46,1.86,11.43,1.08,8.03,1.46,11.96.61,7.71.66,11.15-.12,6.51-.54,9.01-1.12,4.42-2.14,5.54-2.38,1.44-4.14.74c-1.12-.84-2.17-1.77-3.17-2.76s-1.93-2.04-2.82-3.15-1.73-2.27-2.54-3.47-1.58-2.44-2.32-3.71-1.47-2.56-2.18-3.87-1.4-2.63-2.1-3.96-1.38-2.65-2.08-3.97-1.41-2.62-2.14-3.9c-3.86-7.81-8.26-17.72-13.02-29.1s-9.86-24.21-15.12-37.85-10.67-28.1-16.03-42.71c-5.37-14.62-10.69-29.39-15.77-43.68s-9.92-28.09-14.32-40.75c-4.4-12.66-8.37-24.19-11.69-33.93s-6.02-17.69-7.88-23.21c-1.86-5.52-2.89-8.6-2.89-8.6,0,0,.33,4.53.86,12.45.53,7.92,1.27,19.24,2.1,32.83.82,13.58,1.73,29.43,2.59,46.41s1.69,35.09,2.34,53.2c.66,18.11,1.15,36.22,1.36,53.2s.12,32.83-.37,46.41-1.4,24.9-2.84,32.83c-1.44,7.92-3.41,12.45-6.05,12.45s-6.42-4.53-11.03-12.45c-4.61-7.92-10.04-19.24-15.97-32.83s-12.35-29.43-18.94-46.41c-6.59-16.98-13.34-35.09-19.92-53.2s-13.01-36.22-18.94-53.2c-5.93-16.98-11.36-32.83-15.97-46.41s-8.4-24.9-11.03-32.83c-2.63-7.92-4.12-12.45-4.12-12.45,0,0,.23,4.53.6,12.45.37,7.92.89,19.24,1.46,32.83.57,13.58,1.2,29.43,1.81,46.41s1.18,35.09,1.63,53.2.8,36.22.95,53.2.09,32.83-.26,46.41c-.34,13.58-.97,24.9-1.98,32.83-1,7.92-2.38,12.45-4.21,12.45s-5.02-4.53-9.2-12.45-9.33-19.24-15.11-32.83c-5.78-13.58-12.17-29.43-18.82-46.41-6.65-16.98-13.55-35.09-20.34-53.2s-13.46-36.22-19.65-53.2-11.9-32.83-16.76-46.41-8.87-24.9-11.67-32.83-4.38-12.45-4.38-12.45c0,0,.27,4.53.7,12.45s1.03,19.24,1.7,32.83,1.4,29.43,2.09,46.41c.7,16.98,1.36,35.09,1.9,53.2s.93,36.22,1.1,53.2c.17,16.98.1,32.83-.3,46.41s-1.13,24.9-2.29,32.83c-1.16,7.92-2.76,12.45-4.89,12.45s-5.54-4.53-9.87-12.45-9.59-19.24-15.43-32.83-12.24-29.43-18.86-46.41c-6.63-16.98-13.47-35.09-20.18-53.2s-13.29-36.22-19.39-53.2c-6.09-16.98-11.7-32.83-16.47-46.41s-8.7-24.9-11.44-32.83-4.28-12.45-4.28-12.45c0,0,.29,4.53.75,12.45s1.11,19.24,1.83,32.83,1.51,29.43,2.26,46.41,1.47,35.09,2.05,53.2,1.01,36.22,1.19,53.2.11,32.83-.32,46.41c-.43,13.58-1.22,24.9-2.48,32.83s-2.98,12.45-5.28,12.45-5.84-4.53-10.26-12.45-9.75-19.24-15.61-32.83-12.28-29.43-18.89-46.41c-6.61-16.98-13.43-35.09-20.1-53.2s-13.2-36.22-19.23-53.2-11.59-32.83-16.3-46.41S13.96,25.37,11.25,17.45,7.03,4.99,7.03,4.99"
+import { pathD } from '@/data/pathD';
 
 export default function Home() {
+    const [isProjectsVisible, setIsProjectsVisible] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const projectsSection = document.getElementById('projects');
+            if (projectsSection) {
+                const rect = projectsSection.getBoundingClientRect();
+                const isVisible = rect.top < window.innerHeight * 0.6;
+                setIsProjectsVisible(isVisible);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        handleScroll(); // Verificar estado inicial
+        
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-base-100 to-base-300">
@@ -12,17 +31,13 @@ export default function Home() {
             {/* Hero Section */}
             <section className="hero min-h-[75vh]">
 
-                <div className="relative flex justify-between gap-24 w-3/4 h-3/4">
-
-                    <div className='absolute h-full grid place-items-center w-full z-0 opacity-10'>
-                        <div className='w-1/2'>
-                            <AnimatedPath pathD={pathD} />
-                        </div>
-                    </div>
-
+                <div className="relative flex justify-between w-3/4 h-3/4">
 
                     <div className="flex flex-col justify-around">
-                        <h1 className="text-5xl font-bold">CRIO INTERFACES SIMPLES E MEMORÁVEIS<span className="font-medium text-primary-content/70"> - Transformando ideias em experiências digitais incríveis</span></h1>
+                        <div>
+                            <h1 className="text-5xl font-bold">CRIO INTERFACES SIMPLES E MEMORÁVEIS</h1>
+                            <h1 className="text-4xl font-medium italic text-primary-content/70">Transformando ideias em experiências digitais incríveis</h1>
+                        </div>
                         <div className="flex gap-10">
                             <button className="btn btn-xl rounded-lg btn-primary">
                                 <Download className="w-4 h-4" />
@@ -32,6 +47,51 @@ export default function Home() {
                                 <Mail className="w-4 h-4" />
                                 Contato
                             </button>
+                        </div>
+                    </div>
+
+                    <div className='absolute inset-0 opacity-10 pointer-events-none'>
+                        <AnimatedPath pathD={pathD} />
+                    </div>
+                </div>
+            </section>
+
+
+            {/* Projetos */}
+            <section id="projects" className="">
+                <div className={`container mx-auto p-10 rounded-xl bg-base-300 transition-all duration-700 ease-in-out ${
+                    isProjectsVisible ? 'max-w-4/5' : 'max-w-3/5'
+                }`}>
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl font-bold mb-4">Projetos</h2>
+                        <p className="text-base-content/70 max-w-2xl mx-auto">
+                            Alguns dos projetos que desenvolvi.
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div className="card bg-base-200 shadow-xl">
+                            <div className="card-body text-center">
+                                <Code className="w-12 h-12 mx-auto mb-4 text-primary" />
+                                <h3 className="card-title justify-center">Desenvolvimento</h3>
+                                <p>Criação de aplicações web modernas e responsivas</p>
+                            </div>
+                        </div>
+
+                        <div className="card bg-base-200 shadow-xl">
+                            <div className="card-body text-center">
+                                <Palette className="w-12 h-12 mx-auto mb-4 text-primary" />
+                                <h3 className="card-title justify-center">Design</h3>
+                                <p>Interfaces intuitivas e experiências de usuário excepcionais</p>
+                            </div>
+                        </div>
+
+                        <div className="card bg-base-200 shadow-xl">
+                            <div className="card-body text-center">
+                                <Smartphone className="w-12 h-12 mx-auto mb-4 text-primary" />
+                                <h3 className="card-title justify-center">Mobile</h3>
+                                <p>Aplicações móveis nativas e híbridas</p>
+                            </div>
                         </div>
                     </div>
                 </div>

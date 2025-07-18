@@ -1,77 +1,91 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from 'react';
 
 type AnimatedPathProps = {
   pathD: string;
-  numPoints?: number;
-  delay?: number;
-  showDots?: boolean;
-  dotRadius?: number;
+  duration?: number;
+  pauseDuration?: number;
 };
 
 const AnimatedPath: React.FC<AnimatedPathProps> = ({
   pathD,
-  numPoints = 1000,
-  delay = 2,
-  showDots = false,
-  dotRadius = 2,
+  duration = 2000,
+  pauseDuration = 1000,
 }) => {
-  const svgRef = useRef<SVGSVGElement>(null);
   const pathRef = useRef<SVGPathElement>(null);
-  const [polylinePoints, setPolylinePoints] = useState<string>("");
+  const [pathLength, setPathLength] = useState(0);
 
   useEffect(() => {
-    if (!svgRef.current || !pathRef.current) return;
+    if (pathRef.current) {
+      const length = pathRef.current.getTotalLength();
+      setPathLength(length);
 
-    const path = pathRef.current;
-    const totalLength = path.getTotalLength();
+      // Oculta o traço a partir do final
+      pathRef.current.style.strokeDasharray = length.toString();
+      pathRef.current.style.strokeDashoffset = (-length).toString();
+    }
+  }, [pathD]);
 
-    const points: { x: number; y: number }[] = [];
+  const animate = async () => {
+    if (!pathRef.current) return;
 
-    for (let i = numPoints; i >= 0; i--) {
-      const p = path.getPointAtLength((i / numPoints) * totalLength);
-      points.push({ x: p.x, y: p.y });
+    const length = pathRef.current.getTotalLength();
+
+    // Mostrar do final para o início
+    pathRef.current.style.transition = `stroke-dashoffset ${duration}ms ease-in-out`;
+    pathRef.current.style.strokeDashoffset = '0';
+
+    await new Promise((resolve) => setTimeout(resolve, duration + pauseDuration));
+
+    // Remover do início para o final
+    pathRef.current.style.transition = `stroke-dashoffset ${duration}ms ease-in-out`;
+    pathRef.current.style.strokeDashoffset = (pathLength).toString();
+
+    await new Promise((resolve) => setTimeout(resolve, duration + pauseDuration));
+
+    // Reset - posiciona novamente no final para a próxima animação
+    pathRef.current.style.transition = 'none';
+    pathRef.current.style.strokeDashoffset = (-length).toString();
+  };
+
+  useEffect(() => {
+    let isActive = true;
+
+    const loop = async () => {
+      while (isActive) {
+        await animate();
+      }
+    };
+
+    if (pathLength > 0) {
+      loop();
     }
 
-    // Desenhar linha animando ponto a ponto
-    points.forEach((point, i) => {
-      setTimeout(() => {
-        setPolylinePoints((prev) => `${prev} ${point.x},${point.y}`);
-        if (showDots) {
-          const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-          circle.setAttribute("cx", point.x.toString());
-          circle.setAttribute("cy", point.y.toString());
-          circle.setAttribute("r", dotRadius.toString());
-          circle.setAttribute("fill", "black");
-          circle.style.opacity = "0";
-          circle.style.transition = "opacity 0.3s ease-in-out";
-          svgRef.current?.appendChild(circle);
-
-          setTimeout(() => {
-            circle.style.opacity = "1";
-          }, 10);
-        }
-      }, i * delay);
-    });
-  }, [pathD, numPoints, delay, showDots, dotRadius]);
+    return () => {
+      isActive = false;
+    };
+  }, [pathLength]);
 
   return (
-    <svg
-      ref={svgRef}
-      viewBox="0 0 604.92 299.79"
-      xmlns="http://www.w3.org/2000/svg"
-      style={{ width: "100%", height: "auto" }}
-    >
-      <path ref={pathRef} d={pathD} fill="none" stroke="none" />
-
-      <polyline
-        points={polylinePoints}
-        fill="none"
-        stroke="black"
-        strokeWidth="10"
-      />
-    </svg>
+    <div className="w-full h-full flex items-center justify-center">
+      <svg 
+        width="600" 
+        height="300" 
+        viewBox="0 0 620 300"
+        className="w-full max-w-2xl h-auto"
+      >
+        <path
+          ref={pathRef}
+          d={pathD}
+          fill="none"
+          stroke="#000"
+          strokeWidth="8"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </div>
   );
 };
 
