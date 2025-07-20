@@ -3,6 +3,9 @@
 const nextConfig = {
   output: 'export',
   trailingSlash: true, // opcional: adiciona "/" ao final das URLs
+  images: {
+    unoptimized: true, // necessário para output: 'export'
+  },
   // Configuração de porta (alternativa)
   // experimental: {
   //   serverComponentsExternalPackages: [],
