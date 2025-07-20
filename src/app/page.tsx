@@ -6,10 +6,10 @@ import Lenis from 'lenis';
 import Header from '@/components/Header';
 import AnimatedPath from '@/components/AnimatedPath';
 import { pathD } from '@/data/pathD';
-import Projects from '@/components/Projects';
+import Experiencia from '@/components/Experiencia';
 
 export default function Home() {
-    const [isProjectsVisible, setIsProjectsVisible] = useState(false);
+    const [isExperienciaVisible, setIsExperienciaVisible] = useState(false);
     const lenisRef = useRef<Lenis | null>(null);
 
     useEffect(() => {
@@ -32,11 +32,11 @@ export default function Home() {
 
         // Listener para scroll customizado
         const handleScroll = () => {
-            const projectsSection = document.getElementById('projects');
-            if (projectsSection) {
-                const rect = projectsSection.getBoundingClientRect();
+            const experienciaSection = document.getElementById('experiencia');
+            if (experienciaSection) {
+                const rect = experienciaSection.getBoundingClientRect();
                 const isVisible = rect.top < window.innerHeight * 0.6;
-                setIsProjectsVisible(isVisible);
+                setIsExperienciaVisible(isVisible);
             }
         };
 
@@ -92,7 +92,7 @@ export default function Home() {
             </section>
 
             {/* Projetos */}
-            <Projects isProjectsVisible={isProjectsVisible} />
+            <Experiencia isExperienciaVisible={isExperienciaVisible} />
 
             {/* About Section */}
             <section className="py-20" id="about">
