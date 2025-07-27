@@ -6,7 +6,7 @@ import Lenis from 'lenis';
 import Header from '@/components/Header';
 import AnimatedPath from '@/components/AnimatedPath';
 import { pathD } from '@/data/pathD';
-import Experiencia from '@/components/Experiencia';
+import Experiencia from '@/components/Experiencia/Experiencia';
 
 export default function Home() {
     const [isExperienciaVisible, setIsExperienciaVisible] = useState(false);
@@ -67,10 +67,10 @@ export default function Home() {
                 <div className="relative flex justify-between w-3/4 h-3/4">
                     <div className="flex flex-col justify-around z-10">
                         <div>
-                            <h1 className="text-5xl font-bold">CRIO INTERFACES SIMPLES E MEMORÁVEIS</h1>
-                            <h1 className="text-4xl font-medium italic text-primary-content/70">Transformando ideias em experiências digitais incríveis</h1>
+                            <h1 className="md:text-5xl text-3xl font-bold">CRIO INTERFACES SIMPLES E MEMORÁVEIS</h1>
+                            <h1 className="md:text-4xl text-2xl font-medium italic text-primary-content/70">Transformando ideias em experiências digitais incríveis</h1>
                         </div>
-                        <div className="flex gap-10">
+                        <div className="flex md:flex-row flex-col gap-10">
                             <button className="btn btn-xl rounded-lg btn-primary">
                                 <Download className="w-4 h-4" />
                                 Currículo
