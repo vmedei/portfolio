@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 import CardDoama from "./CardDoama";
 import CardSigest from "./CardSigest";
@@ -44,27 +45,60 @@ const Experiencia = ({ isExperienciaVisible }: ExperienciaProps) => {
     };
 
     return (
-        <section id="experiencia" className="">
-            <div className={`container mx-auto space-y-6 p-10 md:rounded-xl bg-base-300 transition-all duration-800 ease-in-out 
-                md:${isExperienciaVisible ? 'max-w-3/5' : 'max-w-4/5'
-                }`}>
+        <section id="experiencia" className="py-20">
+            <motion.div
+                className="container mx-auto space-y-6 p-10 md:rounded-xl bg-base-300 shadow-lg"
+                initial={{ opacity: 0, y: 50, scale: 0.95 }}
+                animate={isExperienciaVisible ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 50, scale: 0.95 }}
+                transition={{ duration: 0.8 }}
+                whileHover={{ 
+                    scale: 1.02,
+                    transition: { duration: 0.3 }
+                }}
+            >
                 <div className="flex justify-between items-center gap-10">
-                    <h2 className="text-3xl font-bold">Experiências</h2>
+                    <motion.h2 
+                        className="md:text-3xl text-2xl font-bold"
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={isExperienciaVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                    >
+                        Experiências
+                    </motion.h2>
                     <TecnologiasMarquee
                         gradientColor="#ebebeb"
+                        screenWidth={window.innerWidth}
                     />
                 </div>
                 <div className="divider" />
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {/* Card Doama */}
-                    <CardDoama onOpenSwiper={openSwiper} />
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={isExperienciaVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                        transition={{ duration: 0.6, delay: 0.3 }}
+                    >
+                        <CardDoama onOpenSwiper={openSwiper} />
+                    </motion.div>
 
                     {/* Card Sigest */}
-                    <CardSigest onOpenVideoModal={openSigestModal} />
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={isExperienciaVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                        transition={{ duration: 0.6, delay: 0.4 }}
+                    >
+                        <CardSigest onOpenVideoModal={openSigestModal} />
+                    </motion.div>
 
                     {/* Card FoodCampus */}
-                    <CardFoodCampus onOpenSwiper={openFoodCampusModal} />
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={isExperienciaVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                        transition={{ duration: 0.6, delay: 0.5 }}
+                    >
+                        <CardFoodCampus onOpenSwiper={openFoodCampusModal} />
+                    </motion.div>
                 </div>
 
                 {/* Modal Doama */}
@@ -85,7 +119,7 @@ const Experiencia = ({ isExperienciaVisible }: ExperienciaProps) => {
                     isOpen={foodCampusModalOpen}
                     onClose={closeFoodCampusModal}
                 />
-            </div>
+            </motion.div>
         </section>
     );
 }

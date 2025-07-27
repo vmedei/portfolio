@@ -34,17 +34,19 @@ interface TecnologiasMarqueeProps {
     speed?: number;
     className?: string;
     gradientColor?: string;
+    screenWidth?: number;
 }
 
 const TecnologiasMarquee = ({ 
     icones = iconesPadrao, 
-    gradientColor = "#FFF"
+    gradientColor = "#FFF",
+    screenWidth = 1024
 }: TecnologiasMarqueeProps) => {
     return (
         <Marquee
             speed={50}
             pauseOnHover={true}
-            gradient={true}
+            gradient={screenWidth > 768 ? true : false}
             gradientColor={gradientColor}
         >
             {icones.map((icone, index) => {
