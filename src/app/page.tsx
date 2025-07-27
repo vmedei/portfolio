@@ -1,11 +1,10 @@
 "use client";
 
-import { Github, Linkedin, Mail, Download, Code, Palette, Smartphone } from 'lucide-react';
+import { Github, Linkedin, Mail, Code, Palette, Smartphone } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 import Lenis from 'lenis';
 import Header from '@/components/Header';
-import AnimatedPath from '@/components/AnimatedPath';
-import { pathD } from '@/data/pathD';
+import Hero from '@/components/Hero';
 import Experiencia from '@/components/Experiencia/Experiencia';
 
 export default function Home() {
@@ -62,38 +61,7 @@ export default function Home() {
         <div className="min-h-screen bg-gradient-to-br from-base-100 to-base-300">
             <Header />
             
-            {/* Hero Section */}
-            <section className="hero min-h-[75vh]">
-                <div className="relative flex justify-between w-3/4 h-3/4">
-                    <div className="flex flex-col justify-around z-10">
-                        <div>
-                            <h1 className="md:text-5xl text-3xl font-bold">CRIO INTERFACES SIMPLES E MEMORÁVEIS</h1>
-                            <h1 className="md:text-4xl text-2xl font-medium italic text-primary-content/70">Transformando ideias em experiências digitais incríveis</h1>
-                        </div>
-                        <div className="flex md:flex-row flex-col gap-10">
-                            <a 
-                                href="/Vinicius Alves Medeiros.pdf" 
-                                download="Vinicius_Alves_Medeiros_Curriculo.pdf"
-                                className="btn btn-xl rounded-lg btn-primary"
-                            >
-                                <Download className="w-4 h-4" />
-                                Currículo
-                            </a>
-                            <button 
-                                className="btn btn-xl rounded-lg bg-base-100/50 backdrop-blur-xs shadow-lg"
-                                onClick={() => scrollToSection('#contact')}
-                            >
-                                <Mail className="w-4 h-4" />
-                                Contato
-                            </button>
-                        </div>
-                    </div>
-
-                    <div className='absolute inset-0 opacity-10'>
-                        <AnimatedPath pathD={pathD} />
-                    </div>
-                </div>
-            </section>
+            <Hero scrollToSection={scrollToSection} />
 
             {/* Projetos */}
             <Experiencia isExperienciaVisible={isExperienciaVisible} />

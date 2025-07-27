@@ -1,5 +1,5 @@
 import { SiNextdotjs, SiNodedotjs, SiReact, SiTailwindcss, SiMysql, SiPython } from 'react-icons/si';
-import TecnologiasMarquee from "./TecnologiasMarquee";
+import TecnologiasMarquee from "../TecnologiasMarquee";
 
 interface ModalSigestProps {
     isOpen: boolean;

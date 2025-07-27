@@ -7,7 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 import { SiNodedotjs, SiPostgresql, SiSvelte, SiTailwindcss } from 'react-icons/si';
 import { doamaImages } from "@/data/imagensCarrossel";
-import TecnologiasMarquee from "./TecnologiasMarquee";
+import TecnologiasMarquee from "../TecnologiasMarquee";
 
 interface ModalDoamaProps {
     isOpen: boolean;

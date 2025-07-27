@@ -12,6 +12,7 @@ import {
 } from 'react-icons/si';
 import { FaJava, FaFigma } from 'react-icons/fa';
 import { DiIllustrator, DiPhotoshop } from 'react-icons/di';
+import { useState, useEffect } from 'react';
 
 const iconesPadrao = [
     { icon: SiReact, name: "React" },
@@ -34,19 +35,29 @@ interface TecnologiasMarqueeProps {
     speed?: number;
     className?: string;
     gradientColor?: string;
-    screenWidth?: number;
 }
 
 const TecnologiasMarquee = ({ 
     icones = iconesPadrao, 
     gradientColor = "#FFF",
-    screenWidth = 1024
 }: TecnologiasMarqueeProps) => {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkIsMobile = () => {
+            setIsMobile(window.innerWidth < 768); // 768px é o breakpoint md do Tailwind
+        };
+
+        checkIsMobile();
+        window.addEventListener('resize', checkIsMobile);
+
+        return () => window.removeEventListener('resize', checkIsMobile);
+    }, []);
     return (
         <Marquee
             speed={50}
             pauseOnHover={true}
-            gradient={screenWidth > 768 ? true : false}
+            gradient={!isMobile}
             gradientColor={gradientColor}
         >
             {icones.map((icone, index) => {

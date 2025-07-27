@@ -2,7 +2,7 @@ import Image from "next/image";
 import { ExternalLink } from "lucide-react";
 import { SiReact, SiMysql, SiTailwindcss } from 'react-icons/si';
 import { FaJava } from 'react-icons/fa';
-import TecnologiasMarquee from "./TecnologiasMarquee";
+import TecnologiasMarquee from "../TecnologiasMarquee";
 
 interface ModalFoodCampusProps {
     isOpen: boolean;

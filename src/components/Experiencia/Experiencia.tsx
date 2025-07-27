@@ -6,7 +6,7 @@ import CardFoodCampus from "./CardFoodCampus";
 import ModalDoama from "./ModalDoama";
 import ModalSigest from "./ModalSigest";
 import ModalFoodCampus from "./ModalFoodCampus";
-import TecnologiasMarquee from "./TecnologiasMarquee";
+import TecnologiasMarquee from "../TecnologiasMarquee";
 
 interface ExperienciaProps {
     isExperienciaVisible: boolean;
