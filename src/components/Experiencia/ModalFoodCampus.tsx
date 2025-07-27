@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { ExternalLink } from "lucide-react";
-import { SiReact, SiNodedotjs, SiMysql, SiTailwindcss } from 'react-icons/si';
+import { SiReact, SiMysql, SiTailwindcss } from 'react-icons/si';
 import { FaJava } from 'react-icons/fa';
 import TecnologiasMarquee from "./TecnologiasMarquee";
 

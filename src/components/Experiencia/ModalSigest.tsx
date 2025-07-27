@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { SiNextdotjs, SiNodedotjs, SiReact, SiTailwindcss, SiMysql, SiPython } from 'react-icons/si';
 import TecnologiasMarquee from "./TecnologiasMarquee";
 
