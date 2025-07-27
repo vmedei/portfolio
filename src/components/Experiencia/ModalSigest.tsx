@@ -43,8 +43,8 @@ const ModalSigest = ({ isOpen, onClose }: ModalSigestProps) => {
 
                 {/* Info do projeto */}
                 <div className="mt-6">
-                    <div className="flex justify-between items-end gap-10">
-                        <h3 className="whitespace-nowrap text-2xl font-bold">Sigest - Sistema Integrado</h3>
+                    <div className="flex flex-col md:flex-row justify-between items-center gap-10">
+                        <h3 className="whitespace-nowrap text-2xl font-bold w-1/2">Sigest</h3>
                         <TecnologiasMarquee
                             icones={iconesSigest}
                         />

@@ -50,9 +50,9 @@ const ModalFoodCampus = ({ isOpen, onClose }: ModalFoodCampusProps) => {
 
                 {/* Info do projeto */}
                 <div className="mt-6">
-                    <div className="flex justify-between items-end gap-10">
+                    <div className="flex flex-col md:flex-row justify-between items-center gap-10">
                         <div className="flex items-center gap-4 w-full">
-                            <h3 className="whitespace-nowrap text-2xl font-bold">FoodCampus</h3>
+                            <h3 className="whitespace-nowrap text-2xl font-bold w-1/2">FoodCampus</h3>
                             <button
                                 onClick={handleVisitSite}
                                 className="btn btn-sm btn-primary gap-2 hover:scale-105 transition-transform"
@@ -67,8 +67,8 @@ const ModalFoodCampus = ({ isOpen, onClose }: ModalFoodCampusProps) => {
 
                     </div>
                     <div className="divider" />
-                    <p className="text-base-content/70">
-                        Sistema completo de gestão de transferências tributárias
+                    <p className="text-base-content/70"> 
+                    A plataforma facilita a conexão entre vendedores e estudantes nos limitrofes da UFRN
                     </p>
                 </div>
             </div>
