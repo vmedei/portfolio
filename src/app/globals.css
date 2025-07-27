@@ -1,6 +1,10 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+/* React Slick CSS */
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+
 @plugin "daisyui/theme" {
   name: "vmedei";
   default: false;

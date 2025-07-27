@@ -8,16 +8,12 @@ export const doamaImages = [
         alt: "Doama - Dashboard",
     },
     {
-        src: "/doama/Doama_3.jpg",
-        alt: "Doama - Cadastro",
+        src: "/doama/Doama_5.jpg",
+        alt: "Doama - Dashboard",
     },
     {
         src: "/doama/Doama_4.jpg",
         alt: "Doama - Tela Principal",
-    },
-    {
-        src: "/doama/Doama_5.jpg",
-        alt: "Doama - Dashboard",
     },
     {
         src: "/doama/Doama_6.jpg",

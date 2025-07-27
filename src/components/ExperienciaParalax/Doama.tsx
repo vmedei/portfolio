@@ -1,0 +1,135 @@
+"use client";
+
+import { doamaImages } from "@/data/imagensCarrossel";
+import { motion, MotionValue } from "framer-motion";
+import Slider from "react-slick";
+import Image from "next/image";
+import { SiNodedotjs, SiPostgresql, SiSvelte, SiTailwindcss } from "react-icons/si";
+import { useState, useEffect } from "react";
+
+interface DoamaProps {
+    leftDivOpacity: MotionValue<number>;
+    leftDivX: MotionValue<number>;
+    rightDivOpacity: MotionValue<number>;
+    rightDivX: MotionValue<number>;
+}
+
+export default function Doama({ leftDivOpacity, leftDivX, rightDivOpacity, rightDivX }: DoamaProps) {
+    const [isClient, setIsClient] = useState(false);
+
+    useEffect(() => {
+        setIsClient(true);
+        console.log('Doama component mounted, images:', doamaImages);
+    }, []);
+
+    // Configurações do React Slick
+    const sliderSettings = {
+        dots: true,
+        arrows: false,
+        infinite: doamaImages.length > 1,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        initialSlide: 0,
+        autoplay: false,
+        pauseOnHover: true,
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    dots: true,
+                    arrows: false,
+                }
+            }
+        ]
+    };
+
+    // Ícones das tecnologias
+    const iconesDoama = [
+        { icon: SiSvelte, name: "Svelte" },
+        { icon: SiTailwindcss, name: "Tailwind" },
+        { icon: SiNodedotjs, name: "Node.js" },
+        { icon: SiPostgresql, name: "PostgreSQL" },
+    ];
+
+    return (
+        <div className="grid md:grid-cols-2 gap-10 relative">
+            {/* Slider do DOAMA */}
+            <motion.div
+                style={{
+                    opacity: leftDivOpacity,
+                    x: leftDivX
+                }}
+            >
+                {isClient ? (
+                    <Slider {...sliderSettings}>
+                        {doamaImages.map((imagem, index) => (
+                            <div key={index} className="px-2">
+                                <Image
+                                    src={imagem.src}
+                                    alt={`${imagem.alt}`}
+                                    width={800}
+                                    height={500}
+                                    className="object-contain rounded-lg w-full h-auto"
+                                    priority={index === 0}
+                                />
+                            </div>
+                        ))}
+                    </Slider>
+                ) : (
+                    <div className="flex justify-center items-center h-64 bg-base-200 rounded-lg">
+                        <div className="loading loading-spinner loading-lg"></div>
+                    </div>
+                )}
+                {/* Info do projeto DOAMA */}
+                <div className="mt-8">
+                    <div className="flex flex-col md:flex-row justify-between items-center gap-10">
+                        <h3 className="whitespace-nowrap text-2xl font-bold w-1/2">Doama</h3>
+                        <div className="flex gap-4">
+                            {iconesDoama.map((icone, index) => (
+                                <div key={index} title={icone.name} className="tooltip" data-tip={icone.name}>
+                                    <icone.icon
+                                        className="h-6 w-6 text-base-content opacity-50 hover:opacity-100 transition-opacity duration-300"
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                    <div className="divider" />
+                </div>
+            </motion.div>
+
+
+            {/* Texto do DOAMA */}
+            <motion.div
+                style={{
+                    opacity: rightDivOpacity,
+                    x: rightDivX
+                }}
+                className="relative z-10"
+            >
+                <div className="flex gap-8 h-full">
+                    <p className="font-bold text-base-content/70">
+                        SOBRE
+                    </p>
+                    <div className="flex flex-col gap-6 h-full w-full">
+                        <p className="text-justify text-base-content/70">
+                            <span className="font-bold text-base-content">Contexto: </span>
+                            O Doama foi criado para modernizar e facilitar o gerenciamento de doadoras e doações de leite materno, especialmente por secretarias de saúde municipais. Desenvolvido na UFRN, o sistema apoia bancos de leite e profissionais da saúde no controle desse recurso vital para recém-nascidos.
+                        </p>
+
+                        <p className="text-justify text-base-content/70">
+                            <span className="font-bold text-base-content">Desafio e Solução: </span>
+                            O desafio era criar uma plataforma intuitiva, segura e eficiente que integrasse doadoras, profissionais e bancos de leite, garantindo a rastreabilidade das doações e controle de estoque. A solução foi um sistema web completo para cadastro, acompanhamento, controle e comunicação entre todos os envolvidos.
+                        </p>
+
+                        <p className="text-justify text-base-content/70">
+                            <span className="font-bold text-base-content">Resultado: </span>
+                            O Doama foi desenvolvido com sucesso, atendendo aos requisitos de usabilidade, segurança e integração propostos. Embora ainda não esteja em produção, o sistema já demonstrou seu potencial e encontra-se em processo de aquisição por diversos municípios.
+                        </p>
+                    </div>
+                </div>
+            </motion.div>
+        </div>
+    );
+}

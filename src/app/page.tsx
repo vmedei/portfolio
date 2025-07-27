@@ -5,7 +5,8 @@ import { useState, useEffect, useRef } from 'react';
 import Lenis from 'lenis';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
-import Experiencia from '@/components/Experiencia/Experiencia';
+// import Experiencia from '@/components/Experiencia/Experiencia';
+import ExperienciaParalax from '@/components/ExperienciaParalax/ExperienciaParalax';
 
 export default function Home() {
     const [isExperienciaVisible, setIsExperienciaVisible] = useState(false);
@@ -58,13 +59,15 @@ export default function Home() {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-base-100 to-base-300">
+        <div className="min-h-screen bg-gradient-to-br from-base-100 to-base-300 flex flex-col gap-10">
             <Header />
             
             <Hero scrollToSection={scrollToSection} />
 
+            <ExperienciaParalax />
+
             {/* Projetos */}
-            <Experiencia isExperienciaVisible={isExperienciaVisible} />
+            {/* <Experiencia isExperienciaVisible={isExperienciaVisible} /> */}
 
             {/* About Section */}
             <section className="py-20" id="about">
