@@ -67,7 +67,7 @@ const ModalDoama = ({ isOpen, onClose, swiperIndex }: ModalDoamaProps) => {
                 {/* Info do projeto */}
                 <div className="mt-8">
                     <div className="flex justify-between gap-10">
-                        <h3 className="whitespace-nowrap text-2xl font-bold">Doama - Sistema de Gestão</h3>
+                        <h3 className="whitespace-nowrap text-2xl font-bold">Doama</h3>
                         <TecnologiasMarquee
                             icones={iconesDoama}
                         />
