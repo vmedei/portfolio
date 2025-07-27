@@ -35,6 +35,9 @@ export default function ExperienciaParalax() {
     const foodCampusRightDivOpacity = useTransform(scrollYProgress, [0.62, 0.67], [0, 1]);
     const foodCampusRightDivX = useTransform(scrollYProgress, [0.62, 0.67], [100, 0]);
 
+    const experienciaParalaxOpacity = useTransform(scrollYProgress, [0.1, 0.15], [0, 1]);
+    const experienciaParalaxY = useTransform(scrollYProgress, [0.1, 0.15], [0, 100]);
+
     const calcularAltura = () => {
         if (containerRef.current) {
             const sectionHeight = containerRef.current.scrollHeight;
@@ -46,7 +49,7 @@ export default function ExperienciaParalax() {
     }
 
     return (
-        <div ref={containerRef} className={`h-[${calcularAltura()}] border border-red-400`}>
+        <motion.div ref={containerRef} style={{ opacity: experienciaParalaxOpacity, y: experienciaParalaxY }} className={`h-[${calcularAltura()}]`}>
             <section
                 id="experiencia-paralax"
                 className="sticky top-24 container mx-auto p-10 md:rounded-xl bg-base-300 flex flex-col justify-between gap-4 overflow-hidden"
@@ -82,6 +85,6 @@ export default function ExperienciaParalax() {
                     rightDivX={foodCampusRightDivX}
                 />
             </section>
-        </div>
+        </motion.div>
     );
 }
