@@ -6,7 +6,7 @@ import Lenis from 'lenis';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 // import Experiencia from '@/components/Experiencia/Experiencia';
-import ExperienciaParalax from '@/components/ExperienciaParalax/ExperienciaParalax';
+import Experiencias from '@/components/Experiencias/Experiencias';
 
 export default function Home() {
     const [isExperienciaVisible, setIsExperienciaVisible] = useState(false);
@@ -64,10 +64,7 @@ export default function Home() {
             
             <Hero scrollToSection={scrollToSection} />
 
-            <ExperienciaParalax />
-
-            {/* Projetos */}
-            {/* <Experiencia isExperienciaVisible={isExperienciaVisible} /> */}
+            <Experiencias />
 
             {/* About Section */}
             <section className="py-20" id="about">

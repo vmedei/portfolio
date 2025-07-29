@@ -25,7 +25,7 @@ export default function Doama({ leftDivOpacity, leftDivX, rightDivOpacity, right
     // Configurações do React Slick
     const sliderSettings = {
         dots: true,
-        arrows: false,
+        arrows: true,
         infinite: doamaImages.length > 1,
         speed: 500,
         slidesToShow: 1,
@@ -115,18 +115,19 @@ export default function Doama({ leftDivOpacity, leftDivX, rightDivOpacity, right
                     <div className="flex flex-col gap-6 h-full w-full">
                         <p className="text-justify text-base-content/70">
                             <span className="font-bold text-base-content">Contexto: </span>
-                            O Doama foi criado para modernizar e facilitar o gerenciamento de doadoras e doações de leite materno, especialmente por secretarias de saúde municipais. Desenvolvido na UFRN, o sistema apoia bancos de leite e profissionais da saúde no controle desse recurso vital para recém-nascidos.
+                            O Doama foi desenvolvido com o objetivo de modernizar e simplificar a gestão de doadoras e doações de leite materno, com foco no uso por secretarias municipais de saúde. Criado na UFRN, o sistema oferece suporte a bancos de leite e profissionais da área, contribuindo para o controle eficiente desse recurso essencial à sobrevivência de recém-nascidos.
                         </p>
 
                         <p className="text-justify text-base-content/70">
                             <span className="font-bold text-base-content">Desafio e Solução: </span>
-                            O desafio era criar uma plataforma intuitiva, segura e eficiente que integrasse doadoras, profissionais e bancos de leite, garantindo a rastreabilidade das doações e controle de estoque. A solução foi um sistema web completo para cadastro, acompanhamento, controle e comunicação entre todos os envolvidos.
+                            O principal desafio era conceber uma plataforma intuitiva, segura e eficaz, capaz de integrar doadoras, profissionais de saúde e bancos de leite, garantindo a rastreabilidade das doações e o controle preciso do estoque. A solução foi um sistema web robusto, que permite o cadastro, o monitoramento e a comunicação entre todos os envolvidos no processo.
                         </p>
 
                         <p className="text-justify text-base-content/70">
                             <span className="font-bold text-base-content">Resultado: </span>
-                            O Doama foi desenvolvido com sucesso, atendendo aos requisitos de usabilidade, segurança e integração propostos. Embora ainda não esteja em produção, o sistema já demonstrou seu potencial e encontra-se em processo de aquisição por diversos municípios.
+                            O Doama foi desenvolvido com êxito, atendendo aos critérios de usabilidade, segurança e integração. Embora ainda não esteja em operação oficial, o sistema já demonstrou sua viabilidade e está em fase de avaliação para adoção por diversos municípios.
                         </p>
+
                     </div>
                 </div>
             </motion.div>

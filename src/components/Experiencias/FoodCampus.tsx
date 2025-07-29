@@ -96,18 +96,19 @@ export default function FoodCampus({ leftDivOpacity, leftDivX, rightDivOpacity, 
                     <div className="flex flex-col gap-6 h-full w-full">
                         <p className="text-justify text-base-content/70">
                             <span className="font-bold text-base-content">Contexto: </span>
-                            O FoodCampus é um aplicativo de delivery desenvolvido especificamente para ambientes universitários, conectando estudantes aos estabelecimentos de alimentação do campus de forma rápida e prática.
+                            O FoodCampus foi um projeto acadêmico desenvolvido em duas semanas, com o objetivo de conectar vendedores ambulantes do campus a estudantes e frequentadores da universidade por meio de uma plataforma digital.
                         </p>
 
                         <p className="text-justify text-base-content/70">
                             <span className="font-bold text-base-content">Desafio e Solução: </span>
-                            O desafio era criar uma solução que atendesse às necessidades específicas do ambiente universitário, com preços acessíveis e entregas rápidas. Desenvolvemos uma plataforma otimizada para o contexto acadêmico.
+                            O desafio era criar uma solução completa em tempo limitado, atendendo tanto vendedores quanto consumidores. A plataforma inclui gerenciamento de produtos, agendamento de horários, reserva de pedidos e busca por proximidade, além de um mapa interativo com os setores do campus.
                         </p>
 
                         <p className="text-justify text-base-content/70">
                             <span className="font-bold text-base-content">Resultado: </span>
-                            Aplicativo funcional em produção, com interface intuitiva e sistema de pedidos eficiente, facilitando o acesso à alimentação no campus universitário.
+                            Projeto entregue com sucesso dentro do prazo, com interface fluida e funcionalidades robustas para ambos os perfis de usuário, simulando uma experiência real de compra e venda no ambiente universitário.
                         </p>
+
                     </div>
                 </div>
             </motion.div>

@@ -75,18 +75,19 @@ export default function Sigest({ leftDivOpacity, leftDivX, rightDivOpacity, righ
                     <div className="flex flex-col gap-6 h-full w-full">
                         <p className="text-justify text-base-content/70">
                             <span className="font-bold text-base-content">Contexto: </span>
-                            O SIGEST é um sistema de gestão empresarial desenvolvido para otimizar processos administrativos e operacionais, oferecendo controle completo sobre recursos, funcionários e operações da empresa.
+                            O SIGEST é um sistema de contabilidade tributária focado na análise das transferências constitucionais realizadas pela União para estados e municípios. Sua principal função é realizar cálculos de auditoria a fim de identificar possíveis falhas nos repasses.
                         </p>
 
                         <p className="text-justify text-base-content/70">
                             <span className="font-bold text-base-content">Desafio e Solução: </span>
-                            O principal desafio era centralizar informações dispersas e automatizar processos manuais. A solução foi criar uma plataforma integrada que conecta todos os departamentos em um único sistema.
+                            O desafio consistia na migração completa de um sistema legado desenvolvido em Delphi 7 para uma plataforma web moderna. A solução envolveu não apenas a modernização da interface, mas também a adoção de práticas atuais de desenvolvimento, com foco em responsividade, fluidez e manutenção da totalidade das funcionalidades originais.
                         </p>
 
                         <p className="text-justify text-base-content/70">
                             <span className="font-bold text-base-content">Resultado: </span>
-                            Sistema implementado com sucesso, resultando em 40% de redução no tempo de processos administrativos e melhor controle de dados empresariais.
+                            O novo sistema foi implementado com êxito e já está em produção, oferecendo aos municípios uma ferramenta robusta para auditoria de repasses federais. Com funcionalidades avançadas, o sistema realiza a detecção automática de inconsistências e proporciona controle total sobre as transferências constitucionais.
                         </p>
+
                     </div>
                 </div>
             </motion.div>
