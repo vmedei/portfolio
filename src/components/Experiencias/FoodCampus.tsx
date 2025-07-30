@@ -1,19 +1,11 @@
 "use client";
 
-import { motion, MotionValue } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import Image from "next/image";
 import { FaJava } from "react-icons/fa";
 import { SiReact, SiTailwindcss } from "react-icons/si";
 
-interface FoodCampusProps {
-    leftDivOpacity: MotionValue<number>;
-    leftDivX: MotionValue<number>;
-    rightDivOpacity: MotionValue<number>;
-    rightDivX: MotionValue<number>;
-}
-
-export default function FoodCampus({ leftDivOpacity, leftDivX, rightDivOpacity, rightDivX }: FoodCampusProps) {
+export default function FoodCampus() {
     // Ícones das tecnologias
     const iconesFoodCampus = [
         { icon: SiReact, name: "React" },
@@ -28,12 +20,7 @@ export default function FoodCampus({ leftDivOpacity, leftDivX, rightDivOpacity, 
     return (
         <div className="grid md:grid-cols-2 gap-10 relative">
             {/* Imagem do FOODCAMPUS */}
-            <motion.div
-                style={{
-                    opacity: leftDivOpacity,
-                    x: leftDivX
-                }}
-            >
+            <div>
                 <div className="relative group cursor-pointer">
                     <Image
                         src="/foodcampus/FoodCampus.svg"
@@ -79,16 +66,10 @@ export default function FoodCampus({ leftDivOpacity, leftDivX, rightDivOpacity, 
                     </div>
                     <div className="divider" />
                 </div>
-            </motion.div>
+            </div>
 
             {/* Texto do FOODCAMPUS */}
-            <motion.div
-                style={{
-                    opacity: rightDivOpacity,
-                    x: rightDivX
-                }}
-                className="relative z-10"
-            >
+            <div className="relative z-10">
                 <div className="flex gap-8 h-full">
                     <p className="font-bold text-base-content/70">
                         SOBRE
@@ -111,7 +92,7 @@ export default function FoodCampus({ leftDivOpacity, leftDivX, rightDivOpacity, 
 
                     </div>
                 </div>
-            </motion.div>
+            </div>
         </div>
     );
 } 

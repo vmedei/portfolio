@@ -1,17 +1,10 @@
 "use client";
 
-import { motion, MotionValue } from "framer-motion";
 import Image from "next/image";
 import { SiPython, SiReact, SiTailwindcss } from "react-icons/si";
 
-interface PfAspofernProps {
-    leftDivOpacity: MotionValue<number>;
-    leftDivX: MotionValue<number>;
-    rightDivOpacity: MotionValue<number>;
-    rightDivX: MotionValue<number>;
-}
 
-export default function PfAspofern({ leftDivOpacity, leftDivX, rightDivOpacity, rightDivX }: PfAspofernProps) {
+export default function PfAspofern() {
     // Ícones das tecnologias
     const iconesPfAspofern = [
         { icon: SiReact, name: "React" },
@@ -20,28 +13,23 @@ export default function PfAspofern({ leftDivOpacity, leftDivX, rightDivOpacity, 
     ];
 
     return (
-        <div className="grid md:grid-cols-2 gap-10">
+        <div className="grid lg:grid-cols-2 gap-8">
             {/* Imagem do PF/Aspofern */}
-            <motion.div
-                style={{
-                    opacity: leftDivOpacity,
-                    x: leftDivX
-                }}
-            >
+            <div>
                 <div className="group cursor-pointer">
                     <Image
                         src="/aspofern/PfAspofern.png"
                         alt="Aspofern - Sistema de gerenciamento de eventos"
                         width={800}
                         height={500}
-                        className="object-cover rounded-lg w-full h-[400px]"
+                        className="object-cover rounded-lg w-full lg:h-[400px]"
                     />
                 </div>
 
                 {/* Info do projeto PF/Aspofern */}
-                <div className="mt-8">
-                    <div className="flex flex-col md:flex-row justify-between items-center gap-10">
-                        <h3 className="whitespace-nowrap text-2xl font-bold w-1/2">Polícia Federal / Aspofern</h3>
+                <div className="mt-4">
+                    <div className="flex flex-col md:flex-row justify-between items-center gap-2">
+                        <h3 className="whitespace-nowrap text-2xl font-bold">Polícia Federal / Aspofern</h3>
                         <div className="flex gap-4">
                             {iconesPfAspofern.map((icone, index) => (
                                 <div key={index} title={icone.name} className="tooltip" data-tip={icone.name}>
@@ -54,17 +42,11 @@ export default function PfAspofern({ leftDivOpacity, leftDivX, rightDivOpacity, 
                     </div>
                     <div className="divider" />
                 </div>
-            </motion.div>
+            </div>
 
             {/* Texto do PF/Aspofern */}
-            <motion.div
-                style={{
-                    opacity: rightDivOpacity,
-                    x: rightDivX
-                }}
-                className="relative z-10"
-            >
-                <div className="flex gap-8 h-full">
+            <div className="relative z-10">
+                <div className="flex gap-4 h-full">
                     <p className="font-bold text-base-content/70">
                         SOBRE
                     </p>
@@ -86,7 +68,7 @@ export default function PfAspofern({ leftDivOpacity, leftDivX, rightDivOpacity, 
 
                     </div>
                 </div>
-            </motion.div>
+            </div>
         </div>
     );
 } 

@@ -1,26 +1,11 @@
 "use client";
 
 import { doamaImages } from "@/data/imagensCarrossel";
-import { motion, MotionValue } from "framer-motion";
 import Slider from "react-slick";
 import Image from "next/image";
 import { SiNodedotjs, SiPostgresql, SiSvelte, SiTailwindcss } from "react-icons/si";
-import { useState, useEffect } from "react";
 
-interface DoamaProps {
-    leftDivOpacity: MotionValue<number>;
-    leftDivX: MotionValue<number>;
-    rightDivOpacity: MotionValue<number>;
-    rightDivX: MotionValue<number>;
-}
-
-export default function Doama({ leftDivOpacity, leftDivX, rightDivOpacity, rightDivX }: DoamaProps) {
-    const [isClient, setIsClient] = useState(false);
-
-    useEffect(() => {
-        setIsClient(true);
-        console.log('Doama component mounted, images:', doamaImages);
-    }, []);
+export default function Doama() {
 
     // Configurações do React Slick
     const sliderSettings = {
@@ -41,7 +26,8 @@ export default function Doama({ leftDivOpacity, leftDivX, rightDivOpacity, right
                     arrows: false,
                 }
             }
-        ]
+        ],
+        className: "w-[300px] sm:w-[600px] md:w-full",
     };
 
     // Ícones das tecnologias
@@ -53,38 +39,27 @@ export default function Doama({ leftDivOpacity, leftDivX, rightDivOpacity, right
     ];
 
     return (
-        <div className="grid md:grid-cols-2 gap-10 relative">
-            {/* Slider do DOAMA */}
-            <motion.div
-                style={{
-                    opacity: leftDivOpacity,
-                    x: leftDivX
-                }}
-            >
-                {isClient ? (
+        <div className="grid md:grid-cols-2 gap-10">
+            <div className="flex flex-col items-center w-full">
+                {/* Slider do DOAMA */}
                     <Slider {...sliderSettings}>
                         {doamaImages.map((imagem, index) => (
-                            <div key={index} className="px-2">
+                            <div key={index}>
                                 <Image
                                     src={imagem.src}
                                     alt={`${imagem.alt}`}
                                     width={800}
                                     height={500}
-                                    className="object-contain rounded-lg w-full h-auto"
+                                    className="object-contain rounded-lg"
                                     priority={index === 0}
                                 />
                             </div>
                         ))}
                     </Slider>
-                ) : (
-                    <div className="flex justify-center items-center h-64 bg-base-200 rounded-lg">
-                        <div className="loading loading-spinner loading-lg"></div>
-                    </div>
-                )}
                 {/* Info do projeto DOAMA */}
-                <div className="mt-8">
-                    <div className="flex flex-col md:flex-row justify-between items-center gap-10">
-                        <h3 className="whitespace-nowrap text-2xl font-bold w-1/2">Doama</h3>
+                <div className="mt-8 w-full">
+                    <div className="flex flex-col md:flex-row justify-between items-center gap-2">
+                        <h3 className="whitespace-nowrap text-2xl font-bold">Doama</h3>
                         <div className="flex gap-4">
                             {iconesDoama.map((icone, index) => (
                                 <div key={index} title={icone.name} className="tooltip" data-tip={icone.name}>
@@ -97,17 +72,11 @@ export default function Doama({ leftDivOpacity, leftDivX, rightDivOpacity, right
                     </div>
                     <div className="divider" />
                 </div>
-            </motion.div>
+            </div>
 
 
             {/* Texto do DOAMA */}
-            <motion.div
-                style={{
-                    opacity: rightDivOpacity,
-                    x: rightDivX
-                }}
-                className="relative z-10"
-            >
+            <div className="relative z-10">
                 <div className="flex gap-8 h-full">
                     <p className="font-bold text-base-content/70">
                         SOBRE
@@ -130,7 +99,7 @@ export default function Doama({ leftDivOpacity, leftDivX, rightDivOpacity, right
 
                     </div>
                 </div>
-            </motion.div>
+            </div>
         </div>
     );
 }
