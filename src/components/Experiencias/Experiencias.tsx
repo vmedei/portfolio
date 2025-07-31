@@ -25,11 +25,11 @@ export default function Experiencias() {
     <div className={`${isMobile ? "h-auto" : "min-h-screen"}`}>
       <section
         id="experiencias"
-        className="container mx-auto p-10 md:rounded-xl bg-base-300 flex flex-col justify-between gap-8 overflow-hidden"
+        className="container mx-auto p-10 md:rounded-xl bg-base-200 flex flex-col justify-between gap-8 overflow-hidden"
       >
         <div className="flex justify-between items-center gap-10">
           <h2 className="text-2xl md:text-3xl font-bold">Experiências</h2>
-          <TecnologiasMarquee gradientColor="#ebebeb" />
+          <TecnologiasMarquee gradientColor="#f5f5f5" />
         </div>
 
         <div className="divider" />

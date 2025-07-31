@@ -6,9 +6,10 @@ import Image from "next/image";
 
 interface HeaderProps {
     className?: string;
+    scrollToSection?: (target: string) => void;
 }
 
-export default function Header({ className = "" }: HeaderProps) {
+export default function Header({ className = "", scrollToSection }: HeaderProps) {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -22,6 +23,19 @@ export default function Header({ className = "" }: HeaderProps) {
 
     const toggleMenu = () => setIsMenuOpen((v) => !v);
 
+    const handleNavClick = (target: string) => {
+        setIsMenuOpen(false);
+        if (scrollToSection) {
+            scrollToSection(target);
+        } else {
+            // Fallback para scroll nativo se scrollToSection não estiver disponível
+            const element = document.querySelector(target);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+    };
+
     return (
         <header
             className={`
@@ -34,7 +48,7 @@ export default function Header({ className = "" }: HeaderProps) {
             <div className="container mx-auto px-4">
                 <div className="flex items-center justify-between h-16">
                     {/* Logo */}
-                    <div className="flex items-center space-x-4 ">
+                    <div className="flex items-center space-x-4 cursor-pointer" onClick={() => handleNavClick('#home')}>
                         <Image
                             src="/logo.svg"
                             alt="Logo"
@@ -46,10 +60,30 @@ export default function Header({ className = "" }: HeaderProps) {
 
                     {/* Desktop Navigation */}
                     <nav className="hidden md:flex items-center space-x-8">
-                        <a href="#home" className="link link-hover">Início</a>
-                        <a href="#about" className="link link-hover">Sobre</a>
-                        <a href="#projects" className="link link-hover">Projetos</a>
-                        <a href="#contact" className="link link-hover">Contato</a>
+                        <button 
+                            onClick={() => handleNavClick('#home')} 
+                            className="link link-hover"
+                        >
+                            Início
+                        </button>
+                        <button 
+                            onClick={() => handleNavClick('#sobre')} 
+                            className="link link-hover"
+                        >
+                            Sobre
+                        </button>
+                        <button 
+                            onClick={() => handleNavClick('#experiencias')} 
+                            className="link link-hover"
+                        >
+                            Experiências
+                        </button>
+                        <button 
+                            onClick={() => handleNavClick('#contact')} 
+                            className="link link-hover"
+                        >
+                            Contato
+                        </button>
                     </nav>
 
                     {/* Mobile Menu Button */}
@@ -66,18 +100,30 @@ export default function Header({ className = "" }: HeaderProps) {
                 {isMenuOpen && (
                     <div className="md:hidden py-4 border-t border-base-300">
                         <nav className="flex flex-col space-y-4">
-                            <a href="#home" className="link link-hover" onClick={() => setIsMenuOpen(false)}>
+                            <button 
+                                onClick={() => handleNavClick('#home')} 
+                                className="link link-hover text-left"
+                            >
                                 Início
-                            </a>
-                            <a href="#about" className="link link-hover" onClick={() => setIsMenuOpen(false)}>
+                            </button>
+                            <button 
+                                onClick={() => handleNavClick('#sobre')} 
+                                className="link link-hover text-left"
+                            >
                                 Sobre
-                            </a>
-                            <a href="#projects" className="link link-hover" onClick={() => setIsMenuOpen(false)}>
-                                Projetos
-                            </a>
-                            <a href="#contact" className="link link-hover" onClick={() => setIsMenuOpen(false)}>
+                            </button>
+                            <button 
+                                onClick={() => handleNavClick('#experiencias')} 
+                                className="link link-hover text-left"
+                            >
+                                Experiências
+                            </button>
+                            <button 
+                                onClick={() => handleNavClick('#contact')} 
+                                className="link link-hover text-left"
+                            >
                                 Contato
-                            </a>
+                            </button>
                         </nav>
                     </div>
                 )}
