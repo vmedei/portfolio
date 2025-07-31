@@ -6,6 +6,7 @@ import Slider from "react-slick";
 import Image from "next/image";
 import { SiNodedotjs, SiPostgresql, SiSvelte, SiTailwindcss } from "react-icons/si";
 import { useState, useEffect } from "react";
+import { div } from "framer-motion/client";
 
 interface DoamaProps {
     leftDivOpacity: MotionValue<number>;
@@ -33,6 +34,7 @@ export default function Doama({ leftDivOpacity, leftDivX, rightDivOpacity, right
         initialSlide: 0,
         autoplay: false,
         pauseOnHover: true,
+        className: "",
         responsive: [
             {
                 breakpoint: 768,
@@ -60,31 +62,34 @@ export default function Doama({ leftDivOpacity, leftDivX, rightDivOpacity, right
                     opacity: leftDivOpacity,
                     x: leftDivX
                 }}
+                className="flex flex-col items-center"
             >
                 {isClient ? (
-                    <Slider {...sliderSettings}>
-                        {doamaImages.map((imagem, index) => (
-                            <div key={index} className="px-2">
-                                <Image
-                                    src={imagem.src}
-                                    alt={`${imagem.alt}`}
-                                    width={800}
-                                    height={500}
-                                    className="object-contain rounded-lg w-full h-auto"
-                                    priority={index === 0}
-                                />
-                            </div>
-                        ))}
-                    </Slider>
+                    <div className="w-[300px] sm:w-[500px] md:w-full">
+                        <Slider {...sliderSettings}>
+                            {doamaImages.map((imagem, index) => (
+                                <div key={index} className="px-2">
+                                    <Image
+                                        src={imagem.src}
+                                        alt={`${imagem.alt}`}
+                                        width={800}
+                                        height={500}
+                                        className="object-contain rounded-lg w-full h-auto"
+                                        priority={index === 0}
+                                    />
+                                </div>
+                            ))}
+                        </Slider>
+                    </div>
                 ) : (
                     <div className="flex justify-center items-center h-64 bg-base-200 rounded-lg">
                         <div className="loading loading-spinner loading-lg"></div>
                     </div>
                 )}
                 {/* Info do projeto DOAMA */}
-                <div className="mt-8">
-                    <div className="flex flex-col md:flex-row justify-between items-center gap-10">
-                        <h3 className="whitespace-nowrap text-2xl font-bold w-1/2">Doama</h3>
+                <div className="mt-8 w-full">
+                    <div className="flex flex-col md:flex-row justify-between items-center gap-2">
+                        <h3 className="whitespace-nowrap text-2xl font-bold">Doama</h3>
                         <div className="flex gap-4">
                             {iconesDoama.map((icone, index) => (
                                 <div key={index} title={icone.name} className="tooltip" data-tip={icone.name}>
