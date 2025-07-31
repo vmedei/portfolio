@@ -1,17 +1,9 @@
 "use client";
 
-import { motion, MotionValue } from "framer-motion";
 import { RiNextjsFill } from "react-icons/ri";
-import { SiNodedotjs, SiPostgresql, SiReact, SiExpress, SiMysql, SiPython, SiTailwindcss } from "react-icons/si";
+import { SiNodedotjs, SiReact, SiMysql, SiPython, SiTailwindcss } from "react-icons/si";
 
-interface SigestProps {
-    leftDivOpacity: MotionValue<number>;
-    leftDivX: MotionValue<number>;
-    rightDivOpacity: MotionValue<number>;
-    rightDivX: MotionValue<number>;
-}
-
-export default function Sigest({ leftDivOpacity, leftDivX, rightDivOpacity, rightDivX }: SigestProps) {
+export default function Sigest() {
     // Ícones das tecnologias
     const iconesSigest = [
         { icon: SiReact, name: "React" },
@@ -23,14 +15,9 @@ export default function Sigest({ leftDivOpacity, leftDivX, rightDivOpacity, righ
     ];
 
     return (
-        <div className="grid md:grid-cols-2 gap-10 relative">
+        <div className="grid md:grid-cols-2 gap-2 md:gap-10 relative">
             {/* Vídeo do SIGEST */}
-            <motion.div
-                style={{
-                    opacity: leftDivOpacity,
-                    x: leftDivX
-                }}
-            >
+            <div className="">
                 <div className="aspect-video bg-base-200 rounded-lg overflow-hidden">
                     <video
                         controls
@@ -43,33 +30,25 @@ export default function Sigest({ leftDivOpacity, leftDivX, rightDivOpacity, righ
                 </div>
 
                 {/* Info do projeto SIGEST */}
-                <div className="mt-8">
-                    <div className="flex flex-col md:flex-row justify-between items-center gap-10">
-                        <h3 className="whitespace-nowrap text-2xl font-bold w-1/2">SIGEST</h3>
-                        <div className="flex gap-4">
-                            {iconesSigest.map((icone, index) => (
-                                <div key={index} title={icone.name} className="tooltip" data-tip={icone.name}>
-                                    <icone.icon
-                                        className="h-6 w-6 text-base-content opacity-50 hover:opacity-100 transition-opacity duration-300"
-                                    />
-                                </div>
-                            ))}
-                        </div>
+                <div className="flex flex-col md:flex-row justify-between items-center gap-4 mt-4">
+                    <h3 className="whitespace-nowrap text-2xl font-bold">SIGEST</h3>
+                    <div className="flex gap-4">
+                        {iconesSigest.map((icone, index) => (
+                            <div key={index} title={icone.name} className="tooltip" data-tip={icone.name}>
+                                <icone.icon
+                                    className="h-6 w-6 text-base-content opacity-50 hover:opacity-100 transition-opacity duration-300"
+                                />
+                            </div>
+                        ))}
                     </div>
-                    <div className="divider" />
                 </div>
-            </motion.div>
+                <div className="divider" />
+            </div>
 
             {/* Texto do SIGEST */}
-            <motion.div
-                style={{
-                    opacity: rightDivOpacity,
-                    x: rightDivX
-                }}
-                className="relative z-10"
-            >
+            <div className="relative z-10">
                 <div className="flex gap-8 h-full">
-                    <p className="font-bold text-base-content/70">
+                    <p className="hidden md:block font-bold text-base-content/70">
                         SOBRE
                     </p>
                     <div className="flex flex-col gap-6 h-full w-full">
@@ -90,7 +69,7 @@ export default function Sigest({ leftDivOpacity, leftDivX, rightDivOpacity, righ
 
                     </div>
                 </div>
-            </motion.div>
+            </div>
         </div>
     );
 } 

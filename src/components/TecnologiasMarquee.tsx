@@ -65,7 +65,7 @@ const TecnologiasMarquee = ({
                 return (
                     <div
                         key={index}
-                        className="flex items-center justify-center mx-8"
+                        className="flex items-center justify-center mx-4 md:mx-8"
                     >
                         <IconComponent 
                             className="h-8 w-8 text-base-content opacity-50 hover:opacity-100 transition-opacity duration-300" 

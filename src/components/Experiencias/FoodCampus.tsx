@@ -1,19 +1,11 @@
 "use client";
 
-import { motion, MotionValue } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import Image from "next/image";
 import { FaJava } from "react-icons/fa";
 import { SiReact, SiTailwindcss } from "react-icons/si";
 
-interface FoodCampusProps {
-    leftDivOpacity: MotionValue<number>;
-    leftDivX: MotionValue<number>;
-    rightDivOpacity: MotionValue<number>;
-    rightDivX: MotionValue<number>;
-}
-
-export default function FoodCampus({ leftDivOpacity, leftDivX, rightDivOpacity, rightDivX }: FoodCampusProps) {
+export default function FoodCampus() {
     // Ícones das tecnologias
     const iconesFoodCampus = [
         { icon: SiReact, name: "React" },
@@ -26,21 +18,16 @@ export default function FoodCampus({ leftDivOpacity, leftDivX, rightDivOpacity, 
     };
 
     return (
-        <div className="grid md:grid-cols-2 gap-10 relative">
+        <div className="grid md:grid-cols-2 gap-2 md:gap-10 relative">
             {/* Imagem do FOODCAMPUS */}
-            <motion.div
-                style={{
-                    opacity: leftDivOpacity,
-                    x: leftDivX
-                }}
-            >
+            <div>
                 <div className="relative group cursor-pointer">
                     <Image
                         src="/foodcampus/FoodCampus.svg"
                         alt="FoodCampus - Aplicativo de delivery"
                         width={800}
                         height={500}
-                        className="object-cover rounded-lg w-full h-[400px]"
+                        className="object-cover rounded-lg w-full h-[150px] sm:h-[300px] md:h-[400px]"
                     />
                     <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg flex items-center justify-center">
                         <a
@@ -55,10 +42,10 @@ export default function FoodCampus({ leftDivOpacity, leftDivX, rightDivOpacity, 
                 </div>
 
                 {/* Info do projeto FOODCAMPUS */}
-                <div className="mt-8">
-                    <div className="flex flex-col md:flex-row justify-between items-center gap-10">
+                <div className="mt-4">
+                    <div className="flex flex-col md:flex-row justify-between items-center gap-4">
                         <div className="flex items-center gap-4">
-                            <h3 className="whitespace-nowrap text-2xl font-bold w-1/2">FoodCampus</h3>
+                            <h3 className="whitespace-nowrap text-2xl font-bold">FoodCampus</h3>
                             <button
                                 onClick={handleVisitSite}
                                 className="btn btn-sm btn-primary "
@@ -79,18 +66,12 @@ export default function FoodCampus({ leftDivOpacity, leftDivX, rightDivOpacity, 
                     </div>
                     <div className="divider" />
                 </div>
-            </motion.div>
+            </div>
 
             {/* Texto do FOODCAMPUS */}
-            <motion.div
-                style={{
-                    opacity: rightDivOpacity,
-                    x: rightDivX
-                }}
-                className="relative z-10"
-            >
+            <div className="relative z-10">
                 <div className="flex gap-8 h-full">
-                    <p className="font-bold text-base-content/70">
+                    <p className="hidden md:block font-bold text-base-content/70">
                         SOBRE
                     </p>
                     <div className="flex flex-col gap-6 h-full w-full">
@@ -111,7 +92,7 @@ export default function FoodCampus({ leftDivOpacity, leftDivX, rightDivOpacity, 
 
                     </div>
                 </div>
-            </motion.div>
+            </div>
         </div>
     );
 } 

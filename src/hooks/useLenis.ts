@@ -43,7 +43,7 @@ export const useLenis = (options: LenisOptions = {}) => {
     return () => {
       lenis.destroy();
     };
-  }, []);
+  }, [options]);
 
   const scrollTo = (target: string | number, options?: { offset?: number; duration?: number }) => {
     lenisRef.current?.scrollTo(target, options);

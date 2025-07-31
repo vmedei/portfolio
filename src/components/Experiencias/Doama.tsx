@@ -1,21 +1,12 @@
 "use client";
 
 import { doamaImages } from "@/data/imagensCarrossel";
-import { motion, MotionValue } from "framer-motion";
 import Slider from "react-slick";
 import Image from "next/image";
 import { SiNodedotjs, SiPostgresql, SiSvelte, SiTailwindcss } from "react-icons/si";
 import { useState, useEffect } from "react";
-import { div } from "framer-motion/client";
 
-interface DoamaProps {
-    leftDivOpacity: MotionValue<number>;
-    leftDivX: MotionValue<number>;
-    rightDivOpacity: MotionValue<number>;
-    rightDivX: MotionValue<number>;
-}
-
-export default function Doama({ leftDivOpacity, leftDivX, rightDivOpacity, rightDivX }: DoamaProps) {
+export default function Doama() {
     const [isClient, setIsClient] = useState(false);
 
     useEffect(() => {
@@ -55,15 +46,9 @@ export default function Doama({ leftDivOpacity, leftDivX, rightDivOpacity, right
     ];
 
     return (
-        <div className="grid md:grid-cols-2 gap-10 relative">
+        <div className="grid md:grid-cols-2 gap-2 md:gap-10 relative">
             {/* Slider do DOAMA */}
-            <motion.div
-                style={{
-                    opacity: leftDivOpacity,
-                    x: leftDivX
-                }}
-                className="flex flex-col items-center"
-            >
+            <div className="flex flex-col items-center">
                 {isClient ? (
                     <div className="w-[300px] sm:w-[500px] md:w-full">
                         <Slider {...sliderSettings}>
@@ -87,7 +72,7 @@ export default function Doama({ leftDivOpacity, leftDivX, rightDivOpacity, right
                     </div>
                 )}
                 {/* Info do projeto DOAMA */}
-                <div className="mt-8 w-full">
+                <div className="mt-6 w-full">
                     <div className="flex flex-col md:flex-row justify-between items-center gap-2">
                         <h3 className="whitespace-nowrap text-2xl font-bold">Doama</h3>
                         <div className="flex gap-4">
@@ -100,21 +85,15 @@ export default function Doama({ leftDivOpacity, leftDivX, rightDivOpacity, right
                             ))}
                         </div>
                     </div>
-                    <div className="divider" />
                 </div>
-            </motion.div>
+                    <div className="divider" />
+            </div>
 
 
             {/* Texto do DOAMA */}
-            <motion.div
-                style={{
-                    opacity: rightDivOpacity,
-                    x: rightDivX
-                }}
-                className="relative z-10"
-            >
+            <div className="relative z-10">
                 <div className="flex gap-8 h-full">
-                    <p className="font-bold text-base-content/70">
+                    <p className="hidden md:block font-bold text-base-content/70">
                         SOBRE
                     </p>
                     <div className="flex flex-col gap-6 h-full w-full">
@@ -135,7 +114,7 @@ export default function Doama({ leftDivOpacity, leftDivX, rightDivOpacity, right
 
                     </div>
                 </div>
-            </motion.div>
+            </div>
         </div>
     );
 }

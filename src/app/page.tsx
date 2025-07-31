@@ -1,7 +1,7 @@
 "use client";
 
 import { Github, Linkedin, Mail, Code, Palette, Smartphone } from 'lucide-react';
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import Lenis from 'lenis';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
@@ -9,7 +9,6 @@ import Hero from '@/components/Hero';
 import Experiencias from '@/components/Experiencias/Experiencias';
 
 export default function Home() {
-    const [isExperienciaVisible, setIsExperienciaVisible] = useState(false);
     const lenisRef = useRef<Lenis | null>(null);
 
     useEffect(() => {
@@ -34,9 +33,7 @@ export default function Home() {
         const handleScroll = () => {
             const experienciaSection = document.getElementById('experiencia');
             if (experienciaSection) {
-                const rect = experienciaSection.getBoundingClientRect();
-                const isVisible = rect.top < window.innerHeight * 0.6;
-                setIsExperienciaVisible(isVisible);
+                experienciaSection.getBoundingClientRect();
             }
         };
 
