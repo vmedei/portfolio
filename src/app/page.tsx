@@ -50,7 +50,7 @@ export default function Home() {
     // Função para scroll suave para seções específicas
     const scrollToSection = (target: string) => {
         lenisRef.current?.scrollTo(target, {
-            offset: -80, // Offset para compensar o header fixo
+            offset: -100, // Offset para compensar o header fixo
             duration: 1.5,
         });
     };

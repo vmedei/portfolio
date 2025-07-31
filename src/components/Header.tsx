@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
+import { pathD } from "@/data/pathD";
+import AnimatedPath from "./AnimatedPath";
 
 interface HeaderProps {
     className?: string;
@@ -49,12 +51,7 @@ export default function Header({ className = "", scrollToSection }: HeaderProps)
                 <div className="flex items-center justify-between h-16">
                     {/* Logo */}
                     <div className="flex items-center space-x-4 cursor-pointer" onClick={() => handleNavClick('#home')}>
-                        <Image
-                            src="/logo.svg"
-                            alt="Logo"
-                            width={60}
-                            height={60}
-                        />
+                        <AnimatedPath pathD={pathD} size="12" animationType="hover" />
                         <span className="text-xl">Vinicius Medeiros</span>
                     </div>
 

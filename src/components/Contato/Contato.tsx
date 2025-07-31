@@ -1,6 +1,6 @@
 "use client";
 
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { SiGithub, SiLinkedin, SiMaildotru } from 'react-icons/si';
 
 interface ContatoProps {
     scrollToSection?: (target: string) => void;
@@ -36,21 +36,21 @@ export default function Contato({ scrollToSection }: ContatoProps) {
                         className="btn btn-circle btn-outline hover:btn-primary transition-all duration-300"
                         aria-label="GitHub"
                     >
-                        <Github className="w-6 h-6" />
+                        <SiGithub className="w-6 h-6" />
                     </button>
                     <button 
                         onClick={() => handleContactClick('linkedin')}
                         className="btn btn-circle btn-outline hover:btn-primary transition-all duration-300"
                         aria-label="LinkedIn"
                     >
-                        <Linkedin className="w-6 h-6" />
+                        <SiLinkedin className="w-6 h-6" />
                     </button>
                     <button 
                         onClick={() => handleContactClick('email')}
                         className="btn btn-circle btn-outline hover:btn-primary transition-all duration-300"
                         aria-label="Email"
                     >
-                        <Mail className="w-6 h-6" />
+                        <SiMaildotru className="w-6 h-6" />
                     </button>
                 </div>
             </div>

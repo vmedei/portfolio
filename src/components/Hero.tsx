@@ -11,7 +11,7 @@ interface HeroProps {
 export default function Hero({ scrollToSection }: HeroProps) {
     return (
         <section className="hero h-screen" id="home">
-            <div className="relative flex justify-between w-3/4 h-3/4">
+            <div className="relative flex justify-between w-4/5 h-4/5">
                 <div className="flex flex-col justify-around z-10">
                     <div>
                         <h1 className="md:text-5xl text-3xl font-bold">TECH LEAD & DESENVOLVEDOR FULL STACK</h1>
