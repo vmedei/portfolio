@@ -22,7 +22,7 @@ export default function Contato() {
     };
 
     return (
-        <section className="border h-screen flex flex-col items-center justify-between" id="contact">
+        <section className="h-screen flex flex-col items-center justify-between" id="contact">
             <div/>
             <div className="container mx-auto px-4 text-center">
                 <h2 className="text-3xl font-bold mb-8">Vamos Conversar?</h2>
