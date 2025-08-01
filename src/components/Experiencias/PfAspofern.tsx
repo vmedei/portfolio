@@ -47,22 +47,28 @@ export default function PfAspofern() {
                     <p className="hidden md:block font-bold text-base-content/70">
                         SOBRE
                     </p>
-                    <div className="flex flex-col gap-6 h-full w-full">
-                        <p className="text-justify text-base-content/70">
-                            <span className="font-bold text-base-content">Contexto: </span>
-                            Sistema desenvolvido para a Associação dos Policiais Federais do Rio Grande do Norte, com foco em automatizar o processamento de dados financeiros por meio de scripts em Python.
-                        </p>
 
-                        <p className="text-justify text-base-content/70">
-                            <span className="font-bold text-base-content">Desafio e Solução: </span>
-                            A gestão financeira era realizada manualmente, o que demandava tempo e estava suscetível a erros. A solução foi a criação de um sistema que automatiza a coleta e o tratamento de dados de múltiplas fontes, aumentando a precisão e reduzindo o esforço operacional.
-                        </p>
-
-                        <p className="text-justify text-base-content/70">
-                            <span className="font-bold text-base-content">Resultado: </span>
-                            O sistema está em operação e reduziu drasticamente o tempo de execução de processos, que passaram de semanas para minutos. A automatização trouxe eficiência e modernização à gestão da associação.
-                        </p>
-
+                    <div className="join join-vertical">
+                        <div className="collapse collapse-arrow join-item border-base-300 border-b-2">
+                            <input type="radio" name="my-accordion-6" defaultChecked />
+                            <div className="collapse-title font-semibold">Contexto</div>
+                            <div className="collapse-content text-sm text-justify text-base-content/70">Sistema desenvolvido para a Associação dos Policiais Federais do Rio Grande do Norte, com foco em automatizar o processamento de dados financeiros por meio de scripts em Python.</div>
+                        </div>
+                        <div className="collapse collapse-arrow join-item border-base-300 border-b-2">
+                            <input type="radio" name="my-accordion-6" />
+                            <div className="collapse-title font-semibold">Desafio e Solução</div>
+                            <div className="collapse-content text-sm text-justify text-base-content/70">A gestão financeira era realizada manualmente, o que demandava tempo e estava suscetível a erros. A solução foi a criação de um sistema que automatiza a coleta e o tratamento de dados de múltiplas fontes, aumentando a precisão e reduzindo o esforço operacional.</div>
+                        </div>
+                        <div className="collapse collapse-arrow join-item border-base-300 border-b-2">
+                            <input type="radio" name="my-accordion-6" />
+                            <div className="collapse-title font-semibold">Meu papel</div>
+                            <div className="collapse-content text-sm text-justify text-base-content/70">Como desenvolvedor fullstack freelancer, fui responsável pela criação completa do sistema web para processamento de dados financeiros. Desenvolvi funcionalidades para tratamento de arquivos Excel brutos com exportação de relatórios em CSV, focando em segurança e desempenho utilizando Python, Django, Tailwind e SQLite.</div>
+                        </div>
+                        <div className="collapse collapse-arrow join-item border-base-300">
+                            <input type="radio" name="my-accordion-6" />
+                            <div className="collapse-title font-semibold">Resultado</div>
+                            <div className="collapse-content text-sm text-justify text-base-content/70">O sistema está em operação e reduziu drasticamente o tempo de execução de processos, que passaram de semanas para minutos. A automatização trouxe eficiência e modernização à gestão da associação.</div>
+                        </div>
                     </div>
                 </div>
             </div>

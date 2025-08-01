@@ -86,7 +86,7 @@ export default function Doama() {
                         </div>
                     </div>
                 </div>
-                    <div className="divider" />
+                <div className="divider" />
             </div>
 
 
@@ -96,22 +96,28 @@ export default function Doama() {
                     <p className="hidden md:block font-bold text-base-content/70">
                         SOBRE
                     </p>
-                    <div className="flex flex-col gap-6 h-full w-full">
-                        <p className="text-justify text-base-content/70">
-                            <span className="font-bold text-base-content">Contexto: </span>
-                            O Doama foi desenvolvido com o objetivo de modernizar e simplificar a gestão de doadoras e doações de leite materno, com foco no uso por secretarias municipais de saúde. Criado na UFRN, o sistema oferece suporte a bancos de leite e profissionais da área, contribuindo para o controle eficiente desse recurso essencial à sobrevivência de recém-nascidos.
-                        </p>
 
-                        <p className="text-justify text-base-content/70">
-                            <span className="font-bold text-base-content">Desafio e Solução: </span>
-                            O principal desafio era conceber uma plataforma intuitiva, segura e eficaz, capaz de integrar doadoras, profissionais de saúde e bancos de leite, garantindo a rastreabilidade das doações e o controle preciso do estoque. A solução foi um sistema web robusto, que permite o cadastro, o monitoramento e a comunicação entre todos os envolvidos no processo.
-                        </p>
-
-                        <p className="text-justify text-base-content/70">
-                            <span className="font-bold text-base-content">Resultado: </span>
-                            O Doama foi desenvolvido com êxito, atendendo aos critérios de usabilidade, segurança e integração. Embora ainda não esteja em operação oficial, o sistema já demonstrou sua viabilidade e está em fase de avaliação para adoção por diversos municípios.
-                        </p>
-
+                    <div className="join join-vertical">
+                        <div className="collapse collapse-arrow join-item border-base-300 border-b-2">
+                            <input type="radio" name="my-accordion-4" defaultChecked />
+                            <div className="collapse-title font-semibold">Contexto</div>
+                            <div className="collapse-content text-sm text-justify text-base-content/70">O Doama foi desenvolvido com o objetivo de modernizar e simplificar a gestão de doadoras e doações de leite materno, com foco no uso por secretarias municipais de saúde. Criado na UFRN, o sistema oferece suporte a bancos de leite e profissionais da área, contribuindo para o controle eficiente desse recurso essencial à sobrevivência de recém-nascidos.</div>
+                        </div>
+                        <div className="collapse collapse-arrow join-item border-base-300 border-b-2">
+                            <input type="radio" name="my-accordion-4" />
+                            <div className="collapse-title font-semibold">Desafio e Solução</div>
+                            <div className="collapse-content text-sm text-justify text-base-content/70">O principal desafio era conceber uma plataforma intuitiva, segura e eficaz, capaz de integrar doadoras, profissionais de saúde e bancos de leite, garantindo a rastreabilidade das doações e o controle preciso do estoque. A solução foi um sistema web robusto, que permite o cadastro, o monitoramento e a comunicação entre todos os envolvidos no processo.</div>
+                        </div>
+                        <div className="collapse collapse-arrow join-item border-base-300">
+                            <input type="radio" name="my-accordion-4" />
+                            <div className="collapse-title font-semibold">Meu papel</div>
+                            <div className="collapse-content text-sm text-justify text-base-content/70">Como desenvolvedor fullstack bolsista da UFRN, fui responsável pelo desenvolvimento completo do sistema web para gerenciamento de doadoras, doações e estoque de leite materno. Trabalhei com foco em usabilidade, acessibilidade e eficiência operacional, nesse projeto com alto impacto social, apoiando bancos de leite humano em todo o estado.</div>
+                        </div>
+                        <div className="collapse collapse-arrow join-item border-base-300">
+                            <input type="radio" name="my-accordion-4" />
+                            <div className="collapse-title font-semibold">Resultado</div>
+                            <div className="collapse-content text-sm text-justify text-base-content/70">O Doama foi desenvolvido com êxito, atendendo aos critérios de usabilidade, segurança e integração. Embora ainda não esteja em operação oficial, o sistema já demonstrou sua viabilidade e está em fase de avaliação para adoção por diversos municípios.</div>
+                        </div>
                     </div>
                 </div>
             </div>

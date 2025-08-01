@@ -74,22 +74,30 @@ export default function FoodCampus() {
                     <p className="hidden md:block font-bold text-base-content/70">
                         SOBRE
                     </p>
-                    <div className="flex flex-col gap-6 h-full w-full">
-                        <p className="text-justify text-base-content/70">
-                            <span className="font-bold text-base-content">Contexto: </span>
-                            O FoodCampus foi um projeto acadêmico desenvolvido em duas semanas, com o objetivo de conectar vendedores ambulantes do campus a estudantes e frequentadores da universidade por meio de uma plataforma digital.
-                        </p>
 
-                        <p className="text-justify text-base-content/70">
-                            <span className="font-bold text-base-content">Desafio e Solução: </span>
-                            O desafio era criar uma solução completa em tempo limitado, atendendo tanto vendedores quanto consumidores. A plataforma inclui gerenciamento de produtos, agendamento de horários, reserva de pedidos e busca por proximidade, além de um mapa interativo com os setores do campus.
-                        </p>
-
-                        <p className="text-justify text-base-content/70">
-                            <span className="font-bold text-base-content">Resultado: </span>
-                            Projeto entregue com sucesso dentro do prazo, com interface fluida e funcionalidades robustas para ambos os perfis de usuário, simulando uma experiência real de compra e venda no ambiente universitário.
-                        </p>
-
+                    <div className="join join-vertical">
+                        <div className="collapse collapse-arrow join-item border-base-300 border-b-2">
+                            <input type="radio" name="my-accordion-5" defaultChecked />
+                            <div className="collapse-title font-semibold">Contexto</div>
+                            <div className="collapse-content text-sm text-justify text-base-content/70">O FoodCampus foi um projeto acadêmico desenvolvido em duas semanas, com o objetivo de conectar vendedores ambulantes do campus a estudantes e frequentadores da universidade por meio de uma plataforma digital.</div>
+                        </div>
+                        <div className="collapse collapse-arrow join-item border-base-300 border-b-2">
+                            <input type="radio" name="my-accordion-5" />
+                            <div className="collapse-title font-semibold">Desafio e Solução</div>
+                            <div className="collapse-content text-sm text-justify text-base-content/70">O desafio era criar uma solução completa em tempo limitado, atendendo tanto vendedores quanto consumidores. A plataforma inclui gerenciamento de produtos, agendamento de horários, reserva de pedidos e busca por proximidade, além de um mapa interativo com os setores do campus.</div>
+                        </div>
+                        <div className="collapse collapse-arrow join-item border-base-300 border-b-2">
+                            <input type="radio" name="my-accordion-5" />
+                            <div className="collapse-title font-semibold">Meu papel</div>
+                            <div className="collapse-content text-sm text-justify text-base-content/70">
+                                Atuei principalmente no desenvolvimento do front-end da plataforma, utilizando React e Tailwind para criar uma interface intuitiva e responsiva. Um dos principais desafios foi a implementação de um mapa interativo dos setores do campus, permitindo aos usuários localizar vendedores e pontos de venda com facilidade. Desenvolvi a integração do mapa com funcionalidades de busca por proximidade e filtros dinâmicos, proporcionando uma experiência de navegação fluida e visualmente atrativa para os estudantes e frequentadores da universidade.
+                            </div>
+                        </div>
+                        <div className="collapse collapse-arrow join-item border-base-300">
+                            <input type="radio" name="my-accordion-5" />
+                            <div className="collapse-title font-semibold">Resultado</div>
+                            <div className="collapse-content text-sm text-justify text-base-content/70">O projeto foi entregue com sucesso dentro do prazo, com interface fluida e funcionalidades robustas para ambos os perfis de usuário, simulando uma experiência real de compra e venda no ambiente universitário.</div>
+                        </div>
                     </div>
                 </div>
             </div>
