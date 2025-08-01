@@ -7,7 +7,6 @@ type AnimatedPathProps = {
   animationType?: 'loop' | 'hover';
   duration?: number;
   pauseDuration?: number;
-  size?: string;
 };
 
 const AnimatedPath: React.FC<AnimatedPathProps> = ({
@@ -15,7 +14,6 @@ const AnimatedPath: React.FC<AnimatedPathProps> = ({
   animationType = 'loop',
   duration = 2000,
   pauseDuration = 1000,
-  size = 'full'
 }) => {
   const pathRef = useRef<SVGPathElement>(null);
   const [pathLength, setPathLength] = useState(0);
@@ -123,7 +121,7 @@ const AnimatedPath: React.FC<AnimatedPathProps> = ({
 
   return (
     <div 
-      className={`w-${size} h-${size} flex items-center justify-center`}
+      className={`flex items-center justify-center ${animationType === 'hover' ? 'w-12 h-12' : 'w-full h-full'}`}
       onMouseEnter={handleHover}
     >
       <svg

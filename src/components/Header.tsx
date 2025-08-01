@@ -50,7 +50,7 @@ export default function Header({ className = "", scrollToSection }: HeaderProps)
                 <div className="flex items-center justify-between h-16">
                     {/* Logo */}
                     <div className="flex items-center space-x-4 cursor-pointer" onClick={() => handleNavClick('#home')}>
-                        <AnimatedPath pathD={pathD} size="12" animationType="hover" />
+                        <AnimatedPath pathD={pathD} animationType="hover" />
                         <span className="text-xl">Vinicius Medeiros</span>
                     </div>
 
