@@ -2,21 +2,17 @@
 
 import { SiGithub, SiLinkedin, SiMaildotru } from 'react-icons/si';
 
-interface ContatoProps {
-    scrollToSection?: (target: string) => void;
-}
-
-export default function Contato({ scrollToSection }: ContatoProps) {
+export default function Contato() {
     const handleContactClick = (type: string) => {
         switch (type) {
             case 'github':
-                window.open('https://github.com/seu-usuario', '_blank');
+                window.open('https://github.com/viniciusmedeiros', '_blank');
                 break;
             case 'linkedin':
-                window.open('https://linkedin.com/in/seu-perfil', '_blank');
+                window.open('https://linkedin.com/in/viniciusmedeiros', '_blank');
                 break;
             case 'email':
-                window.location.href = 'mailto:seu-email@exemplo.com';
+                window.location.href = 'mailto:viniciusmedeiros@gmail.com';
                 break;
             default:
                 break;

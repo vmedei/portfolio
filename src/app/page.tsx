@@ -65,7 +65,7 @@ export default function Home() {
 
             <Experiencias />
 
-            <Contato scrollToSection={scrollToSection} />
+            <Contato />
 
             {/* Footer */}
             <footer className="footer footer-center p-10 bg-base-300 text-base-content">

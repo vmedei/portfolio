@@ -32,7 +32,7 @@ const AnimatedPath: React.FC<AnimatedPathProps> = ({
     }
   }, [pathD]);
 
-  const animacaoInserir = useCallback(async (length: number) => {
+  const animacaoInserir = useCallback(async () => {
     if (!pathRef.current) return;
 
     // Mostrar do final para o início
@@ -40,7 +40,7 @@ const AnimatedPath: React.FC<AnimatedPathProps> = ({
     pathRef.current.style.strokeDashoffset = '0';
   }, [duration, pathRef]);
 
-  const animacaoRemover = useCallback(async (length: number) => {
+  const animacaoRemover = useCallback(async () => {
     if (!pathRef.current) return;
     pathRef.current.style.transition = `stroke-dashoffset ${duration}ms ease-in-out`;
     pathRef.current.style.strokeDashoffset = (pathLength).toString();
@@ -57,8 +57,7 @@ const AnimatedPath: React.FC<AnimatedPathProps> = ({
     if (pathLength > 0 && !isInitialized && animationType === 'hover') {
       const initializeAnimation = async () => {
         if (!pathRef.current) return;
-        const length = pathRef.current.getTotalLength();
-        await animacaoInserir(length);
+        await animacaoInserir();
         setIsInitialized(true);
       };
       initializeAnimation();
@@ -77,11 +76,11 @@ const AnimatedPath: React.FC<AnimatedPathProps> = ({
 
           const length = pathRef.current.getTotalLength();
 
-          animacaoInserir(length);
+          animacaoInserir();
 
           await new Promise((resolve) => setTimeout(resolve, duration + pauseDuration));
 
-          animacaoRemover(length);
+          animacaoRemover();
 
           await new Promise((resolve) => setTimeout(resolve, duration + pauseDuration));
 
@@ -105,7 +104,7 @@ const AnimatedPath: React.FC<AnimatedPathProps> = ({
       const length = pathRef.current.getTotalLength();
       
       // Remove a animação
-      await animacaoRemover(length);
+      await animacaoRemover();
       
       // Aguarda um pouco
       await new Promise((resolve) => setTimeout(resolve, 100));
@@ -117,7 +116,7 @@ const AnimatedPath: React.FC<AnimatedPathProps> = ({
       await new Promise((resolve) => setTimeout(resolve, 100));
       
       // Insere novamente
-      await animacaoInserir(length);
+      await animacaoInserir();
       
     }
   }, [animationType, animacaoRemover, animacaoReset, animacaoInserir]);
