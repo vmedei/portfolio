@@ -62,7 +62,7 @@ const TextType = ({
   };
 
   const getCurrentTextColor = () => {
-    if (textColors.length === 0) return "#ffffff";
+    if (textColors.length === 0) return "#000000";
     return textColors[currentTextIndex % textColors.length];
   };
 
@@ -168,6 +168,7 @@ const TextType = ({
     reverseMode,
     variableSpeed,
     onSentenceComplete,
+    getRandomSpeed
   ]);
 
   const shouldHideCursor =

@@ -4,6 +4,7 @@ import { ExternalLink } from "lucide-react";
 import Image from "next/image";
 import { FaJava } from "react-icons/fa";
 import { SiReact, SiTailwindcss } from "react-icons/si";
+import { motion } from "framer-motion";
 
 export default function FoodCampus() {
     // Ícones das tecnologias
@@ -17,10 +18,39 @@ export default function FoodCampus() {
         window.open("https://foodcampusfrontend-production.up.railway.app/", "_blank");
     };
 
+    const foodCampusVariants = {
+        initial: {
+            opacity: 0,
+            x: -50,
+        },
+        whileInView: {
+            opacity: 1,
+            x: 0,
+            transition: {
+                ease: "easeOut" as const,
+            }
+        }
+    };
+
+    const foodCampusTextVariants = {
+        initial: {
+            opacity: 0,
+            x: 50,
+        },
+        whileInView: {
+            opacity: 1,
+            x: 0,
+            transition: {
+                delay: 0.2,
+                ease: "easeOut" as const,
+            }
+        }
+    };
+
     return (
         <div className="grid md:grid-cols-2 gap-2 md:gap-10 relative">
             {/* Imagem do FOODCAMPUS */}
-            <div>
+            <motion.div variants={foodCampusVariants} initial="initial" whileInView="whileInView" viewport={{ amount: 0.2 }}>
                 <div className="relative group cursor-pointer">
                     <Image
                         src="/foodcampus/FoodCampus.svg"
@@ -66,10 +96,10 @@ export default function FoodCampus() {
                     </div>
                     <div className="divider" />
                 </div>
-            </div>
+            </motion.div>
 
             {/* Texto do FOODCAMPUS */}
-            <div className="relative z-10">
+            <motion.div className="relative z-10" variants={foodCampusTextVariants} initial="initial" whileInView="whileInView" viewport={{ amount: 0.2 }}>
                 <div className="flex gap-8 h-full">
                     <p className="hidden md:block font-bold text-base-content/70">
                         SOBRE
@@ -100,7 +130,7 @@ export default function FoodCampus() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </motion.div>
         </div>
     );
 } 

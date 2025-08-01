@@ -5,6 +5,7 @@ import Slider from "react-slick";
 import Image from "next/image";
 import { SiNodedotjs, SiPostgresql, SiSvelte, SiTailwindcss } from "react-icons/si";
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 export default function Doama() {
     const [isClient, setIsClient] = useState(false);
@@ -45,10 +46,45 @@ export default function Doama() {
         { icon: SiPostgresql, name: "PostgreSQL" },
     ];
 
+    const doamaVariants = {
+        initial: {
+            opacity: 0,
+            x: -50,
+        },
+        whileInView: {
+            opacity: 1,
+            x: 0,
+            transition: {
+                ease: "easeOut" as const,
+            }
+        }
+    };
+
+    const doamaTextVariants = {
+        initial: {
+            opacity: 0,
+            x: 50,
+        },
+        whileInView: {
+            opacity: 1,
+            x: 0,
+            transition: {
+                delay: 0.2,
+                ease: "easeOut" as const,
+            }
+        }
+    };
+
     return (
         <div className="grid md:grid-cols-2 gap-2 md:gap-10 relative">
             {/* Slider do DOAMA */}
-            <div className="flex flex-col items-center">
+            <motion.div
+                variants={doamaVariants}
+                viewport={{ amount: 0.4 }}
+                initial="initial"
+                whileInView="whileInView"
+                className="flex flex-col items-center"
+            >
                 {isClient ? (
                     <div className="w-[300px] sm:w-[500px] md:w-full">
                         <Slider {...sliderSettings}>
@@ -87,11 +123,17 @@ export default function Doama() {
                     </div>
                 </div>
                 <div className="divider" />
-            </div>
+            </motion.div>
 
 
             {/* Texto do DOAMA */}
-            <div className="relative z-10">
+            <motion.div
+                variants={doamaTextVariants}
+                viewport={{ amount: 0.4 }}
+                initial="initial"
+                whileInView="whileInView"
+                className="relative z-10"
+            >
                 <div className="flex gap-8 h-full">
                     <p className="hidden md:block font-bold text-base-content/70">
                         SOBRE
@@ -120,7 +162,7 @@ export default function Doama() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </motion.div>
         </div>
     );
 }

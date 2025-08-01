@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { SiPython, SiReact, SiTailwindcss } from "react-icons/si";
+import { motion } from "framer-motion";
 
 export default function PfAspofern() {
     // Ícones das tecnologias
@@ -11,10 +12,39 @@ export default function PfAspofern() {
         { icon: SiPython, name: "Python" },
     ];
 
+    const pfAspofernVariants = {
+        initial: {
+            opacity: 0,
+            x: -50,
+        },
+        whileInView: {
+            opacity: 1,
+            x: 0,
+            transition: {
+                ease: "easeOut" as const,
+            }
+        }
+    };
+
+    const pfAspofernTextVariants = {
+        initial: {
+            opacity: 0,
+            x: 50,
+        },
+        whileInView: {
+            opacity: 1,
+            x: 0,
+            transition: {
+                delay: 0.2,
+                ease: "easeOut" as const,
+            }
+        }
+    };
+
     return (
         <div className="grid md:grid-cols-2 gap-2 md:gap-10">
             {/* Imagem do PF/Aspofern */}
-            <div>
+            <motion.div variants={pfAspofernVariants} initial="initial" whileInView="whileInView" viewport={{ amount: 0.2 }}>
                 <div className="group cursor-pointer">
                     <Image
                         src="/aspofern/PfAspofern.png"
@@ -39,10 +69,10 @@ export default function PfAspofern() {
                     </div>
                 </div>
                 <div className="divider" />
-            </div>
+            </motion.div>
 
             {/* Texto do PF/Aspofern */}
-            <div className="relative z-10">
+            <motion.div className="relative z-10" variants={pfAspofernTextVariants} initial="initial" whileInView="whileInView" viewport={{ amount: 0.2 }}>
                 <div className="flex gap-8 h-full">
                     <p className="hidden md:block font-bold text-base-content/70">
                         SOBRE
@@ -71,7 +101,7 @@ export default function PfAspofern() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </motion.div>
         </div>
     );
 } 

@@ -2,6 +2,7 @@
 
 import { RiNextjsFill } from "react-icons/ri";
 import { SiNodedotjs, SiReact, SiMysql, SiPython, SiTailwindcss } from "react-icons/si";
+import { motion } from "framer-motion";
 
 export default function Sigest() {
     // Ícones das tecnologias
@@ -14,10 +15,45 @@ export default function Sigest() {
         { icon: SiPython, name: "Python" },
     ];
 
+    const sigestVariants = {
+        initial: {
+            opacity: 0,
+            x: -50,
+        },
+        whileInView: {
+            opacity: 1,
+            x: 0,
+            transition: {
+                delay: 0.4,
+                ease: "easeOut" as const,
+            }
+        }
+    };
+
+    const sigestTextVariants = {
+        initial: {
+            opacity: 0,
+            x: 50,
+        },
+        whileInView: {
+            opacity: 1,
+            x: 0,
+            transition: {
+                delay: 0.6,
+                ease: "easeOut" as const,
+            }
+        }
+    };
+
     return (
         <div className="grid md:grid-cols-2 gap-2 md:gap-10 relative">
             {/* Vídeo do SIGEST */}
-            <div className="">
+            <motion.div
+                variants={sigestVariants}
+                viewport={{ amount: 0.4 }}
+                initial="initial"
+                whileInView="whileInView"
+            >
                 <div className="aspect-video bg-base-200 rounded-lg overflow-hidden">
                     <video
                         controls
@@ -43,10 +79,16 @@ export default function Sigest() {
                     </div>
                 </div>
                 <div className="divider" />
-            </div>
+            </motion.div>
 
             {/* Texto do SIGEST */}
-            <div className="relative z-10">
+            <motion.div
+                variants={sigestTextVariants}
+                viewport={{ amount: 0.4 }}
+                initial="initial"
+                whileInView="whileInView"
+                className="relative z-10"
+            >
                 <div className="flex gap-8 h-full">
                     <p className="hidden md:block font-bold text-base-content/70">
                         SOBRE
@@ -75,7 +117,7 @@ export default function Sigest() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </motion.div>
         </div>
     );
 } 

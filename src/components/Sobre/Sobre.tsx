@@ -1,13 +1,60 @@
+import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 
 export default function Sobre() {
+
+    const imageVariants = {
+        initial: {
+            opacity: 0,
+            x: -50,
+        },
+        whileInView: {
+            opacity: 1,
+            x: 0,
+            transition: {
+                duration: 0.2,
+                ease: "easeOut" as const,
+            }
+        }
+    };
+
+    const textVariants = {
+        initial: {
+            opacity: 0,
+            x: 50,
+        },
+        whileInView: {
+            opacity: 1,
+            x: 0,
+            transition: {
+                duration: 0.2,
+                ease: "easeOut" as const,
+                delay: 0.2
+            }
+        }
+    };
+
     return (
         <section className="flex flex-col md:flex-row gap-10 justify-center items-center" id="sobre">
 
-            <Image src="/sobre/vinicius.png" alt="Profile" width={400} height={400} />
+            <motion.div
+                className=""
+                variants={imageVariants}
+                initial="initial"
+                whileInView="whileInView"
+                viewport={{ amount: 0.3 }}
+            >
+                <Image src="/sobre/vinicius.png" alt="Profile" width={400} height={400} />
+            </motion.div>
 
-            <div className="md:w-1/2 p-4 flex flex-col gap-6">
+            <motion.div
+                className="md:w-1/2 p-4 flex flex-col gap-6"
+                variants={textVariants}
+                initial="initial"
+                whileInView="whileInView"
+                viewport={{ amount: 0.3 }}
+            >
                 <p className="hidden md:block font-bold text-base-content/50">
                     SOBRE
                 </p>
@@ -23,7 +70,7 @@ export default function Sobre() {
                 <p className="text-justify text-2xl">
                     Quero saber como tudo isso começou?
                 </p>
-                
+
                 <div className="flex">
                     <button
                         className="btn btn-secondary"
@@ -33,7 +80,7 @@ export default function Sobre() {
                     </button>
                 </div>
 
-            </div>
+            </motion.div>
 
         </section>
     );
