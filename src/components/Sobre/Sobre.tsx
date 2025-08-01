@@ -1,17 +1,33 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 export default function Sobre() {
+
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkIsMobile = () => {
+            setIsMobile(window.innerWidth < 768); // 768px é o breakpoint md do Tailwind
+        };
+
+        checkIsMobile();
+        window.addEventListener('resize', checkIsMobile);
+
+        return () => window.removeEventListener('resize', checkIsMobile);
+    }, []);
 
     const imageVariants = {
         initial: {
             opacity: 0,
-            x: 50,
+            x: isMobile ? 0 : -50,
+            y: isMobile ? -50 : 0,
         },
         whileInView: {
             opacity: 1,
             x: 0,
+            y: 0,
             transition: {
                 duration: 0.2,
                 ease: "easeOut" as const,
@@ -22,11 +38,13 @@ export default function Sobre() {
     const textVariants = {
         initial: {
             opacity: 0,
-            x: -50,
+            x: isMobile ? 0 : 50,
+            y: isMobile ? -50 : 0,
         },
         whileInView: {
             opacity: 1,
             x: 0,
+            y: 0,
             transition: {
                 duration: 0.2,
                 ease: "easeOut" as const,

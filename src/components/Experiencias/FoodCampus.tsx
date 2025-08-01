@@ -5,8 +5,11 @@ import Image from "next/image";
 import { FaJava } from "react-icons/fa";
 import { SiReact, SiTailwindcss } from "react-icons/si";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export default function FoodCampus() {
+    const [isMobile, setIsMobile] = useState(false);
+
     // Ícones das tecnologias
     const iconesFoodCampus = [
         { icon: SiReact, name: "React" },
@@ -21,11 +24,13 @@ export default function FoodCampus() {
     const foodCampusVariants = {
         initial: {
             opacity: 0,
-            x: -50,
+            x: isMobile ? 0 : -50,
+            y: isMobile ? -50 : 0,
         },
         whileInView: {
             opacity: 1,
             x: 0,
+            y: 0,
             transition: {
                 ease: "easeOut" as const,
             }
@@ -35,17 +40,30 @@ export default function FoodCampus() {
     const foodCampusTextVariants = {
         initial: {
             opacity: 0,
-            x: 50,
+            x: isMobile ? 0 : 50,
+            y: isMobile ? -50 : 0,
         },
         whileInView: {
             opacity: 1,
             x: 0,
+            y: 0,
             transition: {
                 delay: 0.2,
                 ease: "easeOut" as const,
             }
         }
     };
+
+    useEffect(() => {
+        const checkIsMobile = () => {
+            setIsMobile(window.innerWidth < 768); // 768px é o breakpoint md do Tailwind
+        };
+
+        checkIsMobile();
+        window.addEventListener('resize', checkIsMobile);
+
+        return () => window.removeEventListener('resize', checkIsMobile);
+    }, []);
 
     return (
         <div className="grid md:grid-cols-2 gap-2 md:gap-10 relative">

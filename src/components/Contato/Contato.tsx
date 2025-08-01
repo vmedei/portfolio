@@ -2,7 +2,7 @@
 
 import { FiGithub } from 'react-icons/fi';
 import { PiLinkedinLogo } from 'react-icons/pi';
-import { SiMaildotru } from 'react-icons/si';
+import { MdOutlineEmail } from "react-icons/md";
 
 export default function Contato() {
     const handleContactClick = (type: string) => {
@@ -22,36 +22,50 @@ export default function Contato() {
     };
 
     return (
-        <section className="" id="contact">
+        <section className="border h-screen flex flex-col items-center justify-between" id="contact">
+            <div/>
             <div className="container mx-auto px-4 text-center">
                 <h2 className="text-3xl font-bold mb-8">Vamos Conversar?</h2>
                 <p className="text-lg mb-8 text-base-content/70">
                     Estou sempre aberto a novas oportunidades e colaborações.
                 </p>
                 <div className="flex gap-6 justify-center">
-                    <button 
-                        onClick={() => handleContactClick('github')}
-                        className="border border-base-content/30 rounded-sm p-2"
-                        aria-label="GitHub"
+                    <div className="tooltip" data-tip="GitHub">
+                        <button 
+                            onClick={() => handleContactClick('github')}
+                            className="border-base-content/30 p-4  text-base-content/70 hover:cursor-pointer hover:text-base-content"
+                            aria-label="GitHub"
+                        >
+                            <FiGithub className="w-6 h-6" />
+                        </button>
+                    </div>
+                    <div className="tooltip" data-tip="LinkedIn">
+                        <button
+                            onClick={() => handleContactClick('linkedin')}
+                            className="border-base-content/30 p-4 text-base-content/70 hover:cursor-pointer hover:text-base-content"
+                            aria-label="LinkedIn"
                     >
-                        <FiGithub className="w-6 h-6 text-base-content/70" />
-                    </button>
-                    <button
-                        onClick={() => handleContactClick('linkedin')}
-                        className="border border-base-content/30 rounded-sm p-2"
-                        aria-label="LinkedIn"
+                        <PiLinkedinLogo className="w-6 h-6" />
+                        </button>
+                    </div>
+                    <div className="tooltip" data-tip="Email">
+                        <button 
+                            onClick={() => handleContactClick('email')}
+                            className="border-base-content/30 p-4 text-base-content/70 hover:cursor-pointer hover:text-base-content"
+                            aria-label="Email"
                     >
-                        <PiLinkedinLogo className="w-6 h-6 text-base-content/70" />
-                    </button>
-                    <button 
-                        onClick={() => handleContactClick('email')}
-                        className="border border-base-content/30 rounded-sm p-2"
-                        aria-label="Email"
-                    >
-                        <SiMaildotru className="w-6 h-6 text-base-content/70" />
-                    </button>
+                        <MdOutlineEmail className="w-6 h-6" />
+                        </button>
+                    </div>
                 </div>
             </div>
+            {/* Footer */}
+            <footer className="footer p-10 bg-base-300 text-base-content">
+                <div>
+                    <p className='font-bold'>Vinicius Medeiros © 2025 - Todos os direitos reservados</p>
+                    <p>CNPJ: 31.815.099/0001-03</p>
+                </div>
+            </footer>
         </section>
     );
 } 

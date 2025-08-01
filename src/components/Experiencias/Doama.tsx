@@ -9,10 +9,21 @@ import { motion } from "framer-motion";
 
 export default function Doama() {
     const [isClient, setIsClient] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
         setIsClient(true);
-        console.log('Doama component mounted, images:', doamaImages);
+    }, []);
+
+    useEffect(() => {
+        const checkIsMobile = () => {
+            setIsMobile(window.innerWidth < 768); // 768px é o breakpoint md do Tailwind
+        };
+
+        checkIsMobile();
+        window.addEventListener('resize', checkIsMobile);
+
+        return () => window.removeEventListener('resize', checkIsMobile);
     }, []);
 
     // Configurações do React Slick
@@ -49,11 +60,13 @@ export default function Doama() {
     const doamaVariants = {
         initial: {
             opacity: 0,
-            x: -50,
+            x: isMobile ? 0 : -50,
+            y: isMobile ? -50 : 0,
         },
         whileInView: {
             opacity: 1,
             x: 0,
+            y: 0,
             transition: {
                 ease: "easeOut" as const,
             }
@@ -63,11 +76,13 @@ export default function Doama() {
     const doamaTextVariants = {
         initial: {
             opacity: 0,
-            x: 50,
+            x: isMobile ? 0 : 50,
+            y: isMobile ? -50 : 0,
         },
         whileInView: {
             opacity: 1,
             x: 0,
+            y: 0,
             transition: {
                 delay: 0.2,
                 ease: "easeOut" as const,
