@@ -7,7 +7,6 @@ import Doama from "./Doama";
 import Sigest from "./Sigest";
 import FoodCampus from "./FoodCampus";
 import PfAspofern from "./PfAspofern";
-import GithubCalendar from "./GitHubCalendar";
 
 export default function Experiencias() {
     const [isMobile, setIsMobile] = useState(false);
@@ -62,7 +61,6 @@ export default function Experiencias() {
                 <Doama />
                 <PfAspofern />
                 <FoodCampus />
-                <GithubCalendar />
             </section>
         </motion.div>
     );
