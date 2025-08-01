@@ -7,7 +7,7 @@ export default function Sobre() {
     const imageVariants = {
         initial: {
             opacity: 0,
-            x: -50,
+            x: 50,
         },
         whileInView: {
             opacity: 1,
@@ -22,7 +22,7 @@ export default function Sobre() {
     const textVariants = {
         initial: {
             opacity: 0,
-            x: 50,
+            x: -50,
         },
         whileInView: {
             opacity: 1,
@@ -39,7 +39,6 @@ export default function Sobre() {
         <section className="flex flex-col md:flex-row gap-10 justify-center items-center" id="sobre">
 
             <motion.div
-                className=""
                 variants={imageVariants}
                 initial="initial"
                 whileInView="whileInView"

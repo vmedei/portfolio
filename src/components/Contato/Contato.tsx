@@ -1,18 +1,20 @@
 "use client";
 
-import { SiGithub, SiLinkedin, SiMaildotru } from 'react-icons/si';
+import { FiGithub } from 'react-icons/fi';
+import { PiLinkedinLogo } from 'react-icons/pi';
+import { SiMaildotru } from 'react-icons/si';
 
 export default function Contato() {
     const handleContactClick = (type: string) => {
         switch (type) {
             case 'github':
-                window.open('https://github.com/viniciusmedeiros', '_blank');
+                window.open('https://github.com/vmedei', '_blank');
                 break;
             case 'linkedin':
-                window.open('https://linkedin.com/in/viniciusmedeiros', '_blank');
+                window.open('https://linkedin.com/in/vmedei', '_blank');
                 break;
             case 'email':
-                window.location.href = 'mailto:viniciusmedeiros@gmail.com';
+                window.location.href = 'mailto:vinicius.m3deiros@gmail.com';
                 break;
             default:
                 break;
@@ -29,24 +31,24 @@ export default function Contato() {
                 <div className="flex gap-6 justify-center">
                     <button 
                         onClick={() => handleContactClick('github')}
-                        className="btn btn-circle btn-outline hover:btn-primary transition-all duration-300"
+                        className="border border-base-content/30 rounded-sm p-2"
                         aria-label="GitHub"
                     >
-                        <SiGithub className="w-6 h-6" />
+                        <FiGithub className="w-6 h-6 text-base-content/70" />
                     </button>
-                    <button 
+                    <button
                         onClick={() => handleContactClick('linkedin')}
-                        className="btn btn-circle btn-outline hover:btn-primary transition-all duration-300"
+                        className="border border-base-content/30 rounded-sm p-2"
                         aria-label="LinkedIn"
                     >
-                        <SiLinkedin className="w-6 h-6" />
+                        <PiLinkedinLogo className="w-6 h-6 text-base-content/70" />
                     </button>
                     <button 
                         onClick={() => handleContactClick('email')}
-                        className="btn btn-circle btn-outline hover:btn-primary transition-all duration-300"
+                        className="border border-base-content/30 rounded-sm p-2"
                         aria-label="Email"
                     >
-                        <SiMaildotru className="w-6 h-6" />
+                        <SiMaildotru className="w-6 h-6 text-base-content/70" />
                     </button>
                 </div>
             </div>
