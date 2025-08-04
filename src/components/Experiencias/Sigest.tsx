@@ -33,13 +33,11 @@ export default function Sigest() {
     const sigestVariants = {
         initial: {
             opacity: 0,
-            x: isMobile ? 0 : -50,
-            y: isMobile ? -50 : 0,
+            x: isMobile ? -5 : -50,
         },
         whileInView: {
             opacity: 1,
             x: 0,
-            y: 0,
             transition: {
                 delay: 0.4,
                 ease: "easeOut" as const,
@@ -50,13 +48,11 @@ export default function Sigest() {
     const sigestTextVariants = {
         initial: {
             opacity: 0,
-            x: isMobile ? 0 : 50,
-            y: isMobile ? -50 : 0,
+            x: isMobile ? 5 : 50,
         },
         whileInView: {
             opacity: 1,
             x: 0,
-            y: 0,
             transition: {
                 delay: 0.6,
                 ease: "easeOut" as const,

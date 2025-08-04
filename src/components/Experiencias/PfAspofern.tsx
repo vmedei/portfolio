@@ -29,13 +29,11 @@ export default function PfAspofern() {
     const pfAspofernVariants = {
         initial: {
             opacity: 0,
-            x: isMobile ? 0 : -50,
-            y: isMobile ? -50 : 0,
+            x: isMobile ? -5 : -50,
         },
         whileInView: {
             opacity: 1,
             x: 0,
-            y: 0,
             transition: {
                 ease: "easeOut" as const,
             }
@@ -45,13 +43,11 @@ export default function PfAspofern() {
     const pfAspofernTextVariants = {
         initial: {
             opacity: 0,
-            x: isMobile ? 0 : 50,
-            y: isMobile ? -50 : 0,
+            x: isMobile ? 5 : 50,
         },
         whileInView: {
             opacity: 1,
             x: 0,
-            y: 0,
             transition: {
                 delay: 0.2,
                 ease: "easeOut" as const,
