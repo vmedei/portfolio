@@ -9,13 +9,16 @@ export default function Sobre() {
 
     useEffect(() => {
         const checkIsMobile = () => {
-            setIsMobile(window.innerWidth < 768); // 768px é o breakpoint md do Tailwind
+            if (typeof window !== 'undefined') {
+                setIsMobile(window.innerWidth < 768); // 768px é o breakpoint md do Tailwind
+            }
         };
 
         checkIsMobile();
-        window.addEventListener('resize', checkIsMobile);
-
-        return () => window.removeEventListener('resize', checkIsMobile);
+        if (typeof window !== 'undefined') {
+            window.addEventListener('resize', checkIsMobile);
+            return () => window.removeEventListener('resize', checkIsMobile);
+        }
     }, []);
 
     const imageVariants = {

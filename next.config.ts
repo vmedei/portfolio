@@ -1,16 +1,23 @@
-/** @type {import('next').NextConfig} */
+import type { NextConfig } from 'next';
 
-const nextConfig = {
+const nextConfig: NextConfig = {
   output: 'export',
   trailingSlash: true, // opcional: adiciona "/" ao final das URLs
-  basePath: process.env.NODE_ENV === 'production' ? '/portfolio' : '',
+  basePath: '',
   images: {
     unoptimized: true, // necessário para output: 'export'
   },
-  // Configuração de porta (alternativa)
-  // experimental: {
-  //   serverComponentsExternalPackages: [],
-  // },
+  transpilePackages: ['gsap', 'lenis'],
+  experimental: {
+    esmExternals: 'loose'
+  },
+  webpack: (config) => {
+    config.externals.push({
+      'utf-8-validate': 'commonjs utf-8-validate',
+      'bufferutil': 'commonjs bufferutil',
+    });
+    return config;
+  }
 };
 
 export default nextConfig;

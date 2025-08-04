@@ -42,17 +42,44 @@ const TecnologiasMarquee = ({
     gradientColor = "#FFF",
 }: TecnologiasMarqueeProps) => {
     const [isMobile, setIsMobile] = useState(false);
+    const [isClient, setIsClient] = useState(false);
 
     useEffect(() => {
+        setIsClient(true);
         const checkIsMobile = () => {
-            setIsMobile(window.innerWidth < 768); // 768px é o breakpoint md do Tailwind
+            if (typeof window !== 'undefined') {
+                setIsMobile(window.innerWidth < 768); // 768px é o breakpoint md do Tailwind
+            }
         };
 
         checkIsMobile();
-        window.addEventListener('resize', checkIsMobile);
-
-        return () => window.removeEventListener('resize', checkIsMobile);
+        if (typeof window !== 'undefined') {
+            window.addEventListener('resize', checkIsMobile);
+            return () => window.removeEventListener('resize', checkIsMobile);
+        }
     }, []);
+
+    // Fallback para quando não está no cliente
+    if (!isClient) {
+        return (
+            <div className="flex items-center justify-center gap-4 md:gap-8 overflow-hidden">
+                {icones.map((icone, index) => {
+                    const IconComponent = icone.icon;
+                    return (
+                        <div
+                            key={index}
+                            className="flex items-center justify-center mx-4 md:mx-8"
+                        >
+                            <IconComponent 
+                                className="h-8 w-8 text-base-content opacity-50" 
+                            />
+                        </div>
+                    );
+                })}
+            </div>
+        );
+    }
+
     return (
         <Marquee
             speed={50}
