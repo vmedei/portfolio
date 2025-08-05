@@ -8,9 +8,6 @@ const nextConfig: NextConfig = {
     unoptimized: true, // necessário para output: 'export'
   },
   transpilePackages: ['gsap', 'lenis'],
-  experimental: {
-    esmExternals: 'loose'
-  },
   webpack: (config) => {
     config.externals.push({
       'utf-8-validate': 'commonjs utf-8-validate',

@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Trajetoria from "./Trajetoria";
 import { useMobile } from "@/contexts/MobileContext";
 
