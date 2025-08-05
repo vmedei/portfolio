@@ -1,29 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
 import TecnologiasMarquee from "../TecnologiasMarquee";
 import Doama from "./Doama";
 import Sigest from "./Sigest";
 import FoodCampus from "./FoodCampus";
 import PfAspofern from "./PfAspofern";
+import { useMobile } from "@/contexts/MobileContext";
 
 export default function Experiencias() {
-    const [isMobile, setIsMobile] = useState(false);
-
-    useEffect(() => {
-        const checkIsMobile = () => {
-            if (typeof window !== 'undefined') {
-                setIsMobile(window.innerWidth < 768); // 768px é o breakpoint md do Tailwind
-            }
-        };
-
-        checkIsMobile();
-        if (typeof window !== 'undefined') {
-            window.addEventListener('resize', checkIsMobile);
-            return () => window.removeEventListener('resize', checkIsMobile);
-        }
-    }, []);
+    const { isMobile } = useMobile();
 
     const experienciasVariants = {
         initial: {

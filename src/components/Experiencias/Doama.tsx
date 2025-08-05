@@ -6,24 +6,14 @@ import Image from "next/image";
 import { SiNodedotjs, SiPostgresql, SiSvelte, SiTailwindcss } from "react-icons/si";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { useMobile } from "@/contexts/MobileContext";
 
 export default function Doama() {
     const [isClient, setIsClient] = useState(false);
-    const [isMobile, setIsMobile] = useState(false);
+    const { isMobile } = useMobile();
 
     useEffect(() => {
         setIsClient(true);
-    }, []);
-
-    useEffect(() => {
-        const checkIsMobile = () => {
-            setIsMobile(window.innerWidth < 768); // 768px é o breakpoint md do Tailwind
-        };
-
-        checkIsMobile();
-        window.addEventListener('resize', checkIsMobile);
-
-        return () => window.removeEventListener('resize', checkIsMobile);
     }, []);
 
     // Configurações do React Slick

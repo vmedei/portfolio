@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import Trajetoria from "./Trajetoria";
+import { useMobile } from "@/contexts/MobileContext";
 
 interface SobreProps {
     scrollToSection: (target: string) => void;
@@ -10,22 +11,8 @@ interface SobreProps {
 
 export default function Sobre({ scrollToSection }: SobreProps) {
 
-    const [isMobile, setIsMobile] = useState(false);
+    const { isMobile } = useMobile();
     const [exibirTrajetoria, setExibirTrajetoria] = useState(false);
-
-    useEffect(() => {
-        const checkIsMobile = () => {
-            if (typeof window !== 'undefined') {
-                setIsMobile(window.innerWidth < 768); // 768px é o breakpoint md do Tailwind
-            }
-        };
-
-        checkIsMobile();
-        if (typeof window !== 'undefined') {
-            window.addEventListener('resize', checkIsMobile);
-            return () => window.removeEventListener('resize', checkIsMobile);
-        }
-    }, []);
 
     const handleClick = () => {
         setExibirTrajetoria(true);

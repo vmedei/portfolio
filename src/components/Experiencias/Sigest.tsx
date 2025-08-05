@@ -3,22 +3,11 @@
 import { RiNextjsFill } from "react-icons/ri";
 import { SiNodedotjs, SiReact, SiMysql, SiPython, SiTailwindcss } from "react-icons/si";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useMobile } from "@/contexts/MobileContext";
 
 export default function Sigest() {
 
-    const [isMobile, setIsMobile] = useState(false);
-
-    useEffect(() => {
-        const checkIsMobile = () => {
-            setIsMobile(window.innerWidth < 768); // 768px é o breakpoint md do Tailwind
-        };
-
-        checkIsMobile();
-        window.addEventListener('resize', checkIsMobile);
-
-        return () => window.removeEventListener('resize', checkIsMobile);
-    }, []);
+    const { isMobile } = useMobile();
 
     // Ícones das tecnologias
     const iconesSigest = [

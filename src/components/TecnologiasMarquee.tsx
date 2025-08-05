@@ -13,6 +13,7 @@ import {
 import { FaJava, FaFigma } from 'react-icons/fa';
 import { DiIllustrator, DiPhotoshop } from 'react-icons/di';
 import { useState, useEffect } from 'react';
+import { useMobile } from '@/contexts/MobileContext';
 
 const iconesPadrao = [
     { icon: SiReact, name: "React" },
@@ -41,22 +42,11 @@ const TecnologiasMarquee = ({
     icones = iconesPadrao, 
     gradientColor = "#FFF",
 }: TecnologiasMarqueeProps) => {
-    const [isMobile, setIsMobile] = useState(false);
     const [isClient, setIsClient] = useState(false);
+    const { isMobile } = useMobile();
 
     useEffect(() => {
         setIsClient(true);
-        const checkIsMobile = () => {
-            if (typeof window !== 'undefined') {
-                setIsMobile(window.innerWidth < 768); // 768px é o breakpoint md do Tailwind
-            }
-        };
-
-        checkIsMobile();
-        if (typeof window !== 'undefined') {
-            window.addEventListener('resize', checkIsMobile);
-            return () => window.removeEventListener('resize', checkIsMobile);
-        }
     }, []);
 
     // Fallback para quando não está no cliente

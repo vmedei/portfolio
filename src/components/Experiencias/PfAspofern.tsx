@@ -3,10 +3,10 @@
 import Image from "next/image";
 import { SiPython, SiReact, SiTailwindcss } from "react-icons/si";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useMobile } from "@/contexts/MobileContext";
 
 export default function PfAspofern() {
-    const [isMobile, setIsMobile] = useState(false);
+    const { isMobile } = useMobile();
 
     // Ícones das tecnologias
     const iconesPfAspofern = [
@@ -14,17 +14,6 @@ export default function PfAspofern() {
         { icon: SiTailwindcss, name: "Tailwind" },
         { icon: SiPython, name: "Python" },
     ];
-
-    useEffect(() => {
-        const checkIsMobile = () => {
-            setIsMobile(window.innerWidth < 768); // 768px é o breakpoint md do Tailwind
-        };
-
-        checkIsMobile();
-        window.addEventListener('resize', checkIsMobile);
-
-        return () => window.removeEventListener('resize', checkIsMobile);
-    }, []);
 
     const pfAspofernVariants = {
         initial: {
