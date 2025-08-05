@@ -7,6 +7,7 @@ import Hero from '@/components/Hero';
 import Experiencias from '@/components/Experiencias/Experiencias';
 import Sobre from '@/components/Sobre/Sobre';
 import Contato from '@/components/Contato/Contato';
+import { ArrowUp } from 'lucide-react';
 
 export default function Home() {
     const lenisRef = useRef<Lenis | null>(null);
@@ -61,11 +62,15 @@ export default function Home() {
             
             <Hero scrollToSection={scrollToSection} />
 
-            <Sobre />
+            <Sobre scrollToSection={scrollToSection} />
 
             <Experiencias />
 
             <Contato />
+
+            <button onClick={() => scrollToSection('#home')} className='btn btn-circle bg-base-100/50 hover:bg-base-100/70 backdrop-blur-xs fixed bottom-5 right-5 hidden md:flex'>   
+                <ArrowUp className="w-4 h-4" />
+            </button>
 
         </div>
     );
