@@ -2,12 +2,17 @@
 
 import { RiNextjsFill } from "react-icons/ri";
 import { SiNodedotjs, SiReact, SiMysql, SiPython, SiTailwindcss } from "react-icons/si";
+import { ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
 import { useMobile } from "@/contexts/MobileContext";
 
 export default function Sigest() {
 
     const { isMobile } = useMobile();
+
+    const handleVisitSite = () => {
+        window.open("https://solucaotributos.com.br", "_blank");
+    };
 
     // Ícones das tecnologias
     const iconesSigest = [
@@ -71,7 +76,16 @@ export default function Sigest() {
 
                 {/* Info do projeto SIGEST */}
                 <div className="flex flex-col md:flex-row justify-between items-center gap-4 mt-4">
-                    <h3 className="whitespace-nowrap text-2xl font-bold">SIGEST</h3>
+                    <div className="flex items-center gap-4">
+                        <h3 className="whitespace-nowrap text-2xl font-bold">SIGEST</h3>
+                        <button
+                            onClick={handleVisitSite}
+                            className="btn btn-sm btn-primary"
+                        >
+                            <ExternalLink className="w-5 h-5" />
+                            Visitar Site
+                        </button>
+                    </div>
                     <div className="flex gap-4">
                         {iconesSigest.map((icone, index) => (
                             <div key={index} title={icone.name} className="tooltip" data-tip={icone.name}>
