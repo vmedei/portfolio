@@ -100,7 +100,7 @@ export default function PfAspofern() {
                         <div className="collapse collapse-arrow join-item border-base-300">
                             <input type="radio" name="my-accordion-6" />
                             <div className="collapse-title font-semibold">Resultado</div>
-                            <div className="collapse-content text-sm text-justify text-base-content/70">O sistema está em operação e reduziu drasticamente o tempo de execução de processos, que passaram de semanas para minutos. A automatização trouxe eficiência e modernização à gestão da associação.</div>
+                            <div className="collapse-content text-sm text-justify text-base-content/70">O sistema está em operação e reduziu drasticamente o tempo de execução: processos que antes eram manuais e demoravam dias passaram a ser realizados em poucos minutos. A automatização trouxe eficiência e modernização à gestão da associação.</div>
                         </div>
                     </div>
                 </div>

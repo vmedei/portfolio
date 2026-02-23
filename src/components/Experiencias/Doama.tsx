@@ -154,12 +154,12 @@ export default function Doama() {
                         <div className="collapse collapse-arrow join-item border-base-300">
                             <input type="radio" name="my-accordion-4" />
                             <div className="collapse-title font-semibold">Meu papel</div>
-                            <div className="collapse-content text-sm text-justify text-base-content/70">Como desenvolvedor fullstack bolsista da UFRN, fui responsável pelo desenvolvimento completo do sistema web para gerenciamento de doadoras, doações e estoque de leite materno. Trabalhei com foco em usabilidade, acessibilidade e eficiência operacional, nesse projeto com alto impacto social, apoiando bancos de leite humano em todo o estado.</div>
+                            <div className="collapse-content text-sm text-justify text-base-content/70">Como desenvolvedor fullstack bolsista da UFRN, fui responsável pelo desenvolvimento completo do sistema para gerenciamento de doadoras, doações e estoque de leite materno, com foco em usabilidade, acessibilidade e eficiência operacional. O sistema apoia bancos de leite em todo o estado, otimizando o trabalho de servidores e melhorando a logística de coleta e entrega.</div>
                         </div>
                         <div className="collapse collapse-arrow join-item border-base-300">
                             <input type="radio" name="my-accordion-4" />
                             <div className="collapse-title font-semibold">Resultado</div>
-                            <div className="collapse-content text-sm text-justify text-base-content/70">O Doama foi desenvolvido com êxito, atendendo aos critérios de usabilidade, segurança e integração. Embora ainda não esteja em operação oficial, o sistema já demonstrou sua viabilidade e está em fase de avaliação para adoção por diversos municípios.</div>
+                            <div className="collapse-content text-sm text-justify text-base-content/70">Projeto de alto impacto social: o sistema foi desenvolvido com êxito e está em fase de avaliação para adoção por diversos municípios. Os resultados esperados incluem otimização do trabalho de servidores, melhoria da logística de coleta e entrega, redução de desperdícios e benefício direto a mães e recém-nascidos.</div>
                         </div>
                     </div>
                 </div>
