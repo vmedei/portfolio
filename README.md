@@ -6,7 +6,7 @@ Um portfolio moderno e interativo desenvolvido com Next.js, apresentando experi�
 
 ## 📋 Sobre o Projeto
 
-Este portfolio foi desenvolvido para demonstrar habilidades técnicas e experiências profissionais como **Tech Lead**, **Desenvolvedor Full Stack** e **Gestor de Projetos**. O projeto utiliza tecnologias modernas para criar uma experiência de usuário fluida e responsiva.
+Este portfolio foi desenvolvido para demonstrar habilidades técnicas e experiências profissionais como **Desenvolvedor Full Stack**. O projeto utiliza tecnologias modernas para criar uma experiência de usuário fluida e responsiva.
 
 ### ✨ Características Principais
 
@@ -180,9 +180,7 @@ Este projeto é privado e desenvolvido para fins profissionais.
 ## 👨‍💻 Autor
 
 **Vinicius Alves Medeiros**
-- Tech Lead
 - Desenvolvedor Full Stack
-- Gestor de Projetos
 
 ### 📞 Contato
 - **Portfolio:** [https://vmedei.dev](https://vmedei.dev)

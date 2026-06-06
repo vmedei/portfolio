@@ -81,7 +81,7 @@ export default function Hero({ scrollToSection }: HeroProps) {
                 <div className="flex flex-col justify-around z-10">
                     <div>
                         <TextType
-                            text={["TECH LEAD", "DESENVOLVEDOR FRONTEND", "DESENVOLVEDOR BACKEND", "DESENVOLVEDOR FULLSTACK", "GESTOR DE PROJETOS"]}
+                            text={["DESENVOLVEDOR FRONTEND", "DESENVOLVEDOR BACKEND", "DESENVOLVEDOR FULLSTACK", "UX/UI DESIGNER", "ANALISTA DE SISTEMAS"]}
                             textColors={['#000000']}
                             typingSpeed={50}
                             pauseDuration={1000}

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import TecnologiasMarquee from "../TecnologiasMarquee";
 import Doama from "./Doama";
 import Sigest from "./Sigest";
+import SafePilot from "./SafePilot";
 import FoodCampus from "./FoodCampus";
 import PfAspofern from "./PfAspofern";
 import { useMobile } from "@/contexts/MobileContext";
@@ -47,8 +48,9 @@ export default function Experiencias() {
 
                 {/* COMPONENTES SEM ANIMAÇÕES */}
                 <Sigest />
-                <Doama />
+                <SafePilot />
                 <PfAspofern />
+                <Doama />
                 <FoodCampus />
             </section>
         </motion.div>

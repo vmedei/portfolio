@@ -21,6 +21,21 @@ export const doamaImages = [
     },
 ];
 
+export const SafePilotImages = [
+    {
+        src: "/SafePilot/SafePilot_1.png",
+        alt: "SafePilot WEB - Tela Principal",
+    },
+    {
+        src: "/SafePilot/SafePilot_2.png",
+        alt: "SafePilot WEB - Visualização de Mapas",
+    },
+    {
+        src: "/SafePilot/SafePilot_3.png",
+        alt: "SafePilot WEB - Acompanhamento",
+    },
+];
+
 export const foodCampusImages = [
     {
         src: "/foodcampus/FoodCampus_1.jpg",
@@ -35,4 +50,3 @@ export const foodCampusImages = [
         alt: "FoodCampus - Carrinho de Compras",
     },
 ];
-

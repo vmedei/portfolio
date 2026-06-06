@@ -36,7 +36,7 @@ const timelineData: TimelineItem[] = [
     {
         year: "2024 - Atualmente",
         title: "Desenvolvedor Full Stack",
-        description: "Atualmente, atuo como desenvolvedor full stack e Tech Lead, realizando integração e processamento de diversas fontes de dados públicas e privadas com uma interface moderna e responsiva, voltada para técnicos e gestores públicos, com foco na experiência do usuário, segurança e escalabilidade. Além disso, sou responsável pela definição de arquitetura, tomada de decisões, distribuição de tarefas em equipe e participação em reuniões com clientes e stakeholders.",
+        description: "Atualmente, atuo como desenvolvedor full stack, realizando integração e processamento de diversas fontes de dados públicas e privadas com uma interface moderna e responsiva, voltada para técnicos e gestores públicos, com foco na experiência do usuário, segurança e escalabilidade. Além disso, sou responsável pela definição de arquitetura, tomada de decisões, distribuição de tarefas em equipe e participação em reuniões com clientes e stakeholders.",
     },
 ];
 

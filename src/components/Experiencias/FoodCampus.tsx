@@ -1,6 +1,5 @@
 "use client";
 
-import { ExternalLink } from "lucide-react";
 import Image from "next/image";
 import { FaJava } from "react-icons/fa";
 import { SiReact, SiTailwindcss } from "react-icons/si";
@@ -16,10 +15,6 @@ export default function FoodCampus() {
         { icon: SiTailwindcss, name: "Tailwind" },
         { icon: FaJava, name: "Java" },
     ];
-
-    const handleVisitSite = () => {
-        window.open("https://foodcampusfrontend-production.up.railway.app/", "_blank");
-    };
 
     const foodCampusVariants = {
         initial: {
@@ -62,16 +57,7 @@ export default function FoodCampus() {
                         height={500}
                         className="object-cover rounded-lg w-full h-[150px] sm:h-[300px] md:h-[400px]"
                     />
-                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg flex items-center justify-center">
-                        <a
-                            href="https://foodcampus-project.vercel.app"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="btn btn-primary"
-                        >
-                            Ver Projeto
-                        </a>
-                    </div>
+
                 </div>
 
                 {/* Info do projeto FOODCAMPUS */}
@@ -79,13 +65,6 @@ export default function FoodCampus() {
                     <div className="flex flex-col md:flex-row justify-between items-center gap-4">
                         <div className="flex items-center gap-4">
                             <h3 className="whitespace-nowrap text-2xl font-bold">FoodCampus</h3>
-                            <button
-                                onClick={handleVisitSite}
-                                className="btn btn-sm btn-primary "
-                            >
-                                <ExternalLink className="w-5 h-5" />
-                                Visitar Site
-                            </button>
                         </div>
                         <div className="flex gap-4">
                             {iconesFoodCampus.map((icone, index) => (
