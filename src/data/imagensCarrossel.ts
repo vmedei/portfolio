@@ -23,16 +23,20 @@ export const doamaImages = [
 
 export const SafePilotImages = [
     {
-        src: "/SafePilot/aioti_1.png",
+        src: "/aioti/aioti_1.png",
         alt: "SafePilot WEB - Tela Principal",
     },
     {
-        src: "/SafePilot/aioti_2.png",
+        src: "/aioti/aioti_2.png",
         alt: "SafePilot WEB - Visualização de Mapas",
     },
     {
-        src: "/SafePilot/aioti_3.png",
-        alt: "SafePilot WEB - Acompanhamento",
+        src: "/aioti/aioti_4.png",
+        alt: "SafePilot WEB - Cards de usuários",
+    },
+    {
+        src: "/aioti/aioti_3.png",
+        alt: "SafePilot WEB - Configurações",
     },
 ];
 
