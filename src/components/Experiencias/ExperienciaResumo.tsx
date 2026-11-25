@@ -33,6 +33,9 @@ export default function ExperienciaResumo({ experiencia }: { experiencia: Experi
 
     const secoes = [
         { titulo: "Contexto", conteudo: <p>{experiencia.resumo}</p> },
+        ...(experiencia.desafioSolucao
+            ? [{ titulo: "Desafio e Solução", conteudo: <p>{experiencia.desafioSolucao}</p> }]
+            : []),
         {
             titulo: "Meu papel",
             conteudo: (

@@ -37,6 +37,7 @@ export interface Tecnologia {
 export interface ExperienciaTexto extends ExperienciaMeta {
     titulo: string;
     resumo: string;
+    desafioSolucao?: string;
     destaques: string[];
     reconhecimento?: string;
     tecnologias: Tecnologia[];
@@ -97,7 +98,9 @@ export const multiprova: ExperienciaTexto = {
     inicio: "2026-05",
     fim: null,
     local: "Natal, RN",
-    resumo: "Migração da API principal do Multiprova de LoopBack 3 (fim de suporte) para NestJS.",
+    resumo: "O Multiprova é a plataforma de avaliações da UFRN, criada em 2011 na Escola de Ciências e Tecnologia para aplicar provas individualizadas e de correção rápida. Já soma mais de 1 milhão de provas respondidas, atende também o IFRN e está sendo integrado à nova Turma Virtual do SIGAA, em parceria com a STI/UFRN, para chegar a mais de 30 Instituições Federais de Ensino Superior.",
+    desafioSolucao:
+        "O desafio era preparar a plataforma para essa expansão: a API principal ainda rodava em LoopBack 3, framework sem suporte (EOL), e a migração não podia exigir janela de parada nem mudanças nos frontends React. A solução foi migrar a API para NestJS com TypeScript usando o padrão strangler fig, substituindo as rotas em fatias, com uma camada de compatibilidade do contrato HTTP e testes de contrato que comparam as respostas das duas APIs.",
     destaques: [
         "Liderei tecnicamente a migração da API principal do Multiprova de LoopBack 3 (EOL) para NestJS com TypeScript, usando strangler fig para migrar rotas em fatias sem janela de parada.",
         "Desenhei a arquitetura da nova API (módulos desacoplados, guards, policies e repositórios sobre MongoDB), com integrações a RabbitMQ, Redis e AWS S3.",
