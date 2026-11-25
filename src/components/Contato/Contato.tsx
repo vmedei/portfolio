@@ -40,7 +40,6 @@ export default function Contato() {
             <footer className="footer p-10 bg-base-300 text-base-content">
                 <div>
                     <p className='font-bold'>Vinicius Medeiros © {new Date().getFullYear()} - {t.contato.direitos}</p>
-                    <p>CNPJ: 31.815.099/0001-03</p>
                 </div>
             </footer>
         </section>

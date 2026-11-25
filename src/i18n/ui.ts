@@ -24,6 +24,9 @@ const pt = {
         titulos: ["DESENVOLVEDOR WEB", "DESENVOLVEDOR FULLSTACK", "DESENVOLVEDOR FRONTEND", "DESENVOLVEDOR BACKEND"],
         frase: "Foco em resolver problemas com soluções inovadoras",
         curriculo: "Currículo",
+        // Arquivo em public/ e nome com que ele é baixado
+        curriculoArquivo: "/Vinicius Alves Medeiros.pdf",
+        curriculoDownload: "Vinicius_Alves_Medeiros_Curriculo.pdf",
         contato: "Contato",
     },
     sobre: {
@@ -112,6 +115,8 @@ const en: typeof pt = {
         titulos: ["WEB DEVELOPER", "FULLSTACK DEVELOPER", "FRONTEND DEVELOPER", "BACKEND DEVELOPER"],
         frase: "Focused on solving problems with innovative solutions",
         curriculo: "Résumé",
+        curriculoArquivo: "/Vinicius_Medeiros_Resume.pdf",
+        curriculoDownload: "Vinicius_Medeiros_Resume.pdf",
         contato: "Contact",
     },
     sobre: {
