@@ -84,7 +84,7 @@ export default function Sobre({ scrollToSection }: SobreProps) {
                             }}
                             viewport={{ amount: 0.3 }}
                         >
-                            <Image src="/sobre/vinicius.png" alt={t.sobre.foto} width={400} height={400} />
+                            <Image src="/sobre/vinicius.webp" alt={t.sobre.foto} width={400} height={400} />
                         </motion.div>
 
                         <motion.div

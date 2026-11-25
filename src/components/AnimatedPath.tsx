@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState, useCallback } from 'react';
+import { useReducedMotion } from 'framer-motion';
 
 type AnimatedPathProps = {
   pathD: string;
@@ -18,8 +19,16 @@ const AnimatedPath: React.FC<AnimatedPathProps> = ({
   const pathRef = useRef<SVGPathElement>(null);
   const [pathLength, setPathLength] = useState(0);
   const [isInitialized, setIsInitialized] = useState(false);
+  // Com "reduzir movimento" ligado no sistema, o traço aparece completo e parado
+  const reduzirMovimento = useReducedMotion();
 
   useEffect(() => {
+    if (pathRef.current && reduzirMovimento) {
+      pathRef.current.style.transition = 'none';
+      pathRef.current.style.strokeDasharray = 'none';
+      pathRef.current.style.strokeDashoffset = '0';
+      return;
+    }
     if (pathRef.current) {
       const length = pathRef.current.getTotalLength();
       setPathLength(length);
@@ -28,7 +37,7 @@ const AnimatedPath: React.FC<AnimatedPathProps> = ({
       pathRef.current.style.strokeDasharray = length.toString();
       pathRef.current.style.strokeDashoffset = (-length).toString();
     }
-  }, [pathD]);
+  }, [pathD, reduzirMovimento]);
 
   const animacaoInserir = useCallback(async () => {
     if (!pathRef.current) return;
@@ -52,7 +61,7 @@ const AnimatedPath: React.FC<AnimatedPathProps> = ({
 
   // Animação inicial única
   useEffect(() => {
-    if (pathLength > 0 && !isInitialized && animationType === 'hover') {
+    if (pathLength > 0 && !isInitialized && animationType === 'hover' && !reduzirMovimento) {
       const initializeAnimation = async () => {
         if (!pathRef.current) return;
         await animacaoInserir();
@@ -60,7 +69,7 @@ const AnimatedPath: React.FC<AnimatedPathProps> = ({
       };
       initializeAnimation();
     }
-  }, [pathLength, isInitialized, animationType, animacaoInserir]);
+  }, [pathLength, isInitialized, animationType, animacaoInserir, reduzirMovimento]);
 
   // Animação de loop contínuo (para animationType === 'loop')
   useEffect(() => {
@@ -87,18 +96,18 @@ const AnimatedPath: React.FC<AnimatedPathProps> = ({
       }
     };
 
-    if (pathLength > 0 && animationType === 'loop') {
+    if (pathLength > 0 && animationType === 'loop' && !reduzirMovimento) {
       startAnimation();
     }
 
     return () => {
       isActive = false;
     };
-  }, [pathLength, animacaoInserir, animacaoRemover, animacaoReset, animationType, duration, pauseDuration]);
+  }, [pathLength, animacaoInserir, animacaoRemover, animacaoReset, animationType, duration, pauseDuration, reduzirMovimento]);
 
   // Função para animação de hover
   const handleHover = useCallback(async () => {
-    if (animationType === 'hover' && pathRef.current) {
+    if (animationType === 'hover' && pathRef.current && !reduzirMovimento) {
       const length = pathRef.current.getTotalLength();
       
       // Remove a animação
@@ -117,7 +126,7 @@ const AnimatedPath: React.FC<AnimatedPathProps> = ({
       await animacaoInserir();
       
     }
-  }, [animationType, animacaoRemover, animacaoReset, animacaoInserir]);
+  }, [animationType, animacaoRemover, animacaoReset, animacaoInserir, reduzirMovimento]);
 
   return (
     <div 

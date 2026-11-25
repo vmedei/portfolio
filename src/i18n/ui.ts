@@ -24,6 +24,9 @@ const pt = {
         titulos: ["DESENVOLVEDOR WEB", "DESENVOLVEDOR FULLSTACK", "DESENVOLVEDOR FRONTEND", "DESENVOLVEDOR BACKEND"],
         frase: "Foco em resolver problemas com soluções inovadoras",
         curriculo: "Currículo",
+        // Arquivo em public/ e nome com que ele é baixado
+        curriculoArquivo: "/Vinicius Alves Medeiros.pdf",
+        curriculoDownload: "Vinicius_Alves_Medeiros_Curriculo.pdf",
         contato: "Contato",
     },
     sobre: {
@@ -94,7 +97,6 @@ const pt = {
     experiencias: {
         titulo: "Experiências",
         sobre: "SOBRE",
-        atual: "Atual",
         videoSemSuporte: "Seu navegador não suporta vídeos.",
     },
     contato: {
@@ -112,6 +114,8 @@ const en: typeof pt = {
         titulos: ["WEB DEVELOPER", "FULLSTACK DEVELOPER", "FRONTEND DEVELOPER", "BACKEND DEVELOPER"],
         frase: "Focused on solving problems with innovative solutions",
         curriculo: "Résumé",
+        curriculoArquivo: "/Vinicius_Medeiros_Resume.pdf",
+        curriculoDownload: "Vinicius_Medeiros_Resume.pdf",
         contato: "Contact",
     },
     sobre: {
@@ -182,7 +186,6 @@ const en: typeof pt = {
     experiencias: {
         titulo: "Experience",
         sobre: "ABOUT",
-        atual: "Current",
         videoSemSuporte: "Your browser does not support video.",
     },
     contato: {
