@@ -13,6 +13,8 @@ const sliderBase = {
     slidesToScroll: 1,
     autoplay: false,
     pauseOnHover: true,
+    // Ajusta a altura a cada imagem (há prints em retrato, como o do WhatsApp)
+    adaptiveHeight: true,
     responsive: [{ breakpoint: 768, settings: { dots: true, arrows: false } }],
 };
 
@@ -65,7 +67,7 @@ export default function ExperienciaMidia({ midia }: { midia: Midia }) {
                             alt={imagem.alt}
                             width={800}
                             height={500}
-                            className="object-contain rounded-lg w-full h-auto"
+                            className="object-contain rounded-lg w-full h-auto max-h-[420px]"
                             priority={index === 0}
                         />
                     </div>

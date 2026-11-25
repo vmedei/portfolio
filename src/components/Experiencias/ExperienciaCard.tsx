@@ -26,7 +26,7 @@ export default function ExperienciaCard({ experiencia }: { experiencia: Experien
                 >
                     <ExperienciaMidia midia={experiencia.midia} />
 
-                    <div className={`${carrossel ? "mt-6" : "mt-4"} w-full`}>
+                    <div className={`${carrossel ? "mt-8" : "mt-4"} w-full`}>
                         <div className={`flex flex-col md:flex-row justify-between items-center ${carrossel ? "gap-2" : "gap-4"}`}>
                             <div className="flex items-center gap-4">
                                 <h3 className="whitespace-nowrap text-2xl font-bold">{experiencia.titulo}</h3>

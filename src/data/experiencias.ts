@@ -1,5 +1,5 @@
 import type { ComponentType } from "react";
-import { FaAws, FaJava } from "react-icons/fa";
+import { FaAws } from "react-icons/fa";
 import { RiNextjsFill } from "react-icons/ri";
 import {
     SiExpress,
@@ -24,7 +24,13 @@ import {
     SiSwagger,
     SiTailwindcss,
     SiTypescript,
+    SiDeno,
+    SiVercel,
+    SiVite,
+    SiVitest,
+    SiWhatsapp,
 } from "react-icons/si";
+import { VscAzure } from "react-icons/vsc";
 import { BrainCircuit } from "lucide-react";
 
 /*
@@ -88,6 +94,51 @@ export function formatarPeriodo({ inicio, fim }: Pick<ExperienciaMeta, "inicio" 
 }
 
 export const experiencias: Experiencia[] = [
+    {
+        id: "meu-dindin",
+        organizacao: "Projeto próprio",
+        cargo: "Fundador e Desenvolvedor Fullstack",
+        inicio: "2026-11",
+        fim: null,
+        local: "Natal, RN (Remoto)",
+        titulo: "meu dindin",
+        link: { label: "Visitar Site", url: "https://meu-dindin.online" },
+        midia: {
+            tipo: "carrossel",
+            imagens: [
+                { src: "/meu-dindin/inicio-claro.webp", alt: "meu dindin - Tela inicial com saldo, receitas e despesas do mês" },
+                { src: "/meu-dindin/inicio-escuro.webp", alt: "meu dindin - Tela inicial no tema escuro" },
+                { src: "/meu-dindin/whatsapp.webp", alt: "meu dindin - Assistente lançando gastos pelo WhatsApp" },
+            ],
+        },
+        tecnologias: [
+            { nome: "React", icone: SiReact },
+            { nome: "TypeScript", icone: SiTypescript },
+            { nome: "Vite", icone: SiVite },
+            { nome: "Tailwind", icone: SiTailwindcss },
+            { nome: "Supabase", icone: SiSupabase },
+            { nome: "PostgreSQL", icone: SiPostgresql },
+            { nome: "Deno", icone: SiDeno },
+            { nome: "Azure OpenAI", icone: VscAzure },
+            { nome: "WhatsApp Cloud API", icone: SiWhatsapp },
+            { nome: "Vitest", icone: SiVitest },
+            { nome: "Vercel", icone: SiVercel },
+        ],
+        secoes: [
+            { titulo: "Contexto", texto: "O meu dindin é um app de finanças pessoais em português, feito para quem já tentou controlar o dinheiro em planilha ou caderno e desistiu porque anotar dá trabalho. A pessoa lança e consulta gastos conversando com um assistente de IA, no app ou pelo WhatsApp, inclusive por mensagem de voz, e acompanha contas, cartões com fatura e parcelas, relatórios e o planejamento do mês por categoria." },
+            { titulo: "Desafio e Solução", texto: "O desafio era construir sozinho um produto com dados financeiros pessoais, seguro e de acordo com a LGPD e o Marco Civil, com cobrança recorrente e um assistente que altera dados sem colocar a conta de ninguém em risco. A solução foi concentrar as regras no banco: PostgreSQL no Supabase com Row Level Security em todas as tabelas, verificação em duas etapas exigida também no servidor e funções com permissões fechadas por padrão. O assistente chama ferramentas que rodam com a permissão do próprio usuário, tem desfazer e só apaga dados depois de uma confirmação." },
+            {
+                titulo: "Meu papel",
+                itens: [
+                    "Concebi o produto e fiz o desenvolvimento de ponta a ponta: app em React com TypeScript, banco PostgreSQL com 42 migrações versionadas e 7 Edge Functions em Deno (assistente, WhatsApp, cobrança, conta, suporte e painel administrativo).",
+                    "Construí o assistente de IA com 21 ferramentas (function calling), usando Azure OpenAI como provedor principal e Gemini de reserva, com troca automática entre modelos, transcrição de áudio e frases de teste para avaliar as respostas.",
+                    "Integrei a WhatsApp Cloud API, a cobrança recorrente pelo Asaas com webhooks idempotentes, e-mails transacionais e monitoramento de erros sem dados pessoais.",
+                    "Conduzi o desenvolvimento com agentes de IA (Claude Code), definindo as regras do projeto em AGENTS.md e validando cada entrega numa prévia separada antes de publicar em produção.",
+                ],
+            },
+            { titulo: "Resultado", texto: "Sistema em produção, com centenas de usuários ativos, cerca de 440 testes automatizados (360 no backend e 80 no app), CI em cada mudança e publicação em duas etapas, da prévia à produção. Inclui documentação de privacidade (política, registro de operações de tratamento e plano de resposta a incidentes) e um design system próprio, com temas claro e escuro." },
+        ],
+    },
     {
         id: "multiprova",
         organizacao: "Superintendência de Tecnologia da Informação (STI/UFRN)",
@@ -277,24 +328,6 @@ export const experiencias: Experiencia[] = [
             { titulo: "Desafio e Solução", texto: "A gestão financeira era realizada manualmente, o que demandava tempo e estava suscetível a erros. A solução foi a criação de um sistema que automatiza a coleta e o tratamento de dados de múltiplas fontes, aumentando a precisão e reduzindo o esforço operacional." },
             { titulo: "Meu papel", texto: "Como desenvolvedor fullstack freelancer, fui responsável pela criação completa do sistema web para processamento de dados financeiros. Desenvolvi funcionalidades para tratamento de arquivos Excel brutos com exportação de relatórios em CSV, focando em segurança e desempenho utilizando Python, Django, Tailwind e SQLite." },
             { titulo: "Resultado", texto: "O sistema está em operação e reduziu drasticamente o tempo de execução: processos que antes eram manuais e demoravam dias passaram a ser realizados em poucos minutos. A automatização trouxe eficiência e modernização à gestão da associação." },
-        ],
-    },
-    {
-        id: "foodcampus",
-        organizacao: "Projeto acadêmico (UFRN)",
-        cargo: "Desenvolvedor Frontend",
-        titulo: "FoodCampus",
-        midia: { tipo: "imagem", imagem: { src: "/foodcampus/FoodCampus.svg", alt: "FoodCampus - Aplicativo de delivery" } },
-        tecnologias: [
-            { nome: "React", icone: SiReact },
-            { nome: "Tailwind", icone: SiTailwindcss },
-            { nome: "Java", icone: FaJava },
-        ],
-        secoes: [
-            { titulo: "Contexto", texto: "O FoodCampus foi um projeto acadêmico desenvolvido em duas semanas, com o objetivo de conectar vendedores ambulantes do campus a estudantes e frequentadores da universidade por meio de uma plataforma digital." },
-            { titulo: "Desafio e Solução", texto: "O desafio era criar uma solução completa em tempo limitado, atendendo tanto vendedores quanto consumidores. A plataforma inclui gerenciamento de produtos, agendamento de horários, reserva de pedidos e busca por proximidade, além de um mapa interativo com os setores do campus." },
-            { titulo: "Meu papel", texto: "Atuei principalmente no desenvolvimento do front-end da plataforma, utilizando React e Tailwind para criar uma interface intuitiva e responsiva. Um dos principais desafios foi a implementação de um mapa interativo dos setores do campus, permitindo aos usuários localizar vendedores e pontos de venda com facilidade. Desenvolvi a integração do mapa com funcionalidades de busca por proximidade e filtros dinâmicos, proporcionando uma experiência de navegação fluida e visualmente atrativa para os estudantes e frequentadores da universidade." },
-            { titulo: "Resultado", texto: "O projeto foi entregue com sucesso dentro do prazo, com interface fluida e funcionalidades robustas para ambos os perfis de usuário, simulando uma experiência real de compra e venda no ambiente universitário." },
         ],
     },
 ];
