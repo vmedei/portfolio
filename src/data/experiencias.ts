@@ -7,6 +7,7 @@ import {
     SiJest,
     SiKubernetes,
     SiLeaflet,
+    SiMeta,
     SiMongodb,
     SiMui,
     SiMysql,
@@ -24,11 +25,6 @@ import {
     SiSwagger,
     SiTailwindcss,
     SiTypescript,
-    SiDeno,
-    SiVercel,
-    SiVite,
-    SiVitest,
-    SiWhatsapp,
 } from "react-icons/si";
 import { VscAzure } from "react-icons/vsc";
 import { BrainCircuit } from "lucide-react";
@@ -114,15 +110,10 @@ export const experiencias: Experiencia[] = [
         tecnologias: [
             { nome: "React", icone: SiReact },
             { nome: "TypeScript", icone: SiTypescript },
-            { nome: "Vite", icone: SiVite },
             { nome: "Tailwind", icone: SiTailwindcss },
-            { nome: "Supabase", icone: SiSupabase },
             { nome: "PostgreSQL", icone: SiPostgresql },
-            { nome: "Deno", icone: SiDeno },
             { nome: "Azure OpenAI", icone: VscAzure },
-            { nome: "WhatsApp Cloud API", icone: SiWhatsapp },
-            { nome: "Vitest", icone: SiVitest },
-            { nome: "Vercel", icone: SiVercel },
+            { nome: "Meta (WhatsApp Cloud API)", icone: SiMeta },
         ],
         secoes: [
             { titulo: "Contexto", texto: "O meu dindin é um app de finanças pessoais em português, feito para quem já tentou controlar o dinheiro em planilha ou caderno e desistiu porque anotar dá trabalho. A pessoa lança e consulta gastos conversando com um assistente de IA, no app ou pelo WhatsApp, inclusive por mensagem de voz, e acompanha contas, cartões com fatura e parcelas, relatórios e o planejamento do mês por categoria." },
