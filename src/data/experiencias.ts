@@ -273,10 +273,10 @@ export const experiencias: Experiencia[] = [
         midia: {
             tipo: "carrossel",
             imagens: [
-                { src: "/aioti/aioti_1.png", alt: "SafePilot WEB - Tela Principal" },
-                { src: "/aioti/aioti_2.png", alt: "SafePilot WEB - Visualização de Mapas" },
-                { src: "/aioti/aioti_4.png", alt: "SafePilot WEB - Cards de usuários" },
-                { src: "/aioti/aioti_3.png", alt: "SafePilot WEB - Configurações" },
+                { src: "/aioti/aioti_1.webp", alt: "SafePilot WEB - Tela Principal" },
+                { src: "/aioti/aioti_2.webp", alt: "SafePilot WEB - Visualização de Mapas" },
+                { src: "/aioti/aioti_4.webp", alt: "SafePilot WEB - Cards de usuários" },
+                { src: "/aioti/aioti_3.webp", alt: "SafePilot WEB - Configurações" },
             ],
         },
         tecnologias: [
@@ -317,7 +317,7 @@ export const experiencias: Experiencia[] = [
         local: "Natal, RN (Remoto)",
         titulo: "SIGEST",
         link: { label: "Visitar Site", url: "https://solucaotributos.com.br" },
-        midia: { tipo: "video", src: "/sigest/Sigest.mp4", poster: "/sigest/Sigest_1.png" },
+        midia: { tipo: "video", src: "/sigest/Sigest.mp4", poster: "/sigest/Sigest_1.webp" },
         tecnologias: [
             { nome: "React", icone: SiReact },
             { nome: "Next.js", icone: RiNextjsFill },
@@ -414,11 +414,11 @@ export const experiencias: Experiencia[] = [
         midia: {
             tipo: "carrossel",
             imagens: [
-                { src: "/doama/Doama_1.jpg", alt: "Doama - Tela Principal" },
-                { src: "/doama/Doama_2.jpg", alt: "Doama - Dashboard" },
-                { src: "/doama/Doama_5.jpg", alt: "Doama - Dashboard" },
-                { src: "/doama/Doama_4.jpg", alt: "Doama - Tela Principal" },
-                { src: "/doama/Doama_6.jpg", alt: "Doama - Cadastro" },
+                { src: "/doama/Doama_1.webp", alt: "Doama - Tela Principal" },
+                { src: "/doama/Doama_2.webp", alt: "Doama - Dashboard" },
+                { src: "/doama/Doama_5.webp", alt: "Doama - Dashboard" },
+                { src: "/doama/Doama_4.webp", alt: "Doama - Tela Principal" },
+                { src: "/doama/Doama_6.webp", alt: "Doama - Cadastro" },
             ],
         },
         tecnologias: [
@@ -454,7 +454,7 @@ export const experiencias: Experiencia[] = [
         fim: "2024-07",
         local: "Natal, RN (Remoto)",
         titulo: "Polícia Federal / Aspofern",
-        midia: { tipo: "imagem", imagem: { src: "/aspofern/PfAspofern.png", alt: "Aspofern - Sistema de gerenciamento de eventos" } },
+        midia: { tipo: "imagem", imagem: { src: "/aspofern/PfAspofern.webp", alt: "Aspofern - Sistema de gerenciamento de eventos" } },
         tecnologias: [
             { nome: "React", icone: SiReact },
             { nome: "Tailwind", icone: SiTailwindcss },

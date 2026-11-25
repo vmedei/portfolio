@@ -15,7 +15,8 @@ Este portfolio foi desenvolvido para demonstrar habilidades técnicas e experiê
 - **Scroll Suave**: Utilizando Lenis para uma experiência de navegação premium
 - **Performance Otimizada**: Next.js 15 com App Router
 - **UI Moderna**: Tailwind CSS + DaisyUI para um visual clean e profissional
-- **Português e inglês**: seletor de idioma com bandeiras no header; textos da interface em `src/i18n/ui.ts`
+- **Português e inglês**: toggle de idioma no header; textos da interface em `src/i18n/ui.ts`
+- **Menos movimento**: quem ativa "reduzir movimento" no sistema vê o site sem animações (Hero, marquee e rolagem suave)
 
 ## 🛠️ Tecnologias Utilizadas
 
@@ -119,7 +120,8 @@ portfolio/
 ├── public/                    # Arquivos estáticos
 │   ├── icons/                 # Ícones de tecnologias
 │   ├── [projetos]/            # Imagens dos projetos
-│   └── Vinicius Alves Medeiros.pdf # Currículo
+│   ├── Vinicius Alves Medeiros.pdf # Currículo (português)
+│   └── Vinicius_Medeiros_Resume.pdf # Currículo (inglês)
 └── package.json               # Dependências e scripts
 ```
 

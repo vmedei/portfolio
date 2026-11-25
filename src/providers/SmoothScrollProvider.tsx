@@ -3,6 +3,7 @@
 
 import { createContext, useContext, useEffect, useRef, ReactNode } from 'react';
 import Lenis from 'lenis';
+import { MotionConfig, useReducedMotion } from 'framer-motion';
 
 interface SmoothScrollContextType {
   lenis: Lenis | null;
@@ -26,8 +27,11 @@ interface SmoothScrollProviderProps {
 
 export const SmoothScrollProvider = ({ children }: SmoothScrollProviderProps) => {
   const lenisRef = useRef<Lenis | null>(null);
+  const reduzirMovimento = useReducedMotion();
 
   useEffect(() => {
+    // Com "reduzir movimento" ligado, fica a rolagem nativa do navegador
+    if (reduzirMovimento) return;
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -44,20 +48,30 @@ export const SmoothScrollProvider = ({ children }: SmoothScrollProviderProps) =>
 
     return () => {
       lenis.destroy();
+      lenisRef.current = null;
     };
-  }, []);
+  }, [reduzirMovimento]);
 
   const scrollTo = (target: string | number, options?: { offset?: number; duration?: number }) => {
-    lenisRef.current?.scrollTo(target, options);
+    if (lenisRef.current) {
+      lenisRef.current.scrollTo(target, options);
+      return;
+    }
+    // Sem o Lenis: pula direto para o ponto, sem animação
+    const elemento = typeof target === 'string' ? document.querySelector(target) : null;
+    const topo = elemento ? elemento.getBoundingClientRect().top + window.scrollY : typeof target === 'number' ? target : 0;
+    window.scrollTo({ top: topo + (options?.offset ?? 0), behavior: 'auto' });
   };
 
   const scrollToTop = () => {
-    lenisRef.current?.scrollTo(0, { duration: 1.5 });
+    if (lenisRef.current) lenisRef.current.scrollTo(0, { duration: 1.5 });
+    else window.scrollTo({ top: 0, behavior: 'auto' });
   };
 
   return (
     <SmoothScrollContext.Provider value={{ lenis: lenisRef.current, scrollTo, scrollToTop }}>
-      {children}
+      {/* reducedMotion="user": o framer-motion tira os deslocamentos quando a pessoa pede menos movimento */}
+      <MotionConfig reducedMotion="user">{children}</MotionConfig>
     </SmoothScrollContext.Provider>
   );
 };

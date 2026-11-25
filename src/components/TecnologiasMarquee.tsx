@@ -14,6 +14,7 @@ import { FaJava, FaFigma } from 'react-icons/fa';
 import { DiIllustrator, DiPhotoshop } from 'react-icons/di';
 import { useState, useEffect } from 'react';
 import { useMobile } from '@/contexts/MobileContext';
+import { useReducedMotion } from 'framer-motion';
 
 const iconesPadrao = [
     { icon: SiReact, name: "React" },
@@ -44,13 +45,15 @@ const TecnologiasMarquee = ({
 }: TecnologiasMarqueeProps) => {
     const [isClient, setIsClient] = useState(false);
     const { isMobile } = useMobile();
+    const reduzirMovimento = useReducedMotion();
 
     useEffect(() => {
         setIsClient(true);
     }, []);
 
     // Fallback para quando não está no cliente
-    if (!isClient) {
+    // Sem cliente ainda, ou com "reduzir movimento": ícones parados
+    if (!isClient || reduzirMovimento) {
         return (
             <div className="flex items-center justify-center gap-4 md:gap-8 overflow-hidden">
                 {icones.map((icone, index) => {
