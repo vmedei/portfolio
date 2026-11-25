@@ -5,7 +5,6 @@ import { FaJava } from "react-icons/fa";
 import { SiReact, SiTailwindcss } from "react-icons/si";
 import { motion } from "framer-motion";
 import { useMobile } from "@/contexts/MobileContext";
-import LinkProjeto from "./LinkProjeto";
 
 export default function FoodCampus() {
     const { isMobile } = useMobile();
@@ -64,12 +63,8 @@ export default function FoodCampus() {
                 {/* Info do projeto FOODCAMPUS */}
                 <div className="mt-4">
                     <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-                        <div className="flex flex-col sm:flex-row items-center gap-4">
+                        <div className="flex items-center gap-4">
                             <h3 className="whitespace-nowrap text-2xl font-bold">FoodCampus</h3>
-                            <div className="flex gap-2">
-                                <LinkProjeto href="https://github.com/vmedei/foodcampus_frontend" label="Frontend" tipo="repositorio" />
-                                <LinkProjeto href="https://github.com/vmedei/foodcampus_backend" label="Backend" tipo="repositorio" />
-                            </div>
                         </div>
                         <div className="flex gap-4">
                             {iconesFoodCampus.map((icone, index) => (
