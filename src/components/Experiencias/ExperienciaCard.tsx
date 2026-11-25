@@ -6,11 +6,13 @@ import { Experiencia } from "@/data/experiencias";
 import { useMobile } from "@/contexts/MobileContext";
 import ExperienciaCabecalho from "./ExperienciaCabecalho";
 import ExperienciaMidia from "./ExperienciaMidia";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 // Card de uma experiência, montado a partir de um item de src/data/experiencias.ts
 export default function ExperienciaCard({ experiencia }: { experiencia: Experiencia }) {
     const { isMobile } = useMobile();
     const { secoes, tecnologias, link } = experiencia;
+    const { t } = useLanguage();
     // Espaçamentos originais: experiências com carrossel são um pouco mais compactas abaixo da mídia
     const carrossel = experiencia.midia.tipo === "carrossel";
 
@@ -57,10 +59,10 @@ export default function ExperienciaCard({ experiencia }: { experiencia: Experien
                     viewport={{ amount: 0.2 }}
                 >
                     <div className="flex gap-8 h-full">
-                        <p className="hidden md:block font-bold text-base-content/70">SOBRE</p>
+                        <p className="hidden md:block font-bold text-base-content/70">{t.experiencias.sobre}</p>
 
                         <div className="flex flex-col w-full">
-                            {/* Empresa, cargo, período e local ao lado de "SOBRE" */}
+                            {/* Empresa, cargo, período e local ao lado de "SOBRE" / "ABOUT" */}
                             <div className="px-4">
                                 <ExperienciaCabecalho meta={experiencia} />
                             </div>

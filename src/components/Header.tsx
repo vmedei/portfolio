@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { pathD } from "@/data/pathD";
 import AnimatedPath from "./AnimatedPath";
+import SeletorIdioma from "./SeletorIdioma";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface HeaderProps {
     className?: string;
@@ -13,6 +15,7 @@ interface HeaderProps {
 export default function Header({ className = "", scrollToSection }: HeaderProps) {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const { t } = useLanguage();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -60,36 +63,39 @@ export default function Header({ className = "", scrollToSection }: HeaderProps)
                             onClick={() => handleNavClick('#home')} 
                             className="link link-hover"
                         >
-                            Início
+                            {t.nav.inicio}
                         </button>
                         <button 
                             onClick={() => handleNavClick('#sobre')} 
                             className="link link-hover"
                         >
-                            Sobre
+                            {t.nav.sobre}
                         </button>
                         <button 
                             onClick={() => handleNavClick('#experiencias')} 
                             className="link link-hover"
                         >
-                            Experiências
+                            {t.nav.experiencias}
                         </button>
                         <button 
                             onClick={() => handleNavClick('#contact')} 
                             className="link link-hover"
                         >
-                            Contato
+                            {t.nav.contato}
                         </button>
+                        <SeletorIdioma />
                     </nav>
 
                     {/* Mobile Menu Button */}
-                    <button
-                        className="md:hidden btn btn-ghost btn-sm"
-                        onClick={toggleMenu}
-                        aria-label="Toggle menu"
-                    >
-                        {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-                    </button>
+                    <div className="md:hidden">
+                        <button
+                            className="btn btn-ghost btn-sm"
+                            onClick={toggleMenu}
+                            aria-label={t.nav.menu}
+                        >
+                            {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+                        </button>
+                    </div>
                 </div>
 
                 {/* Mobile Navigation */}
@@ -100,26 +106,31 @@ export default function Header({ className = "", scrollToSection }: HeaderProps)
                                 onClick={() => handleNavClick('#home')} 
                                 className="link link-hover text-left"
                             >
-                                Início
+                                {t.nav.inicio}
                             </button>
                             <button 
                                 onClick={() => handleNavClick('#sobre')} 
                                 className="link link-hover text-left"
                             >
-                                Sobre
+                                {t.nav.sobre}
                             </button>
                             <button 
                                 onClick={() => handleNavClick('#experiencias')} 
                                 className="link link-hover text-left"
                             >
-                                Experiências
+                                {t.nav.experiencias}
                             </button>
                             <button 
                                 onClick={() => handleNavClick('#contact')} 
                                 className="link link-hover text-left"
                             >
-                                Contato
+                                {t.nav.contato}
                             </button>
+                            {/* No celular, o idioma fica dentro do menu */}
+                            <div className="flex items-center gap-3 pt-4 border-t border-base-300">
+                                <span className="text-base-content/70">{t.idioma.rotulo}</span>
+                                <SeletorIdioma />
+                            </div>
                         </nav>
                     </div>
                 )}

@@ -5,12 +5,14 @@ import AnimatedPath from '@/components/AnimatedPath';
 import { pathD } from '@/data/pathD';
 import { motion } from 'framer-motion';
 import TextType from './ReactBits/TextType';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface HeroProps {
     scrollToSection: (target: string) => void;
 }
 
 export default function Hero({ scrollToSection }: HeroProps) {
+    const { idioma, t } = useLanguage();
 
     const heroVariants = {
         hidden: {
@@ -81,7 +83,8 @@ export default function Hero({ scrollToSection }: HeroProps) {
                 <div className="flex flex-col justify-around z-10">
                     <div>
                         <TextType
-                            text={["DESENVOLVEDOR WEB", "DESENVOLVEDOR FULLSTACK", "DESENVOLVEDOR FRONTEND", "DESENVOLVEDOR BACKEND"]}
+                            key={idioma}
+                            text={t.hero.titulos}
                             textColors={['#000000']}
                             typingSpeed={50}
                             pauseDuration={1000}
@@ -89,7 +92,7 @@ export default function Hero({ scrollToSection }: HeroProps) {
                             cursorCharacter="|"
                             className="md:text-5xl text-3xl font-bold text-primary-content/70"
                         />
-                        <h1 className="md:text-4xl text-2xl font-medium italic text-primary-content/70">Foco em resolver problemas com soluções inovadoras</h1>
+                        <h1 className="md:text-4xl text-2xl font-medium italic text-primary-content/70">{t.hero.frase}</h1>
                     </div>
                     <div className="flex md:flex-row flex-col gap-10">
                         <motion.a
@@ -102,7 +105,7 @@ export default function Hero({ scrollToSection }: HeroProps) {
                             transition={{ duration: 0.5 }}
                         >
                             <Download className="w-4 h-4" />
-                            Currículo
+                            {t.hero.curriculo}
                         </motion.a>
                         <motion.button
                             className="btn btn-xl rounded-lg bg-base-100/50 backdrop-blur-xs shadow-lg"
@@ -113,7 +116,7 @@ export default function Hero({ scrollToSection }: HeroProps) {
                             transition={{ duration: 0.5 }}
                         >
                             <Mail className="w-4 h-4" />
-                            Contato
+                            {t.hero.contato}
                         </motion.button>
                     </div>
                 </div>

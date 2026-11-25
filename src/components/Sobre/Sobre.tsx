@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import Trajetoria from "./Trajetoria";
 import { useMobile } from "@/contexts/MobileContext";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface SobreProps {
     scrollToSection: (target: string) => void;
@@ -12,6 +13,7 @@ interface SobreProps {
 export default function Sobre({ scrollToSection }: SobreProps) {
 
     const { isMobile } = useMobile();
+    const { t } = useLanguage();
     const [exibirTrajetoria, setExibirTrajetoria] = useState(false);
 
     const handleClick = () => {
@@ -82,7 +84,7 @@ export default function Sobre({ scrollToSection }: SobreProps) {
                             }}
                             viewport={{ amount: 0.3 }}
                         >
-                            <Image src="/sobre/vinicius.png" alt="Foto de Vinicius Medeiros" width={400} height={400} />
+                            <Image src="/sobre/vinicius.png" alt={t.sobre.foto} width={400} height={400} />
                         </motion.div>
 
                         <motion.div
@@ -95,27 +97,27 @@ export default function Sobre({ scrollToSection }: SobreProps) {
                             viewport={{ amount: 0.3 }}
                         >
                             <p className="hidden md:block font-bold text-base-content/50">
-                                SOBRE
+                                {t.sobre.rotulo}
                             </p>
 
-                            <p className="text-justify text-2xl">
-                                Atuo há mais de  <span className="font-bold">10 anos</span> com tecnologia e criatividade, sendo os últimos 4 dedicados ao <span className="font-bold">desenvolvimento de sistemas web</span>.
-                            </p>
-
-                            <p className="text-justify text-2xl">
-                                Nesse período, acumulei <span className="font-bold">experiência</span>  acadêmica e profissional com empreendedorismo, design, coleta e análise de dados, <span className="font-bold">gestão de equipe e projetos</span>, além das tecnologias mais modernas do mercado.
-                            </p>
-
-                            <p className="text-justify text-2xl">
-                                Quero saber como tudo isso começou?
-                            </p>
+                            {t.sobre.paragrafos.map((paragrafo, i) => (
+                                <p key={i} className="text-justify text-2xl">
+                                    {paragrafo.map((trecho, j) =>
+                                        trecho.destaque ? (
+                                            <span key={j} className="font-bold">{trecho.texto}</span>
+                                        ) : (
+                                            <span key={j}>{trecho.texto}</span>
+                                        )
+                                    )}
+                                </p>
+                            ))}
 
                             <div className="flex">
                                 <button
                                     className="btn btn-secondary"
                                     onClick={handleClick}
                                 >
-                                    CONHEÇA MINHA TRAJETÓRIA
+                                    {t.sobre.botaoTrajetoria}
                                     <ArrowRight className="w-4 h-4"  />
                                 </button>
                             </div>

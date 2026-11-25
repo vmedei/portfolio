@@ -3,6 +3,7 @@ import { Red_Hat_Display } from "next/font/google";
 import "./globals.css";
 import { SmoothScrollProvider } from "@/providers/SmoothScrollProvider";
 import { MobileProvider } from "@/contexts/MobileContext";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -79,7 +80,7 @@ export default function RootLayout({
         />
         <SmoothScrollProvider>
           <MobileProvider>
-            {children}
+            <LanguageProvider>{children}</LanguageProvider>
           </MobileProvider>
         </SmoothScrollProvider>
       </body>
