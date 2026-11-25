@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     siteName: "Vinicius Medeiros",
     title: "Vinicius Medeiros | Desenvolvedor Full Stack",
     description,
-    images: [{ url: "/sobre/vinicius.png", width: 500, height: 587, alt: "Vinicius Medeiros" }],
+    images: [{ url: "/sobre/vinicius.png", width: 500, height: 625, alt: "Vinicius Medeiros" }],
   },
   twitter: {
     card: "summary",
