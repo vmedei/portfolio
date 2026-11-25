@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Slider from "react-slick";
 import Image from "next/image";
 import { Midia } from "@/data/experiencias";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const sliderBase = {
     dots: true,
@@ -19,6 +20,7 @@ const sliderBase = {
 };
 
 export default function ExperienciaMidia({ midia }: { midia: Midia }) {
+    const { t } = useLanguage();
     const [isClient, setIsClient] = useState(false);
 
     useEffect(() => {
@@ -30,7 +32,7 @@ export default function ExperienciaMidia({ midia }: { midia: Midia }) {
             <div className="aspect-video bg-base-200 rounded-lg overflow-hidden w-full">
                 <video controls preload="none" className="w-full h-full object-cover" poster={midia.poster}>
                     <source src={midia.src} type="video/mp4" />
-                    Seu navegador não suporta vídeos.
+                    {t.experiencias.videoSemSuporte}
                 </video>
             </div>
         );

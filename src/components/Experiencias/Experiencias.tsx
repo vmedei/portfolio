@@ -4,10 +4,12 @@ import { motion } from "framer-motion";
 import TecnologiasMarquee from "../TecnologiasMarquee";
 import { useMobile } from "@/contexts/MobileContext";
 import ExperienciaCard from "./ExperienciaCard";
-import { experiencias } from "@/data/experiencias";
+import { experiencias, traduzirExperiencia } from "@/data/experiencias";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Experiencias() {
     const { isMobile } = useMobile();
+    const { idioma, t } = useLanguage();
 
     const experienciasVariants = {
         initial: {
@@ -37,7 +39,7 @@ export default function Experiencias() {
                 className="container mx-auto p-10 md:rounded-xl bg-base-200 flex flex-col justify-between gap-8 overflow-hidden"
             >
                 <div className="flex justify-between items-center gap-10">
-                    <h2 className="text-2xl md:text-3xl font-bold">Experiências</h2>
+                    <h2 className="text-2xl md:text-3xl font-bold">{t.experiencias.titulo}</h2>
                     <TecnologiasMarquee gradientColor="#f5f5f5" />
                 </div>
 
@@ -45,7 +47,7 @@ export default function Experiencias() {
 
                 {/* A ordem e o conteúdo vêm de src/data/experiencias.ts */}
                 {experiencias.map((experiencia) => (
-                    <ExperienciaCard key={experiencia.id} experiencia={experiencia} />
+                    <ExperienciaCard key={experiencia.id} experiencia={traduzirExperiencia(experiencia, idioma)} />
                 ))}
             </section>
         </motion.div>
