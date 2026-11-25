@@ -2,15 +2,9 @@
 
 import { motion } from "framer-motion";
 import TecnologiasMarquee from "../TecnologiasMarquee";
-import Doama from "./Doama";
-import Sigest from "./Sigest";
-import SafePilot from "./SafePilot";
-import FoodCampus from "./FoodCampus";
-import PfAspofern from "./PfAspofern";
 import { useMobile } from "@/contexts/MobileContext";
-import ExperienciaCabecalho from "./ExperienciaCabecalho";
-import ExperienciaResumo from "./ExperienciaResumo";
-import { metaExperiencias, multiprova, seniorCodeAi } from "@/data/experiencias";
+import ExperienciaCard from "./ExperienciaCard";
+import { experiencias } from "@/data/experiencias";
 
 export default function Experiencias() {
     const { isMobile } = useMobile();
@@ -49,35 +43,10 @@ export default function Experiencias() {
 
                 <div className="divider" />
 
-                {/* Ordem cronológica: da mais recente para a mais antiga */}
-                <ExperienciaResumo experiencia={multiprova} />
-
-                <div>
-                    <ExperienciaCabecalho meta={metaExperiencias.safePilot} />
-                    <SafePilot />
-                </div>
-
-                <div>
-                    <ExperienciaCabecalho meta={metaExperiencias.sigest} />
-                    <Sigest />
-                </div>
-
-                <ExperienciaResumo experiencia={seniorCodeAi} />
-
-                <div>
-                    <ExperienciaCabecalho meta={metaExperiencias.doama} />
-                    <Doama />
-                </div>
-
-                <div>
-                    <ExperienciaCabecalho meta={metaExperiencias.pfAspofern} />
-                    <PfAspofern />
-                </div>
-
-                <div>
-                    <ExperienciaCabecalho meta={metaExperiencias.foodCampus} />
-                    <FoodCampus />
-                </div>
+                {/* A ordem e o conteúdo vêm de src/data/experiencias.ts */}
+                {experiencias.map((experiencia) => (
+                    <ExperienciaCard key={experiencia.id} experiencia={experiencia} />
+                ))}
             </section>
         </motion.div>
     );
