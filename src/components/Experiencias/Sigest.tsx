@@ -66,6 +66,7 @@ export default function Sigest() {
                 <div className="aspect-video bg-base-200 rounded-lg overflow-hidden">
                     <video
                         controls
+                        preload="none"
                         className="w-full h-full object-cover"
                         poster="/sigest/Sigest_1.png"
                     >

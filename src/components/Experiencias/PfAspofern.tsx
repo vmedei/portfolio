@@ -85,7 +85,7 @@ export default function PfAspofern() {
                         <div className="collapse collapse-arrow join-item border-base-300 border-b-2">
                             <input type="radio" name="my-accordion-6" defaultChecked />
                             <div className="collapse-title font-semibold">Contexto</div>
-                            <div className="collapse-content text-sm text-justify text-base-content/70">Sistema desenvolvido para a Associação dos Policiais Federais do Rio Grande do Norte, com foco em automatizar o processamento de dados financeiros por meio de scripts em Python.</div>
+                            <div className="collapse-content text-sm text-justify text-base-content/70">Sistema desenvolvido para a Associação dos Servidores da Polícia Federal do Rio Grande do Norte, com foco em automatizar o processamento de dados financeiros por meio de scripts em Python.</div>
                         </div>
                         <div className="collapse collapse-arrow join-item border-base-300 border-b-2">
                             <input type="radio" name="my-accordion-6" />
