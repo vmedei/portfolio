@@ -31,12 +31,22 @@ const timelineData: TimelineItem[] = [
     {
         year: "2022-2024",
         title: "Primeiras Experiências",
-        description: "Comecei minha carreira em T.I como estagiário na Polícia Federal, atuando com suporte técnico. Lá, tive a oportunidade de desenvolver meu primeiro sistema web, criado para a ASPOFERN (Associação dos Policiais Federais do Rio Grande do Norte).",
+        description: "Comecei minha carreira em T.I como estagiário na Polícia Federal, atuando com suporte técnico. Lá, desenvolvi meu primeiro sistema web, criado para a ASPOFERN (Associação dos Servidores da Polícia Federal do RN), que reduziu o processamento de arquivos financeiros de 12 horas para menos de 30 segundos.",
     },
     {
-        year: "2024 - Atualmente",
-        title: "Desenvolvedor Full Stack",
-        description: "Atualmente, atuo como desenvolvedor full stack, realizando integração e processamento de diversas fontes de dados públicas e privadas com uma interface moderna e responsiva, voltada para técnicos e gestores públicos, com foco na experiência do usuário, segurança e escalabilidade. Além disso, sou responsável pela definição de arquitetura, tomada de decisões, distribuição de tarefas em equipe e participação em reuniões com clientes e stakeholders.",
+        year: "2024-2026",
+        title: "Modernização de Sistemas",
+        description: "Na Solução Tributos, comecei como desenvolvedor frontend e me tornei desenvolvedor fullstack pleno, liderando a migração do SIGEST para uma plataforma web de auditoria tributária usada por prefeituras de todo o Brasil. Em paralelo, desenvolvi na UFRN o Doama, sistema de gestão para bancos de leite humano do Rio Grande do Norte.",
+    },
+    {
+        year: "2025",
+        title: "Reconhecimento Nacional",
+        description: "Codesenvolvi o Senior Code AI, plataforma educacional com IA que ensina pensamento computacional a pessoas idosas. O projeto conquistou o 1º lugar no Prêmio Apps.Edu Nacional, no CBIE 2025.",
+    },
+    {
+        year: "2026 - Atualmente",
+        title: "Desenvolvedor Web Fullstack",
+        description: "Atuo no Instituto Metrópole Digital (IMD/UFRN) em uma aplicação de análise de desempenho de motoristas com mais de 10.000 usuários ativos, e na Superintendência de Tecnologia da Informação (STI/UFRN), onde lidero tecnicamente a migração da API principal do Multiprova de LoopBack 3 para NestJS, com deploy em Kubernetes.",
     },
 ];
 
