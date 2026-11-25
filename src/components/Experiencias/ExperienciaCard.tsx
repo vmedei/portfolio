@@ -16,8 +16,6 @@ export default function ExperienciaCard({ experiencia }: { experiencia: Experien
 
     return (
         <div>
-            <ExperienciaCabecalho meta={experiencia} />
-
             <div className="grid md:grid-cols-2 gap-2 md:gap-10 relative">
                 {/* Mídia, título e tecnologias */}
                 <motion.div
@@ -28,7 +26,7 @@ export default function ExperienciaCard({ experiencia }: { experiencia: Experien
                 >
                     <ExperienciaMidia midia={experiencia.midia} />
 
-                    <div className={`${carrossel ? "mt-6" : "mt-4"} w-full`}>
+                    <div className={`${carrossel ? "mt-8" : "mt-4"} w-full`}>
                         <div className={`flex flex-col md:flex-row justify-between items-center ${carrossel ? "gap-2" : "gap-4"}`}>
                             <div className="flex items-center gap-4">
                                 <h3 className="whitespace-nowrap text-2xl font-bold">{experiencia.titulo}</h3>
@@ -61,26 +59,33 @@ export default function ExperienciaCard({ experiencia }: { experiencia: Experien
                     <div className="flex gap-8 h-full">
                         <p className="hidden md:block font-bold text-base-content/70">SOBRE</p>
 
-                        <div className="join join-vertical w-full">
-                            {secoes.map((secao, index) => (
-                                <div
-                                    key={secao.titulo}
-                                    className={`collapse collapse-arrow join-item border-base-300 ${index < secoes.length - 1 ? "border-b-2" : ""}`}
-                                >
-                                    <input type="radio" name={`accordion-${experiencia.id}`} defaultChecked={index === 0} />
-                                    <div className="collapse-title font-semibold">{secao.titulo}</div>
-                                    <div className="collapse-content text-sm text-justify text-base-content/70">
-                                        {secao.texto && <p>{secao.texto}</p>}
-                                        {secao.itens && (
-                                            <ul className="list-disc pl-5 flex flex-col gap-2">
-                                                {secao.itens.map((item) => (
-                                                    <li key={item}>{item}</li>
-                                                ))}
-                                            </ul>
-                                        )}
+                        <div className="flex flex-col w-full">
+                            {/* Empresa, cargo, período e local ao lado de "SOBRE" */}
+                            <div className="px-4">
+                                <ExperienciaCabecalho meta={experiencia} />
+                            </div>
+
+                            <div className="join join-vertical w-full">
+                                {secoes.map((secao, index) => (
+                                    <div
+                                        key={secao.titulo}
+                                        className={`collapse collapse-arrow join-item border-base-300 ${index < secoes.length - 1 ? "border-b-2" : ""}`}
+                                    >
+                                        <input type="radio" name={`accordion-${experiencia.id}`} defaultChecked={index === 0} />
+                                        <div className="collapse-title font-semibold">{secao.titulo}</div>
+                                        <div className="collapse-content text-sm text-justify text-base-content/70">
+                                            {secao.texto && <p>{secao.texto}</p>}
+                                            {secao.itens && (
+                                                <ul className="list-disc pl-5 flex flex-col gap-2">
+                                                    {secao.itens.map((item) => (
+                                                        <li key={item}>{item}</li>
+                                                    ))}
+                                                </ul>
+                                            )}
+                                        </div>
                                     </div>
-                                </div>
-                            ))}
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </motion.div>

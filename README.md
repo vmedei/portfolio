@@ -135,11 +135,8 @@ portfolio/
 - Habilidades técnicas
 
 ### 💼 Experiências
-- Projetos desenvolvidos:
-  - **SIGEST** - Sistema de Gestão
-  - **DOAMA** - Aplicação web
-  - **PF ASPOFERN** - Sistema para Polícia Federal
-  - **FoodCampus** - Plataforma de alimentação
+- Todas as experiências ficam em `src/data/experiencias.ts` e são desenhadas pelo componente `ExperienciaCard`
+- Projetos atuais: meu dindin, Multiprova, SafePilot WEB, SIGEST, Senior Code AI, Doama e PF/ASPOFERN
 
 ### 📞 Contato
 - Formulário de contato
