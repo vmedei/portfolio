@@ -1,68 +1,53 @@
 "use client";
 
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Idioma } from "@/i18n/ui";
 
-// Bandeiras em SVG (os emojis de bandeira não aparecem no Windows)
-function BandeiraBrasil() {
+/*
+ * Símbolos dos idiomas (arte enviada pelo Vinicius). O círculo cinza da arte é a própria
+ * bolinha do toggle do daisyUI; o símbolo fica por cima, na cor do fundo.
+ */
+function IconeBrasil() {
     return (
-        <svg viewBox="0 0 20 20" className="w-full h-full" aria-hidden>
-            <rect width="20" height="20" fill="#009C3B" />
-            <polygon points="10,3 18,10 10,17 2,10" fill="#FFDF00" />
-            <circle cx="10" cy="10" r="3.8" fill="#002776" />
-            <path d="M6.4 9.3 Q10 8.2 13.6 10.4" stroke="#fff" strokeWidth="0.7" fill="none" />
+        <svg viewBox="0 0 200 200" aria-hidden>
+            <path fill="currentColor" d="M171.62,93.88l-67.77-42.66c-2.35-1.48-5.35-1.48-7.71,0L28.38,93.88c-4.51,2.84-4.51,9.4,0,12.24l67.77,42.66c2.35,1.48,5.35,1.48,7.71,0l67.77-42.66c4.51-2.84,4.51-9.4,0-12.24ZM100,133.14c-18.49,0-33.47-14.99-33.47-33.47s14.99-33.47,33.47-33.47,33.47,14.99,33.47,33.47-14.99,33.47-33.47,33.47Z" />
         </svg>
     );
 }
 
-function BandeiraEUA() {
+function IconeEUA() {
     return (
-        <svg viewBox="0 0 20 20" className="w-full h-full" aria-hidden>
-            <rect width="20" height="20" fill="#fff" />
-            {[0, 2, 4, 6, 8, 10, 12].map((i) => (
-                <rect key={i} y={i * (20 / 13)} width="20" height={20 / 13} fill="#B22234" />
-            ))}
-            <rect width="9" height={(20 / 13) * 7} fill="#3C3B6E" />
+        <svg viewBox="213.44 0 200 200" aria-hidden>
+            <g fill="currentColor">
+                <path d="M313.43,56.2v48.59h-59.99v-40.64c0-3.07,5.17-7.95,8.25-7.95h51.74ZM268.51,68.12c-.52-.5-.71-2.5-2.02-2.61-1.42-.11-1.27,2-2.44,2.65-.83.46-2.05.14-2.55.75-1.27,1.57,1.29,2.48,1.47,3.69.13.86-.76,2.02.05,2.94.99,1.13,2.45-.73,3.45-.73s2.73,2.02,3.6.58c.56-.92-.38-2.12-.11-3.08s1.97-1.22,1.76-2.75c-.23-1.69-2.44-.68-3.23-1.45ZM288.46,68.87c-.54-.52-1.96-.2-2.75-.7-.87-.54-.86-2.49-2.17-2.61-1.45-.13-1.51,2.06-2.38,2.61-1.1.69-3.57-.17-3,2.15.18.73,1.23.78,1.55,1.77.43,1.33-.55,2.54.42,3.48,1.22,1.17,2.31-.79,3.41-.7.82.07,1.97,1.49,2.89,1,1.41-.74.31-2.53.74-3.79.27-.81,2.67-1.87,1.3-3.21ZM301.36,65.88c-1.64-1.61-2.5,1.8-3.35,2.34-.91.57-2.46-.14-2.82,1.09-.5,1.71,1.42,2.01,1.7,3,.25.89-.9,2.96.43,3.49,1.04.42,2.07-.9,3.12-.93s2.12,1.62,3.22.8.1-2.13.24-3.07c.19-1.27,2.19-1.62,1.69-3.3-.34-1.15-1.96-.56-2.94-1.27-.83-.59-.85-1.74-1.28-2.16ZM269.86,95.12c.87-.78-.13-2.41.12-3.31.28-.99,2.21-1.31,1.7-3.01-.34-1.13-2.2-.66-3.11-1.4-.85-.7-1-2.98-2.76-2.21-.67.29-.72,1.65-1.41,2.21-.92.74-2.77.27-3.11,1.4-.51,1.7,1.45,2.05,1.71,3,.24.89-1.11,3.11.5,3.39,1.37.24,2.14-.89,2.99-.89.91,0,2.38,1.69,3.37.81ZM288.46,88.37c-.52-.5-2.18-.29-2.91-.84s-.78-2.44-1.98-2.55c-1.47-.14-1.48,1.97-2.25,2.55-.88.66-3.72.14-3.24,2.05.16.63,1.48,1.23,1.69,1.92.4,1.33-.86,3.06.74,3.77,1,.45,1.95-1.06,3.05-.99.97.07,1.92,1.59,2.97.88,1.35-.91.15-2.32.56-3.67.26-.86,2.71-1.85,1.36-3.14ZM301.36,85.38c-1.58-1.55-2.41,1.57-3.23,2.16-.98.71-2.6.11-2.94,1.27-.51,1.7,1.42,2.02,1.7,3,.26.91-.84,2.75.28,3.39,1.22.69,2.15-.93,3.22-.93.99,0,1.52,1.2,2.99.94s.38-2.23.51-3.1c.19-1.27,2.2-1.62,1.69-3.3-.34-1.13-2.19-.66-3.11-1.4-.65-.53-.72-1.65-1.12-2.03Z" />
+                <rect x="253.44" y="114.69" width="119.98" height="9.6" />
+                <rect x="323.03" y="95.19" width="50.39" height="9.6" />
+                <path d="M373.42,133.89c.19,5.18-4.02,9.62-9.14,9.91l-102.29-.02c-4.87-.69-8.73-4.89-8.55-9.9h119.98Z" />
+                <path d="M373.42,75.7v9.6h-49.64s-.75.52-.75-.15v-9.45h50.39Z" />
+                <path d="M373.42,66.1h-49.94s-.45-.42-.45-.45v-9.45h42.44c.49,0,2.79,1.11,3.36,1.44,2.8,1.67,4.77,5.13,4.59,8.46Z" />
+            </g>
         </svg>
     );
 }
 
-const opcoes: { idioma: Idioma; Bandeira: () => React.JSX.Element }[] = [
-    { idioma: "pt", Bandeira: BandeiraBrasil },
-    { idioma: "en", Bandeira: BandeiraEUA },
-];
-
-// Seletor minimalista em vidro fosco (glassmorphism): duas bandeiras, a ativa em destaque
+// Toggle do daisyUI: desligado = português, ligado = inglês. Fundo em vidro fosco.
 export default function SeletorIdioma({ className = "" }: { className?: string }) {
     const { idioma, setIdioma, t } = useLanguage();
+    const ingles = idioma === "en";
+    const atual = ingles ? t.idioma.ingles : t.idioma.portugues;
 
     return (
-        <div
-            role="group"
-            aria-label={t.idioma.rotulo}
-            className={`inline-flex items-center gap-1 p-1 rounded-full border border-white/40 bg-white/25 backdrop-blur-md shadow-sm ${className}`}
+        <label
+            title={atual}
+            className={`toggle toggle-lg [--radius-selector:1rem] text-base-content/50 hover:text-base-content/70 border-base-content/15 bg-base-100/40 backdrop-blur-md shadow-sm ${className}`}
         >
-            {opcoes.map(({ idioma: opcao, Bandeira }) => {
-                const ativo = idioma === opcao;
-                const nome = opcao === "pt" ? t.idioma.portugues : t.idioma.ingles;
-                return (
-                    <button
-                        key={opcao}
-                        type="button"
-                        onClick={() => setIdioma(opcao)}
-                        aria-pressed={ativo}
-                        aria-label={nome}
-                        title={nome}
-                        className={`w-7 h-7 rounded-full overflow-hidden transition-all duration-200 cursor-pointer ${
-                            ativo
-                                ? "ring-2 ring-white/80 shadow-md scale-100 opacity-100"
-                                : "opacity-45 grayscale-[60%] scale-90 hover:opacity-80 hover:grayscale-0"
-                        }`}
-                    >
-                        <Bandeira />
-                    </button>
-                );
-            })}
-        </div>
+            <input
+                type="checkbox"
+                checked={ingles}
+                onChange={(e) => setIdioma(e.target.checked ? "en" : "pt")}
+                aria-label={`${t.idioma.rotulo}: ${atual}`}
+            />
+            <IconeBrasil />
+            <IconeEUA />
+        </label>
     );
 }
