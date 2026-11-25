@@ -59,7 +59,7 @@ Este portfolio foi desenvolvido para demonstrar habilidades técnicas e experiê
 
 1. **Clone o repositório**
    ```bash
-   git clone https://github.com/seu-usuario/portfolio.git
+   git clone https://github.com/vmedei/portfolio.git
    cd portfolio
    ```
 
@@ -164,11 +164,11 @@ O portfolio é totalmente responsivo e funciona perfeitamente em:
 
 ## 🚀 Deploy
 
-O projeto está configurado para deploy na Vercel:
+O deploy é feito no GitHub Pages pelo workflow `.github/workflows/deploy.yml`:
 
-1. Conecte seu repositório à Vercel
-2. Configure as variáveis de ambiente (se necessário)
-3. Deploy automático a cada push para a branch principal
+1. Cada push na branch `main` gera a build estática (`next build` com `output: 'export'`)
+2. A pasta `out/` é publicada no GitHub Pages
+3. O domínio personalizado é definido no arquivo `CNAME`
 
 ### 🌐 Link de Produção
 **Portfolio Online:** [https://vmedei.dev](https://vmedei.dev)
@@ -184,7 +184,7 @@ Este projeto é privado e desenvolvido para fins profissionais.
 
 ### 📞 Contato
 - **Portfolio:** [https://vmedei.dev](https://vmedei.dev)
-- **LinkedIn:** [Vinicius Alves Medeiros](https://linkedin.com/in/vinicius-alves-medeiros)
+- **LinkedIn:** [Vinicius Alves Medeiros](https://linkedin.com/in/vmedei)
 - **GitHub:** [@vmedei](https://github.com/vmedei)
 
 ---

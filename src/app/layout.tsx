@@ -12,9 +12,55 @@ const redHatDisplay = Red_Hat_Display({
   style: ["normal", "italic"],
 });
 
+const siteUrl = "https://www.vmedei.dev";
+const description =
+  "Desenvolvedor Full Stack especializado em modernização de sistemas e arquiteturas escaláveis com React, Node.js e TypeScript.";
+
 export const metadata: Metadata = {
-  title: "Vinicius Medeiros",
-  description: "Desenvolvedor Full Stack",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Vinicius Medeiros | Desenvolvedor Full Stack",
+    template: "%s | Vinicius Medeiros",
+  },
+  description,
+  keywords: [
+    "Desenvolvedor Full Stack",
+    "React",
+    "Next.js",
+    "Node.js",
+    "TypeScript",
+    "NestJS",
+    "Portfólio",
+    "Natal",
+  ],
+  authors: [{ name: "Vinicius Alves Medeiros", url: siteUrl }],
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    locale: "pt_BR",
+    url: siteUrl,
+    siteName: "Vinicius Medeiros",
+    title: "Vinicius Medeiros | Desenvolvedor Full Stack",
+    description,
+    images: [{ url: "/sobre/vinicius.png", width: 500, height: 587, alt: "Vinicius Medeiros" }],
+  },
+  twitter: {
+    card: "summary",
+    title: "Vinicius Medeiros | Desenvolvedor Full Stack",
+    description,
+    images: ["/sobre/vinicius.png"],
+  },
+};
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Vinicius Alves Medeiros",
+  jobTitle: "Desenvolvedor Full Stack",
+  url: siteUrl,
+  image: `${siteUrl}/sobre/vinicius.png`,
+  address: { "@type": "PostalAddress", addressLocality: "Natal", addressRegion: "RN", addressCountry: "BR" },
+  sameAs: ["https://github.com/vmedei", "https://linkedin.com/in/vmedei"],
 };
 
 export default function RootLayout({
@@ -27,6 +73,10 @@ export default function RootLayout({
       <body
         className={` ${redHatDisplay.className} antialiased`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
         <SmoothScrollProvider>
           <MobileProvider>
             {children}

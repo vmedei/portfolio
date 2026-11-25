@@ -82,7 +82,7 @@ export default function Sobre({ scrollToSection }: SobreProps) {
                             }}
                             viewport={{ amount: 0.3 }}
                         >
-                            <Image src="/sobre/vinicius.png" alt="Profile" width={400} height={400} />
+                            <Image src="/sobre/vinicius.png" alt="Foto de Vinicius Medeiros" width={400} height={400} />
                         </motion.div>
 
                         <motion.div
@@ -99,7 +99,7 @@ export default function Sobre({ scrollToSection }: SobreProps) {
                             </p>
 
                             <p className="text-justify text-2xl">
-                                Atuo há mais de  <span className="font-bold">10 anos</span> com tecnologia e criatividade, sendo os últimos 5 totalmente focado em <span className="font-bold">desenvolvimento de sistemas web</span>.
+                                Atuo há mais de  <span className="font-bold">10 anos</span> com tecnologia e criatividade, sendo os últimos 4 dedicados ao <span className="font-bold">desenvolvimento de sistemas web</span>.
                             </p>
 
                             <p className="text-justify text-2xl">

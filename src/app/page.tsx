@@ -1,56 +1,19 @@
 "use client";
 
-import { useEffect, useRef } from 'react';
-import Lenis from 'lenis';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import Experiencias from '@/components/Experiencias/Experiencias';
 import Sobre from '@/components/Sobre/Sobre';
 import Contato from '@/components/Contato/Contato';
 import { ArrowUp } from 'lucide-react';
+import { useSmoothScroll } from '@/providers/SmoothScrollProvider';
 
 export default function Home() {
-    const lenisRef = useRef<Lenis | null>(null);
+    const { scrollTo } = useSmoothScroll();
 
-    useEffect(() => {
-        // Inicializar Lenis
-        const lenis = new Lenis({
-            duration: 1.2,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            infinite: false,
-        });
-
-        lenisRef.current = lenis;
-
-        // Função para atualizar o Lenis
-        function raf(time: number) {
-            lenis.raf(time);
-            requestAnimationFrame(raf);
-        }
-
-        requestAnimationFrame(raf);
-
-        // Listener para scroll customizado
-        const handleScroll = () => {
-            const experienciaSection = document.getElementById('experiencias');
-            if (experienciaSection) {
-                experienciaSection.getBoundingClientRect();
-            }
-        };
-
-        // Adicionar o listener de scroll do Lenis
-        lenis.on('scroll', handleScroll);
-        handleScroll(); // Verificar estado inicial
-
-        // Cleanup
-        return () => {
-            lenis.destroy();
-        };
-    }, []);
-
-    // Função para scroll suave para seções específicas
+    // Scroll suave para seções específicas (Lenis é inicializado no SmoothScrollProvider)
     const scrollToSection = (target: string) => {
-        lenisRef.current?.scrollTo(target, {
+        scrollTo(target, {
             offset: -100, // Offset para compensar o header fixo
             duration: 1.5,
         });
@@ -68,7 +31,7 @@ export default function Home() {
 
             <Contato />
 
-            <button onClick={() => scrollToSection('#home')} className='btn btn-circle bg-base-100/50 hover:bg-base-100/70 backdrop-blur-xs fixed bottom-5 right-5 hidden md:flex'>   
+            <button onClick={() => scrollToSection('#home')} aria-label='Voltar ao topo' className='btn btn-circle bg-base-100/50 hover:bg-base-100/70 backdrop-blur-xs fixed bottom-5 right-5 hidden md:flex'>   
                 <ArrowUp className="w-4 h-4" />
             </button>
 
