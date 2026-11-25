@@ -97,7 +97,6 @@ const pt = {
     experiencias: {
         titulo: "Experiências",
         sobre: "SOBRE",
-        atual: "Atual",
         videoSemSuporte: "Seu navegador não suporta vídeos.",
     },
     contato: {
@@ -187,7 +186,6 @@ const en: typeof pt = {
     experiencias: {
         titulo: "Experience",
         sobre: "ABOUT",
-        atual: "Current",
         videoSemSuporte: "Your browser does not support video.",
     },
     contato: {
