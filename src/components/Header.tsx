@@ -87,8 +87,7 @@ export default function Header({ className = "", scrollToSection }: HeaderProps)
                     </nav>
 
                     {/* Mobile Menu Button */}
-                    <div className="md:hidden flex items-center gap-2">
-                        <SeletorIdioma />
+                    <div className="md:hidden">
                         <button
                             className="btn btn-ghost btn-sm"
                             onClick={toggleMenu}
@@ -127,6 +126,11 @@ export default function Header({ className = "", scrollToSection }: HeaderProps)
                             >
                                 {t.nav.contato}
                             </button>
+                            {/* No celular, o idioma fica dentro do menu */}
+                            <div className="flex items-center gap-3 pt-4 border-t border-base-300">
+                                <span className="text-base-content/70">{t.idioma.rotulo}</span>
+                                <SeletorIdioma />
+                            </div>
                         </nav>
                     </div>
                 )}
